@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://y57ny3m78jgd"]
+
+[ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="1_u001w"]
+[ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="1_yubou"]
+[ext_resource type="Script" uid="uid://kfwi6o6bgg5" path="res://scripts/timer.gd" id="2_rns2u"]
+[ext_resource type="Script" uid="uid://cudx08m51indf" path="res://scripts/packages_info.gd" id="4_u2dgd"]
+
+[node name="UI" type="Control" unique_id=1845636788]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="." unique_id=1608460981]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -180.0
+offset_bottom = 180.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="Info" type="VBoxContainer" parent="Layout" unique_id=1611460846]
+layout_mode = 2
+
+[node name="DayLabel" type="Label" parent="Layout/Info" unique_id=1175414367]
+layout_mode = 2
+text = "Day 1"
+horizontal_alignment = 2
+script = ExtResource("1_u001w")
+
+[node name="MoneyLabel" type="Label" parent="Layout/Info" unique_id=1811965428]
+layout_mode = 2
+text = "$0"
+horizontal_alignment = 2
+script = ExtResource("1_yubou")
+
+[node name="TimerLabel" type="Label" parent="Layout/Info" unique_id=1624639429 node_paths=PackedStringArray("timer")]
+layout_mode = 2
+text = "0:00"
+horizontal_alignment = 2
+script = ExtResource("2_rns2u")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Layout/Info/TimerLabel" unique_id=154884662]
+wait_time = 30.0
+one_shot = true
+
+[node name="PackagesInfo" type="VBoxContainer" parent="Layout" unique_id=1843767937 node_paths=PackedStringArray("packages_count_label", "current_package_label", "package_property_label", "package_reward_label")]
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("4_u2dgd")
+packages_count_label = NodePath("PackagesLabel")
+current_package_label = NodePath("CurrentPackageInfo/Title")
+package_property_label = NodePath("CurrentPackageInfo/PackageProperty")
+package_reward_label = NodePath("CurrentPackageInfo/RewardLabel")
+
+[node name="PackagesLabel" type="Label" parent="Layout/PackagesInfo" unique_id=20969400]
+layout_mode = 2
+text = "Packages 0/3"
+horizontal_alignment = 2
+
+[node name="CurrentPackageInfo" type="VBoxContainer" parent="Layout/PackagesInfo" unique_id=969757249]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Layout/PackagesInfo/CurrentPackageInfo" unique_id=2113300166]
+layout_mode = 2
+text = "-- Package 1 --"
+horizontal_alignment = 2
+
+[node name="PackageProperty" type="Label" parent="Layout/PackagesInfo/CurrentPackageInfo" unique_id=1710648277]
+layout_mode = 2
+text = "Properties: Heavy"
+horizontal_alignment = 2
+
+[node name="RewardLabel" type="Label" parent="Layout/PackagesInfo/CurrentPackageInfo" unique_id=1244911974]
+layout_mode = 2
+text = "Reward: 1$"
+horizontal_alignment = 2
