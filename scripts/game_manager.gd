@@ -41,6 +41,7 @@ func next_day():
 	scene_manager.reload_scene()
 
 func generate_packages():
+	
 	packages.clear()
 	currentPackage = 0
 	done_packages = 0
