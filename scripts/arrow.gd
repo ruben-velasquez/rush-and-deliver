@@ -6,8 +6,10 @@ func _ready() -> void:
 	GameManager.on_swap_package.connect(func(): goal = GameManager.get_current_package().goal)
 
 func _process(delta: float) -> void:
-	if !goal:
-		return hide()
+	visible = goal != null
+		
+	if !visible:
+		return
 		
 	var direction = (goal.position - global_position).normalized()
 	

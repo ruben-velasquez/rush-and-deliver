@@ -30,6 +30,7 @@ func update_done_packages():
 	packages_count_label.text = "Packages " + str(GameManager.done_packages) + "/" + str(len(GameManager.packages))
 
 func update_current_package():
+	update_done_packages()
 	_goal = GameManager.get_current_package().goal
 	current_package_label.text = "-- Package " + str(GameManager.currentPackage + 1) + " --"
 	package_property_label.text = "Property: " + str(Package.PackageProperty.find_key(GameManager.get_current_package().property)).capitalize()

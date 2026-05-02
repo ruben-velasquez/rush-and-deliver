@@ -40,25 +40,44 @@ func next_day():
 	current_day += 1
 	scene_manager.reload_scene()
 
+# Used when a day is started
 func generate_packages():
-	
 	packages.clear()
 	currentPackage = 0
 	done_packages = 0
 	for i in range(3):
-		var newPackage = Package.new()
-		newPackage.property = Package.PackageProperty.values().pick_random()
-		newPackage.reward = randi_range(1, 5)
-		
-		var goalInstance: Goal = GOAL_SCENE.instantiate()
-		goalInstance.packageIndex = i
-		goalInstance.set_goal_zone()
-		get_tree().current_scene.add_child.call_deferred(goalInstance)
-		newPackage.goal = goalInstance
+		var newPackage = _generate_package(i)
 		
 		packages.append(newPackage)
 		
 	on_swap_package.emit()
+
+# Used when you go to the Shipping Office
+func regenerate_packages():
+	currentPackage = 0
+	done_packages = 0
+	for i in range(3):
+		if !packages[i].done:
+			continue
+		
+		var newPackage = _generate_package(i)
+		
+		packages[i] = newPackage
+		
+	on_swap_package.emit()
+
+func _generate_package(index: int) -> Package:
+	var newPackage = Package.new()
+	newPackage.property = Package.PackageProperty.values().pick_random()
+	newPackage.reward = randi_range(1, 5)
+		
+	var goalInstance: Goal = GOAL_SCENE.instantiate()
+	goalInstance.packageIndex = index
+	goalInstance.set_goal_zone()
+	get_tree().current_scene.add_child.call_deferred(goalInstance)
+	newPackage.goal = goalInstance
+	
+	return newPackage
 
 func next_package():
 	if done_packages == len(packages):
