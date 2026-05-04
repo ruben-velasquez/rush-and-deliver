@@ -10,6 +10,19 @@ var current_timer: Timer
 var packages: Array[Package]
 var currentPackage: int = 0
 
+class DailyCost:
+	var name: String
+	var amount: int
+
+var daily_costs: Array[DailyCost] = [
+	(func () -> DailyCost:
+	var _a = DailyCost.new()
+	_a.name = "Food"
+	_a.amount = 15
+	return _a
+	).call()
+]
+
 var player: PlayerController
 
 signal on_timer_end
@@ -28,5 +41,7 @@ func AddScore(reward: int):
 	on_score_updated.emit()
 
 func next_day():
+	for fee in daily_costs:
+		AddScore(-fee.amount)
 	current_day += 1
 	scene_manager.reload_scene()

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbag44bo4lmxn"]
 
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="1_ifh4c"]
+[ext_resource type="Script" uid="uid://bu8my4i183i63" path="res://scripts/day_ended_popup.gd" id="1_vrxb5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
 corner_radius_top_left = 30
@@ -8,13 +9,15 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="FinishPopup" type="Control" unique_id=537636974]
+[node name="FinishPopup" type="Control" unique_id=537636974 node_paths=PackedStringArray("info")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vrxb5")
+info = NodePath("Panel/VBoxContainer/RichTextLabel")
 
 [node name="Panel" type="Panel" parent="." unique_id=1210702564]
 self_modulate = Color(0.0032575415, 0.0010381765, 0, 0.7647059)
@@ -47,9 +50,12 @@ theme_override_font_sizes/font_size = 22
 text = "Day ended"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=864583107]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer" unique_id=5753341]
 layout_mode = 2
-text = "Food: -15$"
+bbcode_enabled = true
+text = "Food: [color=red]-15$[/color]
+Money: 50$"
+fit_content = true
 horizontal_alignment = 1
 
 [node name="ContinueButton" type="Button" parent="Panel/VBoxContainer" unique_id=2143320266]
