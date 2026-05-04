@@ -2,12 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="1_ifh4c"]
 [ext_resource type="Script" uid="uid://bu8my4i183i63" path="res://scripts/day_ended_popup.gd" id="1_vrxb5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://Themes/popup_theme.tres" id="2_ucxxj"]
 
 [node name="FinishPopup" type="Control" unique_id=537636974 node_paths=PackedStringArray("info")]
 layout_mode = 3
@@ -33,7 +28,7 @@ offset_right = 120.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/panel = ExtResource("2_ucxxj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=945636753]
 layout_mode = 1

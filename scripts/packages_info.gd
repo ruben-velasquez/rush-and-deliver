@@ -28,7 +28,7 @@ const PROPERTIES_COLORS: Dictionary[String, String] = {
 func _ready() -> void:
 	show_package_info()
 
-	GameManager.on_swap_package.connect(update_current_package)
+	GameManager.packages_manager.on_swap_package.connect(update_current_package)
 	GameManager.on_score_updated.connect(update_done_packages)
 	_player = GameManager.player
 	update_current_package()

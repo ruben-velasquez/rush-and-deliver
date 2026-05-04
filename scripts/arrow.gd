@@ -5,7 +5,7 @@ var restore_area: Node2D
 
 func _ready() -> void:
 	goal = GameManager.packages_manager.get_current_package().goal
-	GameManager.on_swap_package.connect(func(): goal = GameManager.packages_manager.get_current_package().goal)
+	GameManager.packages_manager.on_swap_package.connect(func(): goal = GameManager.packages_manager.get_current_package().goal)
 
 func _process(_delta: float) -> void:
 	var objective = goal

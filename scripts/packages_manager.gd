@@ -6,6 +6,8 @@ var packages: Array[Package]
 var currentPackage: int = 0
 var restore_area: Area2D
 
+signal on_swap_package
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.packages_manager = self
@@ -27,7 +29,7 @@ func _process(delta: float) -> void:
 
 func deliver(package: Package):
 	package.done = true
-	GameManager.AddScore(package.reward)
+	GameManager.add_score(package.reward)
 	
 	if is_current_package(package):
 		next_package()
@@ -55,7 +57,7 @@ func generate_packages():
 		
 		packages[i] = newPackage
 		
-	GameManager.on_swap_package.emit()
+	on_swap_package.emit()
 
 func _generate_package() -> Package:
 	var newPackage = Package.new()
@@ -74,7 +76,7 @@ func _generate_package() -> Package:
 
 func _calculate_reward(property: Package.PackageProperty, distance: float):
 	var base = 2
-	var per_distance = distance * 2 / 100
+	var per_distance = distance * 0.8 / 100
 	var multiplier = 1.0
 	var randomness = randf_range(0.9, 1.1)
 	
@@ -102,7 +104,7 @@ func next_package():
 	if get_current_package().done:
 		return next_package()
 	
-	GameManager.on_swap_package.emit()
+	on_swap_package.emit()
 
 func previous_package():
 	if all_done():
@@ -116,7 +118,7 @@ func previous_package():
 	if get_current_package().done:
 		return previous_package()
 		
-	GameManager.on_swap_package.emit()
+	on_swap_package.emit()
 
 func get_current_package() -> Package:
 	return packages[currentPackage]
