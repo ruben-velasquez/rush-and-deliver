@@ -5,6 +5,7 @@ extends VBoxContainer
 @export var package_property_label: RichTextLabel
 @export var package_reward_label: Label
 @export var package_distance_label: Label
+@export var package_data_label: RichTextLabel
 
 @export var package_info_container: VBoxContainer
 
@@ -39,11 +40,20 @@ func _process(delta: float) -> void:
 	# Distance between player and goal
 	var distance = sqrt(pow(_goal.position.x - _player.position.x, 2) + pow(_goal.position.y - _player.position.y, 2))
 	distance = round(distance) / 2
-	
 	package_distance_label.text = str(distance) + " m"
+	
+	var package = packages_manager.get_current_package()
+	
+	if packages_manager.is_urgent(package):
+		package_data_label.text = "Bonus time left: %s" % [roundf(package.urgent_time_left)]
+	elif packages_manager.is_fragile(package):
+		package_data_label.text = "Health: %s" % [package.fragile_health]
+	else:
+		package_data_label.text = ""
 
 func update_done_packages():
-	packages_manager = GameManager.packages_manager
+	if packages_manager == null:
+		packages_manager = GameManager.packages_manager
 	
 	packages_count_label.text = "Packages " + str(GameManager.packages_manager.done_count()) + "/" + str(len(GameManager.packages_manager.packages))
 	
@@ -54,14 +64,15 @@ func update_done_packages():
 
 func update_current_package():
 	update_done_packages()
-	_goal = packages_manager.get_current_package().goal
+	var package = packages_manager.get_current_package()
+	_goal = package.goal
 	current_package_label.text = "-- Package " + str(packages_manager.currentPackage + 1) + " --"
 	
-	var property = str(Package.PackageProperty.find_key(packages_manager.get_current_package().property)).capitalize()
+	var property = str(Package.PackageProperty.find_key(package.property)).capitalize()
 	var property_color = PROPERTIES_COLORS[property]
 	package_property_label.text = "Property: [color=%s]%s[/color]" % [property_color, property]
 	
-	package_reward_label.text = "Reward: $" + str(packages_manager.get_current_package().reward)
+	package_reward_label.text = "Reward: $" + str(package.reward)
 
 func hide_package_info():
 	deactivated = true

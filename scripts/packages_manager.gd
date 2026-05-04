@@ -4,6 +4,7 @@ class_name PackagesManager
 const GOAL_SCENE = preload("res://scenes/goal.tscn")
 var packages: Array[Package]
 var currentPackage: int = 0
+var restore_area: Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +19,6 @@ func _process(delta: float) -> void:
 		
 		if is_urgent(package):
 			package.urgent_time_left -= delta
-			print(package.urgent_time_left)
 			if package.urgent_time_left <= 0:
 				fail(package)
 		
