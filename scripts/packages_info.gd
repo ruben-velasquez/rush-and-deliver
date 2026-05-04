@@ -2,7 +2,7 @@ extends VBoxContainer
 
 @export var packages_count_label: Label
 @export var current_package_label: Label
-@export var package_property_label: Label
+@export var package_property_label: RichTextLabel
 @export var package_reward_label: Label
 @export var package_distance_label: Label
 
@@ -10,10 +10,18 @@ extends VBoxContainer
 
 @export var all_packages_shipped_label: Label
 
+var packages_manager: PackagesManager
 var deactivated: bool = false
 
 var _player: Node2D
 var _goal: Node2D
+
+const PROPERTIES_COLORS: Dictionary[String, String] = {
+	"Fragile": "8affe2",
+	"Urgent": "ffc18a",
+	"Heavy": "ff928a",
+	"Normal": "ffffff"
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,19 +43,25 @@ func _process(delta: float) -> void:
 	package_distance_label.text = str(distance) + " m"
 
 func update_done_packages():
-	packages_count_label.text = "Packages " + str(GameManager.done_packages) + "/" + str(len(GameManager.packages))
+	packages_manager = GameManager.packages_manager
 	
-	if GameManager.done_packages == len(GameManager.packages):
+	packages_count_label.text = "Packages " + str(GameManager.packages_manager.done_count()) + "/" + str(len(GameManager.packages_manager.packages))
+	
+	if packages_manager.all_done():
 		hide_package_info()
 	elif deactivated:
 		show_package_info()
 
 func update_current_package():
 	update_done_packages()
-	_goal = GameManager.get_current_package().goal
-	current_package_label.text = "-- Package " + str(GameManager.currentPackage + 1) + " --"
-	package_property_label.text = "Property: " + str(Package.PackageProperty.find_key(GameManager.get_current_package().property)).capitalize()
-	package_reward_label.text = "Reward: $" + str(GameManager.get_current_package().reward)
+	_goal = packages_manager.get_current_package().goal
+	current_package_label.text = "-- Package " + str(packages_manager.currentPackage + 1) + " --"
+	
+	var property = str(Package.PackageProperty.find_key(packages_manager.get_current_package().property)).capitalize()
+	var property_color = PROPERTIES_COLORS[property]
+	package_property_label.text = "Property: [color=%s]%s[/color]" % [property_color, property]
+	
+	package_reward_label.text = "Reward: $" + str(packages_manager.get_current_package().reward)
 
 func hide_package_info():
 	deactivated = true

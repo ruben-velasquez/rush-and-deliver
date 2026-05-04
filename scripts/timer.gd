@@ -4,7 +4,6 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameManager.generate_packages()
 	GameManager.current_timer = timer
 	timer.timeout.connect(GameManager.on_timer_end.emit)
 	timer.start()

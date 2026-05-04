@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dbag44bo4lmxn" path="res://scenes/finish_popup.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://48ternfo7x0u" path="res://assets/tilemap_packed.png" id="8_tipki"]
 [ext_resource type="Script" uid="uid://dr2pxsmitidol" path="res://scripts/restore_area.gd" id="9_85g3d"]
+[ext_resource type="Script" uid="uid://cec300ysgspdf" path="res://scripts/packages_manager.gd" id="10_choun"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
 atlas = ExtResource("8_tipki")
@@ -18,6 +19,9 @@ region = Rect2(128, 48, 48, 48)
 
 [node name="Scene" type="Node2D" unique_id=128191525]
 script = ExtResource("1_sugp2")
+
+[node name="PackagesManager" type="Node2D" parent="." unique_id=1281814035]
+script = ExtResource("10_choun")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1021496526]
 texture_filter = 1

@@ -39,10 +39,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=2116667913]
+[node name="Title" type="Label" parent="Panel/VBoxContainer" unique_id=2116667913]
 layout_mode = 2
-text = "Time has ended"
+theme_override_font_sizes/font_size = 22
+text = "Day ended"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=864583107]
+layout_mode = 2
+text = "Food: -15$"
 horizontal_alignment = 1
 
 [node name="ContinueButton" type="Button" parent="Panel/VBoxContainer" unique_id=2143320266]

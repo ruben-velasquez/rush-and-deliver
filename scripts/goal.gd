@@ -2,10 +2,10 @@ extends Area2D
 class_name Goal
 
 var appear_range: int = 500
-var packageIndex: int = 0
+var package: Package
 
 func _on_body_entered(_body: Node2D) -> void:
-	GameManager.ShippedPackage(packageIndex)
+	GameManager.packages_manager.deliver(package)
 	queue_free()
 
 func set_goal_zone():
