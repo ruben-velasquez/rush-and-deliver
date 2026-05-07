@@ -33,7 +33,7 @@ func _ready() -> void:
 	_player = GameManager.player
 	update_current_package()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !_player || !_goal: 
 		return
 	

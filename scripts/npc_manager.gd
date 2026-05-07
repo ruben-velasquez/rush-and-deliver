@@ -63,7 +63,9 @@ func spawn_random_direction():
 		var _direction = Direction.values().pick_random()
 			
 		if aditional_chunks.is_empty():
+			last_spawn_time = Time.get_ticks_msec()
 			aditional_chunks = [Vector2i(1,1), Vector2i(1,-1), Vector2i(-1,1), Vector2i(-1,-1)]
+			return
 		var _offset = aditional_chunks.pop_back()
 		
 		last_spawn_time = Time.get_ticks_msec()

@@ -10,6 +10,11 @@ const ROTATION_SPEED = 3.0
 
 var velocity_multiplier: float = 1.0
 
+signal on_crash
+
+var last_crash = -CRASH_COOLDOWN_MS
+const CRASH_COOLDOWN_MS = 2000
+
 var move = true
 var speed := 0.0
 
@@ -70,3 +75,7 @@ func _physics_process(delta: float) -> void:
 				
 				velocity /= 2
 				collider.velocity += push_vector
+				
+				if Time.get_ticks_msec() - last_crash > CRASH_COOLDOWN_MS:
+					last_crash = Time.get_ticks_msec()
+					on_crash.emit()

@@ -12,6 +12,11 @@ signal on_swap_package
 func _ready() -> void:
 	GameManager.packages_manager = self
 	generate_packages()
+	
+	call_deferred("_late_ready")
+
+func _late_ready():
+	GameManager.player.on_crash.connect(on_player_crash)
 
 func _process(delta: float) -> void:
 	GameManager.player.velocity_multiplier = 1.0
@@ -135,6 +140,16 @@ func all_done() -> bool:
 		if !p.done:
 			return false
 	return true
+
+func on_player_crash():
+	for package in packages:
+		if package.property == Package.PackageProperty.FRAGILE and !package.failed and !package.done:
+			package.fragile_health -= 1
+			
+			if package.fragile_health <= 0:
+				fail(package)
+			else:
+				on_swap_package.emit()
 
 # Helpers
 
