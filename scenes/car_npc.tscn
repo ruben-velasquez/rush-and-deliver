@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b1vevqrdk5ve2"]
+
+[ext_resource type="Script" uid="uid://ccpwcn2s1fby7" path="res://scripts/car_npc.gd" id="1_7vpoj"]
+[ext_resource type="Texture2D" uid="uid://48ternfo7x0u" path="res://assets/tilemap_packed.png" id="1_rbgec"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vpoj"]
+atlas = ExtResource("1_rbgec")
+region = Rect2(320, 264, 16, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfpyo"]
+size = Vector2(16, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vpoj"]
+size = Vector2(30, 40)
+
+[node name="CarNPC" type="CharacterBody2D" unique_id=752089341 node_paths=PackedStringArray("frontArea")]
+collision_layer = 16
+collision_mask = 25
+motion_mode = 1
+script = ExtResource("1_7vpoj")
+frontArea = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1282508017]
+texture = SubResource("AtlasTexture_7vpoj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=977812907]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hfpyo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=206928109]
+position = Vector2(0, -30)
+collision_layer = 0
+collision_mask = 24
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1711564236]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_7vpoj")

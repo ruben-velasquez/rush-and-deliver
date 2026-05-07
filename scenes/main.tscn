@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dr2pxsmitidol" path="res://scripts/restore_area.gd" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://glv0u6cts0iw" path="res://scenes/game_over_screen.tscn" id="9_ya4ey"]
 [ext_resource type="Script" uid="uid://cec300ysgspdf" path="res://scripts/packages_manager.gd" id="10_choun"]
+[ext_resource type="Script" uid="uid://bw38c3un7qoy" path="res://scripts/npc_manager.gd" id="12_eb6dy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
 atlas = ExtResource("8_tipki")
@@ -67,3 +68,7 @@ script = ExtResource("9_85g3d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShippingOffice/Area2D" unique_id=458713081]
 position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_choun")
+
+[node name="NPCManager" type="Node2D" parent="." unique_id=1704955735 node_paths=PackedStringArray("terrain_manager")]
+script = ExtResource("12_eb6dy")
+terrain_manager = NodePath("../TerrainManager")

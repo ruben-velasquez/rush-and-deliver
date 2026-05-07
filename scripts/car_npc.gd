@@ -1,33 +1,36 @@
 extends CharacterBody2D
-class_name PlayerController
+class_name CarNPC
 
-var _PackagesManager: PackagesManager
+@export var frontArea: Area2D
+
+var move =  true
+var speed := 0.0
+var spawned_time_ms = 0
 
 const ACCELERATION = 400.0
-const MAX_SPEED = 200.0
+const MAX_SPEED = 150.0
 const FRICTION = 600.0
 const ROTATION_SPEED = 3.0
 
-var velocity_multiplier: float = 1.0
-
-var move = true
-var speed := 0.0
-
-@export var camera2D: Camera2D
+var parent: NPCManager
 
 func _ready() -> void:
-	_PackagesManager = GameManager.packages_manager
-	GameManager.player = self
-	GameManager.on_timer_end.connect(func (): move = false)
+	frontArea.body_entered.connect(func(_b): move = false)
+	frontArea.body_exited.connect(func(_b): move = true)
 
 func _physics_process(delta: float) -> void:
-	var forward_input := Input.get_axis("down", "up") # W/S o flechas
-	var turn_input := Input.get_axis("left", "right")
+	var forward_input := 1 # W/S o flechas
+	var turn_input := 0
 	var desired_velocity: Vector2
+	var weight = 0.2
 	
-	if move != true:
+	if Time.get_ticks_msec() - spawned_time_ms > parent.NPC_MINIMUN_LIFETIME_MS and GameManager.player.global_position.distance_to(global_position) > parent.despawn_distance:
+		parent.return_entity(self)
+
+	if move != true: 
 		forward_input = 0
-		turn_input = 0
+		if velocity.y > MAX_SPEED / 2:
+			weight = 0.9
 
 	# --- Aceleración ---
 	if forward_input != 0:
@@ -44,12 +47,10 @@ func _physics_process(delta: float) -> void:
 		rotation += turn_input * ROTATION_SPEED * (speed / MAX_SPEED) * delta
 
 	# --- Movimiento en dirección del auto ---
-	desired_velocity = -transform.y * speed * velocity_multiplier
+	desired_velocity = -transform.y * speed
 	
-	velocity = lerp(velocity, desired_velocity, 0.2)
 	
-	camera2D.rotation = rotation
-	camera2D.position = position
+	velocity = lerp(velocity, desired_velocity, weight)
 	
 	move_and_slide()
 	
@@ -70,3 +71,15 @@ func _physics_process(delta: float) -> void:
 				
 				velocity /= 2
 				collider.velocity += push_vector
+
+func deactive():
+	self.hide()
+	set_process(false)
+	set_physics_process(false)
+	$CollisionShape2D.set_deferred("disabled", true)
+
+func activate():
+	self.show()
+	set_process(true)
+	set_physics_process(true)
+	$CollisionShape2D.set_deferred("disabled", false)

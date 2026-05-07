@@ -1,4 +1,5 @@
 extends Node2D
+class_name TerrainManager
 
 var _player: Node2D
 var last_chunk: Vector2i = Vector2i(99,99)
@@ -81,3 +82,21 @@ func get_unused_chunks(new_grid: Dictionary) -> Array[Node2D]:
 			unused_chunks.append(chunk)
 	
 	return unused_chunks
+
+func get_player_quadrant() -> Vector2i:
+	var player_pos = _player.position / CHUNK_SIZE
+	
+	if player_pos.x < current_chunk.x:
+		if player_pos.y < current_chunk.y:
+			#return "ARRIBA_IZQ"
+			return Vector2i(-1, -1)
+		else:
+			#return "ABAJO_IZQ"
+			return Vector2i(-1, 1)
+	else:
+		if player_pos.y < current_chunk.y:
+			#return "ARRIBA_DER"
+			return Vector2i(1, -1)
+		else:
+			#return "ABAJO_DER"
+			return Vector2i(1, 1)
