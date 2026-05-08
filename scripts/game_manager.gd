@@ -39,16 +39,19 @@ func add_score(reward: int):
 	on_score_updated.emit()
 
 func end_day():
+	current_day += 1
+	
 	for fee in daily_costs:
 		add_score(-fee.amount)
 	
 	if current_score < 0:
+		current_day = 1
+		current_score = 0
 		ui_manager.show_game_over_screen()
 	else:
 		ui_manager.show_end_day_popup()
 
 func next_day():
-	current_day += 1
 	scene_manager.reload_scene()
 
 func reset():
