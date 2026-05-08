@@ -1,5 +1,9 @@
 extends Button
 
+enum ButtonType { LOAD_SCENE, EXIT_GAME, NEXT_DAY }
+
+@export var buttonType = ButtonType.LOAD_SCENE
+@export_file("*.tscn") var sceneToLoad
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -7,4 +11,11 @@ func _ready() -> void:
 
 
 func _pressed() -> void:
-	GameManager.next_day()
+	match buttonType:
+		ButtonType.NEXT_DAY:
+			GameManager.next_day()
+		ButtonType.LOAD_SCENE:
+			print(sceneToLoad)
+			GameManager.scene_manager.load_scene(sceneToLoad)
+		ButtonType.EXIT_GAME:
+			get_tree().quit()

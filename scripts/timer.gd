@@ -1,7 +1,7 @@
 extends Label
 
 @export var timer: Timer
-const DAY_DURATION_SEG: float = 300
+const DAY_DURATION_SEG: float = 60
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

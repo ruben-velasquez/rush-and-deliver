@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rush & Deliver"
-run/main_scene="uid://ct2fvys2eo5d4"
+run/main_scene="uid://dn8dlbfrm5smc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

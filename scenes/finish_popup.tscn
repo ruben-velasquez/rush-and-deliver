@@ -60,3 +60,13 @@ theme_override_constants/h_separation = 0
 theme_override_constants/icon_max_width = 50
 text = "Continue"
 script = ExtResource("1_ifh4c")
+buttonType = 2
+
+[node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer" unique_id=1737862094]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 50
+text = "Go to main menu"
+script = ExtResource("1_ifh4c")
+sceneToLoad = "uid://dn8dlbfrm5smc"

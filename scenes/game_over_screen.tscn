@@ -2,6 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://Themes/popup_theme.tres" id="1_iwahs"]
 [ext_resource type="Script" uid="uid://cxft821be6h1g" path="res://scripts/restart_game_button.gd" id="2_61w2s"]
+[ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="3_wa2qn"]
 
 [node name="GameOverScreen" type="Control" unique_id=2100203153]
 layout_mode = 3
@@ -42,7 +43,13 @@ theme_override_font_sizes/font_size = 22
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=1873165246]
+[node name="TryAgainButton" type="Button" parent="Panel/VBoxContainer" unique_id=1873165246]
 layout_mode = 2
 text = "Try again"
 script = ExtResource("2_61w2s")
+
+[node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer" unique_id=613103596]
+layout_mode = 2
+text = "Go to main menu"
+script = ExtResource("3_wa2qn")
+sceneToLoad = "uid://dn8dlbfrm5smc"

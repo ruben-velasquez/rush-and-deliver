@@ -6,3 +6,6 @@ func _ready():
 
 func reload_scene():
 	get_tree().reload_current_scene()
+	
+func load_scene(scene):
+	get_tree().change_scene_to_file(scene)
