@@ -47,8 +47,8 @@ func fail(package: Package):
 	
 	if is_current_package(package):
 		next_package()
-	else:
-		on_swap_package.emit()
+	
+	on_swap_package.emit()
 
 func generate_packages():
 	currentPackage = 0
