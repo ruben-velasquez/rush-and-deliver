@@ -9,3 +9,4 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func reset():
 	GameManager.reset()
+	SceneManager.instance.reload_scene()

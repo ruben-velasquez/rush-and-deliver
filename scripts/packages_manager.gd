@@ -54,9 +54,9 @@ func generate_packages():
 	currentPackage = 0
 	
 	if packages.is_empty():
-		packages.resize(3)
+		packages.resize(RunData.package_capacity)
 	
-	for i in range(3):
+	for i in range(RunData.package_capacity):
 		if packages[i] and !packages[i].done:
 			continue
 		

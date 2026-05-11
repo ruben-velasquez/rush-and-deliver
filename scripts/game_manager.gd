@@ -1,12 +1,11 @@
 extends Node
 
-var scene_manager: SceneManager
 var packages_manager: PackagesManager
 var ui_manager: UIManager
 
-var current_day: int = 1
-var current_score: int = 0
 var current_timer: Timer
+
+var current_upgrades: Array[Upgrade]
 
 class DailyCost:
 	var name: String
@@ -26,6 +25,9 @@ var player: PlayerController
 signal on_timer_end
 signal on_score_updated
 
+signal on_day_end
+signal on_day_start 
+
 const GOAL_SCENE = preload("res://scenes/goal.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -35,26 +37,26 @@ func _ready() -> void:
 	get_window().min_size = Vector2i(640, 360)
 
 func add_score(reward: int):
-	current_score = current_score + reward
+	RunData.money = RunData.money + reward
 	on_score_updated.emit()
 
 func end_day():
-	current_day += 1
+	RunData.current_day += 1
 	
 	for fee in daily_costs:
 		add_score(-fee.amount)
 	
-	if current_score < 0:
-		current_day = 1
-		current_score = 0
+	if RunData.money < 0:
+		RunData.current_day = 1
+		RunData.money = 0
 		ui_manager.show_game_over_screen()
 	else:
 		ui_manager.show_end_day_popup()
 
-func next_day():
-	scene_manager.reload_scene()
+func start_day():
+	SceneManager.instance.load_game_scene()
 
 func reset():
-	current_day = 1
-	current_score = 0
-	scene_manager.reload_scene()
+	RunData.current_day = 1
+	RunData.money = 0
+	current_upgrades.clear()

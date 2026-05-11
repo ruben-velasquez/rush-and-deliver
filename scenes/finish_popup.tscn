@@ -60,7 +60,7 @@ theme_override_constants/h_separation = 0
 theme_override_constants/icon_max_width = 50
 text = "Continue"
 script = ExtResource("1_ifh4c")
-buttonType = 2
+sceneToLoad = "uid://dr4qd4cw401nu"
 
 [node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer" unique_id=1737862094]
 layout_mode = 2

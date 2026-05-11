@@ -16,7 +16,7 @@ var last_crash = -CRASH_COOLDOWN_MS
 const CRASH_COOLDOWN_MS = 2000
 
 var move = true
-var speed := 0.0
+var _speed := 0.0
 
 @export var camera2D: Camera2D
 
@@ -36,20 +36,20 @@ func _physics_process(delta: float) -> void:
 
 	# --- Aceleración ---
 	if forward_input != 0:
-		speed += forward_input * ACCELERATION * delta
+		_speed += forward_input * ACCELERATION * delta
 	else:
 		# --- Fricción ---
-		speed = move_toward(speed, 0, FRICTION * delta)
+		_speed = move_toward(_speed, 0, FRICTION * delta)
 
 	# Limitar velocidad
-	speed = clamp(speed, -MAX_SPEED / 2, MAX_SPEED)
+	_speed = clamp(_speed, -MAX_SPEED / 2, MAX_SPEED)
 
 	# --- Rotación (solo si se está moviendo) ---
-	if abs(speed) > 10:
-		rotation += turn_input * ROTATION_SPEED * (speed / MAX_SPEED) * delta
+	if abs(_speed) > 10:
+		rotation += turn_input * ROTATION_SPEED * (_speed / MAX_SPEED) * delta
 
 	# --- Movimiento en dirección del auto ---
-	desired_velocity = -transform.y * speed * velocity_multiplier
+	desired_velocity = -transform.y * _speed * velocity_multiplier
 	
 	velocity = lerp(velocity, desired_velocity, 0.2)
 	

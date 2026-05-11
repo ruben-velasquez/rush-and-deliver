@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cft86kstfxmbc" path="res://scripts/scene_manager.gd" id="1_ksfom"]
 [ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://Themes/popup_theme.tres" id="2_0e30j"]
+[ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="3_0e30j"]
+[ext_resource type="Script" uid="uid://74e6pktsngf8" path="res://scripts/upgrade_option.gd" id="4_jkuc8"]
 
 [node name="Scene" type="Node2D" unique_id=682139572]
 script = ExtResource("1_ksfom")
@@ -40,10 +42,14 @@ horizontal_alignment = 1
 [node name="NextDayButton" type="Button" parent="CanvasLayer/MainPanel/VBoxContainer" unique_id=486614923]
 layout_mode = 2
 text = "Go next day"
+script = ExtResource("3_0e30j")
+buttonType = 2
 
 [node name="MainMenuButton" type="Button" parent="CanvasLayer/MainPanel/VBoxContainer" unique_id=435839579]
 layout_mode = 2
 text = "Go to main menu"
+script = ExtResource("3_0e30j")
+sceneToLoad = "uid://dn8dlbfrm5smc"
 
 [node name="UpgradesPanel" type="Panel" parent="CanvasLayer" unique_id=628536767]
 self_modulate = Color(0.003921569, 0, 0, 0.7647059)
@@ -77,9 +83,22 @@ layout_mode = 2
 text = "Upgrades"
 horizontal_alignment = 1
 
-[node name="UpgradeButton" type="Button" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=373285891]
+[node name="UpgradeOption" type="HBoxContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=19922984 node_paths=PackedStringArray("purchase_button", "label")]
 layout_mode = 2
-text = "Improve packages
+size_flags_horizontal = 4
+script = ExtResource("4_jkuc8")
+purchase_button = NodePath("PurchaseButton")
+label = NodePath("UpgradeName")
+
+[node name="PurchaseButton" type="Button" parent="CanvasLayer/UpgradesPanel/VBoxContainer/UpgradeOption" unique_id=373285891]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "5$"
+
+[node name="UpgradeName" type="Label" parent="CanvasLayer/UpgradesPanel/VBoxContainer/UpgradeOption" unique_id=213710507]
+layout_mode = 2
+mouse_filter = 1
+text = " Improve packages
 amount 3 -> 4"
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1720780890]

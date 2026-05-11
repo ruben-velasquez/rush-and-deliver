@@ -5,7 +5,7 @@ class_name DayEndedPopUp
 
 func setup():
 	var daily_costs = GameManager.daily_costs
-	var money_amount = GameManager.current_score
+	var money_amount = RunData.money
 	var output = ""
 	
 	for fee in daily_costs:

@@ -13,9 +13,9 @@ func _ready() -> void:
 func _pressed() -> void:
 	match buttonType:
 		ButtonType.NEXT_DAY:
-			GameManager.next_day()
+			GameManager.start_day()
 		ButtonType.LOAD_SCENE:
 			print(sceneToLoad)
-			GameManager.scene_manager.load_scene(sceneToLoad)
+			SceneManager.instance.load_scene(sceneToLoad)
 		ButtonType.EXIT_GAME:
 			get_tree().quit()
