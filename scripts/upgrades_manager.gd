@@ -15,6 +15,8 @@ func on_day_end():
 		upgrade.on_day_end()
 
 func add_upgrade(upgrade: Upgrade):
+	if RunData.money <  get_upgrade_price(upgrade): return
+	GameManager.give_money(-get_upgrade_price(upgrade))
 	current_upgrades.append(upgrade)
 	upgrade.on_purchase()
 

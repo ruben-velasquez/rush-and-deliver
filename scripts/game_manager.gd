@@ -23,7 +23,7 @@ var daily_costs: Array[DailyCost] = [
 var player: PlayerController
 
 signal on_timer_end
-signal on_score_updated
+signal on_money_updated
 
 signal on_day_end
 signal on_day_start 
@@ -36,15 +36,15 @@ func _ready() -> void:
 	on_timer_end.connect(end_day)
 	get_window().min_size = Vector2i(640, 360)
 
-func add_score(reward: int):
+func give_money(reward: int):
 	RunData.money = RunData.money + reward
-	on_score_updated.emit()
+	on_money_updated.emit()
 
 func end_day():
 	RunData.current_day += 1
 	
 	for fee in daily_costs:
-		add_score(-fee.amount)
+		give_money(-fee.amount)
 	
 	if RunData.money < 0:
 		RunData.current_day = 1

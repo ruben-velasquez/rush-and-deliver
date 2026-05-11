@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 
 func deliver(package: Package):
 	package.done = true
-	GameManager.add_score(package.reward)
+	GameManager.give_money(package.reward)
 	
 	if is_current_package(package):
 		next_package()

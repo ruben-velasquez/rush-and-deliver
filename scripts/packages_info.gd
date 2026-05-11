@@ -29,7 +29,7 @@ func _ready() -> void:
 	show_package_info()
 
 	GameManager.packages_manager.on_swap_package.connect(update_current_package)
-	GameManager.on_score_updated.connect(update_done_packages)
+	GameManager.on_money_updated.connect(update_done_packages)
 	_player = GameManager.player
 	update_current_package()
 

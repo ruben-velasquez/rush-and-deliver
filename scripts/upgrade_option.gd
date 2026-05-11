@@ -17,6 +17,8 @@ func setup(_u: Upgrade):
 	label.text = _upgrade.name
 	label.tooltip_text = _upgrade.get_description()
 	purchase_button.text = "%s$" % UpgradesManager.get_upgrade_price(_upgrade)
+	if RunData.money < UpgradesManager.get_upgrade_price(_upgrade):
+		purchase_button.disabled = true
 	purchase_button.pressed.connect(on_purchase)
 
 func on_purchase():
