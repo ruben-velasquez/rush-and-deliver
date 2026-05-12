@@ -4,6 +4,8 @@ extends Upgrade
 func _init() -> void:
 	name = "Upgrade capacity"
 	base_price = 5
+	unique = false
+	weight = 1
 
 func on_purchase():
 	RunData.package_capacity += 1
@@ -15,3 +17,6 @@ func get_description() -> String:
 func get_price() -> int:
 	var capacity = RunData.package_capacity
 	return base_price + capacity - 3
+
+func can_appear() -> bool:
+	return RunData.package_capacity < 6

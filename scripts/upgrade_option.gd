@@ -1,14 +1,10 @@
+class_name UpgradeOption
 extends Node
 
 @export var purchase_button: Button
 @export var label: Label
 
 var _upgrade: Upgrade
-
-func _ready() -> void:
-	setup(
-		CapacityUpgrade.new()
-	)
 
 # Called when the node enters the scene tree for the first time.
 func setup(_u: Upgrade):

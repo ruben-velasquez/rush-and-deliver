@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dh245rqn3t2p6"]
+
+[ext_resource type="Script" uid="uid://74e6pktsngf8" path="res://scripts/upgrade_option.gd" id="1_4noig"]
+
+[node name="UpgradeOption" type="HBoxContainer" unique_id=821656226 node_paths=PackedStringArray("purchase_button", "label")]
+script = ExtResource("1_4noig")
+purchase_button = NodePath("PurchaseButton")
+label = NodePath("UpgradeName")
+
+[node name="PurchaseButton" type="Button" parent="." unique_id=2109010948]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "?$"
+
+[node name="UpgradeName" type="Label" parent="." unique_id=1066972798]
+layout_mode = 2
+mouse_filter = 1
+text = "Upgrade Name"

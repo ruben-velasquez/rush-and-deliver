@@ -3,6 +3,8 @@ extends Object
 
 var name: String
 var base_price: int
+var unique: bool
+var weight: int
 
 func on_purchase():
 	pass
@@ -18,3 +20,6 @@ func get_description() -> String:
 
 func get_price() -> int:
 	return 1
+
+func can_appear() -> bool:
+	return true

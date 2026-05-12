@@ -41,6 +41,7 @@ func give_money(reward: int):
 	on_money_updated.emit()
 
 func end_day():
+	on_day_end.emit()
 	RunData.current_day += 1
 	
 	for fee in daily_costs:
@@ -54,6 +55,7 @@ func end_day():
 		ui_manager.show_end_day_popup()
 
 func start_day():
+	on_day_start.emit()
 	SceneManager.instance.load_game_scene()
 
 func reset():
