@@ -26,9 +26,11 @@ func _process(delta: float) -> void:
 		
 		if is_urgent(package):
 			package.urgent_time_left -= delta
-			if package.urgent_time_left <= 0:
+			if package.urgent_time_left <= 0 and package.urgent_bonus:
+				package.urgent_bonus = false
+				package.reward /= 2
 				RunData.day_late_packages += 1
-				fail(package)
+				on_swap_package.emit()
 		
 		if is_heavy(package) and is_current_package(package):
 			GameManager.player.velocity_multiplier = package.weight_multiplier

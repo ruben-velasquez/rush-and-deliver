@@ -13,6 +13,7 @@ var data = []
 var fragile_health: int = 0
 var weight_multiplier: float = 1.0
 var urgent_time_left: float = 0.0
+var urgent_bonus: bool = true
 
 func setup():
 	match property:
