@@ -2,7 +2,7 @@ extends CanvasLayer
 class_name UIManager
 
 @export var finish_popup: DayEndedPopUp
-@export var game_over_screen: Control
+@export var game_over_screen: DayEndedPopUp
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +16,7 @@ func show_end_day_popup():
 
 func show_game_over_screen():
 	show_window(game_over_screen)
+	game_over_screen.setup()
 
 func hide_window(_c: Control):
 	_c.process_mode = Node.PROCESS_MODE_DISABLED

@@ -5,19 +5,12 @@ var ui_manager: UIManager
 
 var current_timer: Timer
 
-var current_upgrades: Array[Upgrade]
+var current_costs: Array[DailyCost]
 
-class DailyCost:
-	var name: String
-	var amount: int
-
-var daily_costs: Array[DailyCost] = [
-	(func () -> DailyCost:
-	var _a = DailyCost.new()
-	_a.name = "Food"
-	_a.amount = 15
-	return _a
-	).call()
+var daily_costs: Array[Callable] = [
+	func(): return FoodCost.new(),
+	func(): return MaintenaceCost.new(),
+	func(): return BrokenPackagesCost.new(),
 ]
 
 var player: PlayerController
@@ -43,22 +36,36 @@ func give_money(reward: int):
 func end_day():
 	on_day_end.emit()
 	RunData.current_day += 1
+	calculate_costs()
 	
-	for fee in daily_costs:
+	for fee in current_costs:
 		give_money(-fee.amount)
 	
 	if RunData.money < 0:
+		ui_manager.show_game_over_screen()
 		RunData.current_day = 1
 		RunData.money = 0
-		ui_manager.show_game_over_screen()
 	else:
 		ui_manager.show_end_day_popup()
 
 func start_day():
-	on_day_start.emit()
+	RunData.day_broken_packages = 0
+	RunData.day_late_packages = 0
 	SceneManager.instance.load_game_scene()
+	on_day_start.emit()
 
 func reset():
 	RunData.current_day = 1
 	RunData.money = 0
-	current_upgrades.clear()
+	UpgradesManager.current_upgrades.clear()
+
+func calculate_costs():
+	current_costs.clear()
+	
+	for fee in daily_costs:
+		var _cost = fee.call() as DailyCost
+		
+		if _cost.should_appear():
+			current_costs.append(_cost)
+		elif _cost.can_appear() and randi_range(0,1) == 1:
+			current_costs.append(_cost)

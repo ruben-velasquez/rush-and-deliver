@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 		if is_urgent(package):
 			package.urgent_time_left -= delta
 			if package.urgent_time_left <= 0:
+				RunData.day_late_packages += 1
 				fail(package)
 		
 		if is_heavy(package) and is_current_package(package):
@@ -149,6 +150,7 @@ func on_player_crash():
 			package.fragile_health -= 1
 			
 			if package.fragile_health <= 0:
+				RunData.day_broken_packages += 1
 				fail(package)
 			else:
 				on_swap_package.emit()

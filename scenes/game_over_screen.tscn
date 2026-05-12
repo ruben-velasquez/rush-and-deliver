@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://glv0u6cts0iw"]
 
 [ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://Themes/popup_theme.tres" id="1_iwahs"]
+[ext_resource type="Script" uid="uid://bu8my4i183i63" path="res://scripts/day_ended_popup.gd" id="1_wa2qn"]
 [ext_resource type="Script" uid="uid://cxft821be6h1g" path="res://scripts/restart_game_button.gd" id="2_61w2s"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="3_wa2qn"]
 
-[node name="GameOverScreen" type="Control" unique_id=2100203153]
+[node name="GameOverScreen" type="Control" unique_id=2100203153 node_paths=PackedStringArray("info")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wa2qn")
+info = NodePath("Panel/VBoxContainer/RichTextLabel")
 
 [node name="Panel" type="Panel" parent="." unique_id=1195852545]
 self_modulate = Color(0.003921569, 0, 0, 0.7647059)
@@ -41,6 +44,13 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Game Over"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer" unique_id=1852921387]
+layout_mode = 2
+bbcode_enabled = true
+text = "[Info]"
+fit_content = true
 horizontal_alignment = 1
 
 [node name="TryAgainButton" type="Button" parent="Panel/VBoxContainer" unique_id=1873165246]
