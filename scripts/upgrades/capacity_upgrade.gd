@@ -7,16 +7,16 @@ func _init() -> void:
 	unique = false
 	weight = 1
 
-func on_purchase():
-	RunData.package_capacity += 1
+func apply_stats():
+	RunData.stats.package_capacity += 1
 
 func get_description() -> String:
-	var capacity = RunData.package_capacity
+	var capacity = RunData.stats.package_capacity
 	return "%s -> %s" % [capacity, capacity + 1]
 
 func get_price() -> int:
-	var capacity = RunData.package_capacity
+	var capacity = RunData.stats.package_capacity
 	return base_price + capacity - 3
 
 func can_appear() -> bool:
-	return RunData.package_capacity < 6
+	return RunData.stats.package_capacity < 6

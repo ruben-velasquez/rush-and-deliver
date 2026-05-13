@@ -2,7 +2,8 @@ extends Node2D
 
 var current_upgrades: Array[Upgrade] = []
 var upgrade_pool: Array[Callable] = [
-	func(): return CapacityUpgrade.new()
+	func(): return CapacityUpgrade.new(),
+	func(): return SpeedUpgrade.new()
 ]
 
 func _ready() -> void:
@@ -17,11 +18,20 @@ func on_day_end():
 	for upgrade in current_upgrades:
 		upgrade.on_day_end()
 
+func rebuild_stats():
+	RunData.stats = RunStats.new()
+	
+	for upgrade in current_upgrades:
+		upgrade.apply_stats()
+
 func add_upgrade(upgrade: Upgrade):
+	if unique_upgrades_quantity() >= RunData.stats.max_unique_upgrades: return
 	if RunData.money <  get_upgrade_price(upgrade): return
+	
 	GameManager.give_money(-get_upgrade_price(upgrade))
 	current_upgrades.append(upgrade)
 	upgrade.on_purchase()
+	rebuild_stats()
 
 func get_upgrade_price(upgrade: Upgrade) -> int:
 	return upgrade.get_price()
@@ -70,4 +80,12 @@ func has_upgrade(upgrade: Upgrade) -> bool:
 	return current_upgrades.any(func(_upg):
 		return upgrade.name == _upg.name
 	)
+
+func unique_upgrades_quantity() -> int:
+	var count = 0
 	
+	for upg in current_upgrades:
+		if upg.unique:
+			count += 1
+	
+	return count

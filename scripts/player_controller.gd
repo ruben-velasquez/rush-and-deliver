@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		rotation += turn_input * ROTATION_SPEED * (_speed / MAX_SPEED) * delta
 
 	# --- Movimiento en dirección del auto ---
-	desired_velocity = -transform.y * _speed * velocity_multiplier
+	desired_velocity = -transform.y * _speed * velocity_multiplier * RunData.stats.speed_multiplier
 	
 	velocity = lerp(velocity, desired_velocity, 0.2)
 	

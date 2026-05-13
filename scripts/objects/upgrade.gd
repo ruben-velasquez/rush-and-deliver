@@ -19,7 +19,10 @@ func get_description() -> String:
 	return ""
 
 func get_price() -> int:
-	return 1
+	return base_price
 
 func can_appear() -> bool:
 	return true
+
+func apply_stats():
+	pass
