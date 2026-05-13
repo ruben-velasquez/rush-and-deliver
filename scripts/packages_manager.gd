@@ -92,11 +92,11 @@ func _calculate_reward(property: Package.PackageProperty, distance: float):
 	
 	match property:
 		Package.PackageProperty.URGENT:
-			multiplier = 2.2
+			multiplier = 2.2 * RunData.stats.urgent_reward_mult
 		Package.PackageProperty.HEAVY:
-			multiplier = 1.3
+			multiplier = 1.3 * RunData.stats.heavy_reward_mult
 		Package.PackageProperty.FRAGILE:
-			multiplier = 1.5
+			multiplier = 1.5 * RunData.stats.fragile_reward_mult
 	
 	var reward = (base + per_distance) * multiplier * randomness
 	

@@ -5,7 +5,6 @@ func _init() -> void:
 	name = "Upgrade capacity"
 	base_price = 5
 	unique = false
-	weight = 1
 
 func apply_stats():
 	RunData.stats.package_capacity += 1

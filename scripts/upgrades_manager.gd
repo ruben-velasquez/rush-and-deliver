@@ -3,12 +3,18 @@ extends Node2D
 var current_upgrades: Array[Upgrade] = []
 var upgrade_pool: Array[Callable] = [
 	func(): return CapacityUpgrade.new(),
-	func(): return SpeedUpgrade.new()
+	func(): return SpeedUpgrade.new(),
+	func(): return ReinforcedStorageUpgrade.new(),
+	func(): return RushDeliveryLicenseUpgrade.new(),
+	func(): return RiskyDeliveryUpgrade.new()
 ]
+
+signal on_upgrades_change
 
 func _ready() -> void:
 	GameManager.on_day_end.connect(on_day_end)
 	GameManager.on_day_start.connect(on_day_start)
+	on_upgrades_change.connect(rebuild_stats)
 
 func on_day_start():
 	for upgrade in current_upgrades:
@@ -31,7 +37,8 @@ func add_upgrade(upgrade: Upgrade):
 	GameManager.give_money(-get_upgrade_price(upgrade))
 	current_upgrades.append(upgrade)
 	upgrade.on_purchase()
-	rebuild_stats()
+	
+	on_upgrades_change.emit()
 
 func get_upgrade_price(upgrade: Upgrade) -> int:
 	return upgrade.get_price()

@@ -18,10 +18,10 @@ var urgent_bonus: bool = true
 func setup():
 	match property:
 		PackageProperty.URGENT:
-			urgent_time_left = 10
+			urgent_time_left = RunData.stats.urgent_packages_time
 
 		PackageProperty.FRAGILE:
-			fragile_health = 4
+			fragile_health = RunData.stats.fragile_packages_health
 
 		PackageProperty.HEAVY:
-			weight_multiplier = 0.8
+			weight_multiplier = RunData.stats.heavy_packages_speed_mult

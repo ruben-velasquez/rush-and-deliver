@@ -4,7 +4,7 @@ extends Object
 var name: String
 var base_price: int
 var unique: bool
-var weight: int
+var weight: int = 1
 
 func on_purchase():
 	pass
