@@ -30,7 +30,7 @@ region = Rect2(96, 32, 16, 16)
 atlas = ExtResource("1_2jlq2")
 region = Rect2(0, 32, 16, 16)
 
-[node name="Panel" type="Panel" unique_id=1816813380 node_paths=PackedStringArray("progress_bar")]
+[node name="Panel" type="Panel" unique_id=1816813380 node_paths=PackedStringArray("progress_bar", "reward_label")]
 custom_minimum_size = Vector2(64, 32)
 offset_left = 9.0
 offset_top = 32.0
@@ -39,6 +39,7 @@ offset_bottom = 64.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ll1fo")
 script = ExtResource("3_8jd6q")
 progress_bar = NodePath("HBoxContainer/PackageIcon")
+reward_label = NodePath("HBoxContainer/Reward")
 fragile_icon = SubResource("AtlasTexture_8jd6q")
 heavy_icon = SubResource("AtlasTexture_d0foq")
 urgent_icon = SubResource("AtlasTexture_tomo5")
@@ -50,7 +51,7 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 32.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=104473162]
+[node name="Reward" type="RichTextLabel" parent="HBoxContainer" unique_id=104473162]
 custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 bbcode_enabled = true
