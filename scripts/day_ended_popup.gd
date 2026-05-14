@@ -8,7 +8,7 @@ func setup():
 	var output = ""
 	
 	for fee in daily_costs:
-		output += "%s: [color=red]-%s$[/color]\n" % [fee.name.capitalize(), fee.amount]
+		output += "%s: [color=red]-%s$[/color]\n" % [fee.name.capitalize(), fee.calculate_cost()]
 	
 	output += "Money: %s$" % [RunData.money]
 	info.text = output

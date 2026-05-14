@@ -40,7 +40,7 @@ func end_day():
 	calculate_costs()
 	
 	for fee in current_costs:
-		give_money(-fee.amount)
+		give_money(-fee.calculate_cost())
 	
 	if RunData.money < 0:
 		ui_manager.show_game_over_screen()

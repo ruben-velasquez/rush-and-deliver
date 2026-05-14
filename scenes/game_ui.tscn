@@ -53,17 +53,12 @@ timer = NodePath("Timer")
 [node name="Timer" type="Timer" parent="Layout/Info/TimerLabel" unique_id=154884662]
 one_shot = true
 
-[node name="PackagesInfo" type="VBoxContainer" parent="Layout" unique_id=1843767937 node_paths=PackedStringArray("packages_count_label", "current_package_label", "package_property_label", "package_reward_label", "package_distance_label", "package_data_label", "package_info_container", "all_packages_shipped_label")]
+[node name="PackagesInfo" type="VBoxContainer" parent="Layout" unique_id=1843767937 node_paths=PackedStringArray("icons_parent", "packages_count_label", "all_packages_shipped_label")]
 layout_mode = 2
 theme_override_constants/separation = 16
 script = ExtResource("4_u2dgd")
+icons_parent = NodePath("PackagesStatus")
 packages_count_label = NodePath("PackagesLabel")
-current_package_label = NodePath("CurrentPackageInfo/Title")
-package_property_label = NodePath("CurrentPackageInfo/PackageProperty")
-package_reward_label = NodePath("CurrentPackageInfo/RewardLabel")
-package_distance_label = NodePath("CurrentPackageInfo/MetersAway")
-package_data_label = NodePath("CurrentPackageInfo/PackageData")
-package_info_container = NodePath("CurrentPackageInfo")
 all_packages_shipped_label = NodePath("UnavailableAdvice")
 
 [node name="PackagesLabel" type="Label" parent="Layout/PackagesInfo" unique_id=20969400]
@@ -71,37 +66,10 @@ layout_mode = 2
 text = "Packages 0/3"
 horizontal_alignment = 2
 
-[node name="CurrentPackageInfo" type="VBoxContainer" parent="Layout/PackagesInfo" unique_id=969757249]
+[node name="PackagesStatus" type="VBoxContainer" parent="Layout/PackagesInfo" unique_id=1437862609]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-
-[node name="Title" type="Label" parent="Layout/PackagesInfo/CurrentPackageInfo" unique_id=2113300166]
-layout_mode = 2
-text = "-- Package 1 --"
-horizontal_alignment = 2
-
-[node name="PackageProperty" type="RichTextLabel" parent="Layout/PackagesInfo/CurrentPackageInfo" unique_id=1454462991]
-layout_mode = 2
-bbcode_enabled = true
-text = "Property: Normal"
-fit_content = true
-horizontal_alignment = 2
-
-[node name="RewardLabel" type="Label" parent="Layout/PackagesInfo/CurrentPackageInfo" unique_id=1244911974]
-layout_mode = 2
-text = "Reward: 1$"
-horizontal_alignment = 2
-
-[node name="MetersAway" type="Label" parent="Layout/PackagesInfo/CurrentPackageInfo" unique_id=1881571057]
-layout_mode = 2
-text = "100 m"
-horizontal_alignment = 2
-
-[node name="PackageData" type="RichTextLabel" parent="Layout/PackagesInfo/CurrentPackageInfo" unique_id=156494872]
-layout_mode = 2
-bbcode_enabled = true
-text = "Time left: 20s"
-fit_content = true
-horizontal_alignment = 2
+size_flags_horizontal = 8
 
 [node name="UnavailableAdvice" type="Label" parent="Layout/PackagesInfo" unique_id=1418236425]
 layout_mode = 2

@@ -1,13 +1,9 @@
 extends VBoxContainer
 
-@export var packages_count_label: Label
-@export var current_package_label: Label
-@export var package_property_label: RichTextLabel
-@export var package_reward_label: Label
-@export var package_distance_label: Label
-@export var package_data_label: RichTextLabel
+const PACKAGE_ICON_SCENE: PackedScene = preload("res://scenes/package_icon.tscn")
+@export var icons_parent: Control
 
-@export var package_info_container: VBoxContainer
+@export var packages_count_label: Label
 
 @export var all_packages_shipped_label: Label
 
@@ -27,29 +23,16 @@ const PROPERTIES_COLORS: Dictionary[String, String] = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	show_package_info()
+	
+	for i in range(RunData.stats.package_capacity):
+		var icon = PACKAGE_ICON_SCENE.instantiate() as PackageIcon
+		icons_parent.add_child(icon)
 
 	GameManager.packages_manager.on_swap_package.connect(update_current_package)
+	GameManager.packages_manager.on_package_delivered.connect(update_icons)
 	GameManager.on_money_updated.connect(update_done_packages)
 	_player = GameManager.player
 	update_current_package()
-
-func _process(_delta: float) -> void:
-	if !_player || !_goal: 
-		return
-	
-	# Distance between player and goal
-	var distance = sqrt(pow(_goal.position.x - _player.position.x, 2) + pow(_goal.position.y - _player.position.y, 2))
-	distance = round(distance) / 2
-	package_distance_label.text = str(distance) + " m"
-	
-	var package = packages_manager.get_current_package()
-	
-	if packages_manager.is_urgent(package):
-		package_data_label.text = "Bonus time left: %s" % [roundf(package.urgent_time_left)]
-	elif packages_manager.is_fragile(package):
-		package_data_label.text = "Health: %s" % [package.fragile_health]
-	else:
-		package_data_label.text = ""
 
 func update_done_packages():
 	if packages_manager == null:
@@ -64,26 +47,26 @@ func update_done_packages():
 
 func update_current_package():
 	update_done_packages()
+	update_icons()
 	var package = packages_manager.get_current_package()
 	_goal = package.goal
-	current_package_label.text = "-- Package " + str(packages_manager.currentPackage + 1) + " --"
-	
-	var property = str(Package.PackageProperty.find_key(package.property)).capitalize()
-	var property_color = PROPERTIES_COLORS[property]
-	package_property_label.text = "Property: [color=%s]%s[/color]" % [property_color, property]
-	
-	package_reward_label.text = "Reward: $" + str(package.reward)
 
 func hide_package_info():
 	deactivated = true
 	all_packages_shipped_label.process_mode = Node.PROCESS_MODE_INHERIT
 	all_packages_shipped_label.show()
-	package_info_container.process_mode = Node.PROCESS_MODE_DISABLED
-	package_info_container.hide()
 
 func show_package_info():
 	deactivated = false
 	all_packages_shipped_label.process_mode = Node.PROCESS_MODE_DISABLED
 	all_packages_shipped_label.hide()
-	package_info_container.process_mode = Node.PROCESS_MODE_INHERIT
-	package_info_container.show()
+
+func update_icons():
+	var packages = packages_manager.get_active_packages()
+	for i in range(RunData.stats.package_capacity):
+		var icon = icons_parent.get_child(i) as PackageIcon
+		if i >= len(packages):
+			icon.hide()
+			continue
+		icon.show()
+		icon.setup(packages[i])

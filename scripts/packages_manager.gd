@@ -7,6 +7,7 @@ var currentPackage: int = 0
 var restore_area: Area2D
 
 signal on_swap_package
+signal on_package_delivered
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,6 +42,8 @@ func deliver(package: Package):
 	
 	if is_current_package(package):
 		next_package()
+	
+	on_package_delivered.emit()
 
 func fail(package: Package):
 	package.failed = true
@@ -132,6 +135,11 @@ func previous_package():
 
 func get_current_package() -> Package:
 	return packages[currentPackage]
+
+func get_active_packages() -> Array[Package]:
+	return packages.filter(func(package):
+		return !package.done and !package.failed
+	)
 
 func done_count() -> int:
 	var count := 0
