@@ -3,6 +3,7 @@ extends Upgrade
 
 func _init() -> void:
 	name = "Risky delivery"
+	id = "risky_delivery"
 	base_price = 10
 	unique = true
 

@@ -3,6 +3,7 @@ extends Upgrade
 
 func _init() -> void:
 	name = "Upgrade capacity"
+	id = "capacity"
 	base_price = 5
 	unique = false
 

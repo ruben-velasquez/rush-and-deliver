@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="1_yubou"]
 [ext_resource type="Script" uid="uid://kfwi6o6bgg5" path="res://scripts/timer.gd" id="2_rns2u"]
 [ext_resource type="Script" uid="uid://cudx08m51indf" path="res://scripts/packages_info.gd" id="4_u2dgd"]
+[ext_resource type="Script" uid="uid://530o6888woxd" path="res://scripts/upgrades_ui.gd" id="5_bt76a"]
 
 [node name="UI" type="Control" unique_id=1845636788]
 layout_mode = 3
@@ -76,3 +77,9 @@ layout_mode = 2
 text = "All packages are shipped.
 Go to the shipping office"
 horizontal_alignment = 2
+
+[node name="Upgrades" type="HBoxContainer" parent="." unique_id=1954800613]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_bt76a")
