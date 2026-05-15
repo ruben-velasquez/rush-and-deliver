@@ -23,7 +23,8 @@ func _process(_delta: float) -> void:
 	match package.property:
 		Package.PackageProperty.URGENT:
 			progress_bar.value = (package.urgent_time_left * 100) / RunData.stats.urgent_packages_time
-			reward_label.text = "$%s" % package.reward
+			if package.urgent_time_left <= 0:
+				reward_label.text = "$%s" % package.reward
 		Package.PackageProperty.FRAGILE:
 			progress_bar.value = ((RunData.stats.fragile_packages_health - package.fragile_health) * 100) / RunData.stats.fragile_packages_health
 
@@ -35,6 +36,7 @@ func setup(_package: Package):
 	
 	match package.property:
 		Package.PackageProperty.URGENT:
+			reward_label.text = "[color=yellow]%s[/color]" % reward_label.text
 			progress_bar.texture_under = urgent_icon
 		Package.PackageProperty.FRAGILE:
 			progress_bar.texture_under = fragile_icon

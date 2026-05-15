@@ -5,6 +5,7 @@ var name: String
 var base_price: int
 var unique: bool
 var weight: int = 1
+var id: String
 
 func on_purchase():
 	pass

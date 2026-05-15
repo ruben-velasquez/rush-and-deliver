@@ -3,6 +3,7 @@ extends Upgrade
 
 func _init() -> void:
 	name = "Reinforced Storage"
+	id = "reinforced_storage"
 	base_price = 7
 	unique = true
 

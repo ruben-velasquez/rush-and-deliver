@@ -5,6 +5,7 @@ func _init() -> void:
 	unique = true
 	name = "Speed Upgrade"
 	base_price = 10
+	id = "speed"
 
 func get_description() -> String:
 	return "1.2x Speed"

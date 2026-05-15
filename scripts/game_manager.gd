@@ -60,6 +60,7 @@ func reset():
 	RunData.money = 0
 	UpgradesManager.current_upgrades.clear()
 
+
 func calculate_costs():
 	current_costs.clear()
 	
