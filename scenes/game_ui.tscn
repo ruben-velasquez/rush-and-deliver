@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://y57ny3m78jgd"]
 
+[ext_resource type="LabelSettings" uid="uid://jd6rkmvlmdsk" path="res://Themes/thin_label.tres" id="1_djwj0"]
 [ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="1_u001w"]
 [ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="1_yubou"]
 [ext_resource type="Script" uid="uid://kfwi6o6bgg5" path="res://scripts/timer.gd" id="2_rns2u"]
+[ext_resource type="Theme" uid="uid://bfck3uu58nkqx" path="res://Themes/money_theme.tres" id="3_e0pfi"]
 [ext_resource type="Script" uid="uid://cudx08m51indf" path="res://scripts/packages_info.gd" id="4_u2dgd"]
 [ext_resource type="Script" uid="uid://530o6888woxd" path="res://scripts/upgrades_ui.gd" id="5_bt76a"]
 
@@ -35,11 +37,13 @@ layout_mode = 2
 [node name="DayLabel" type="Label" parent="Layout/Info" unique_id=1175414367]
 layout_mode = 2
 text = "Day 1"
+label_settings = ExtResource("1_djwj0")
 horizontal_alignment = 2
 script = ExtResource("1_u001w")
 
 [node name="MoneyLabel" type="Label" parent="Layout/Info" unique_id=1811965428]
 layout_mode = 2
+theme = ExtResource("3_e0pfi")
 text = "$0"
 horizontal_alignment = 2
 script = ExtResource("1_yubou")
@@ -47,6 +51,7 @@ script = ExtResource("1_yubou")
 [node name="TimerLabel" type="Label" parent="Layout/Info" unique_id=1624639429 node_paths=PackedStringArray("timer")]
 layout_mode = 2
 text = "0:00"
+label_settings = ExtResource("1_djwj0")
 horizontal_alignment = 2
 script = ExtResource("2_rns2u")
 timer = NodePath("Timer")
@@ -65,6 +70,7 @@ all_packages_shipped_label = NodePath("UnavailableAdvice")
 [node name="PackagesLabel" type="Label" parent="Layout/PackagesInfo" unique_id=20969400]
 layout_mode = 2
 text = "Packages 0/3"
+label_settings = ExtResource("1_djwj0")
 horizontal_alignment = 2
 
 [node name="PackagesStatus" type="VBoxContainer" parent="Layout/PackagesInfo" unique_id=1437862609]
@@ -76,6 +82,7 @@ size_flags_horizontal = 8
 layout_mode = 2
 text = "All packages are shipped.
 Go to the shipping office"
+label_settings = ExtResource("1_djwj0")
 horizontal_alignment = 2
 
 [node name="Upgrades" type="HBoxContainer" parent="." unique_id=1954800613]

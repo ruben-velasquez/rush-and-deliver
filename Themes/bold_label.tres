@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dxuhccns20xjt"]
+
+[ext_resource type="FontFile" uid="uid://cii5lx74hbeme" path="res://fonts/Retro2.ttf" id="1_6mqpx"]
+
+[resource]
+font = ExtResource("1_6mqpx")
+font_size = 64

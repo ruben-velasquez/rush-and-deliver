@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://jbvay8bpua7p"]
 
 [ext_resource type="Texture2D" uid="uid://b7odf3tayqn8v" path="res://assets/package_properties_icons.png" id="1_2jlq2"]
-[ext_resource type="Texture2D" uid="uid://lqbwcn5mf2g4" path="res://assets/pixel_panel.png" id="1_tomo5"]
+[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://Themes/popup_theme.tres" id="1_ll1fo"]
 [ext_resource type="Texture2D" uid="uid://dv0rhu8kpl5pi" path="res://assets/icon_fill.png" id="2_8jd6q"]
 [ext_resource type="Script" uid="uid://c7gf8xcdxld16" path="res://scripts/package_icon.gd" id="3_8jd6q"]
 [ext_resource type="Texture2D" uid="uid://lrpt8dw3fa4j" path="res://assets/icon_selected_outline.png" id="4_d0foq"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ll1fo"]
-texture = ExtResource("1_tomo5")
-modulate_color = Color(0, 0, 0, 0.39215687)
+[ext_resource type="Theme" uid="uid://bfck3uu58nkqx" path="res://Themes/money_theme.tres" id="5_ll1fo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jd6q"]
 atlas = ExtResource("1_2jlq2")
@@ -31,12 +28,12 @@ atlas = ExtResource("1_2jlq2")
 region = Rect2(0, 32, 16, 16)
 
 [node name="Panel" type="Panel" unique_id=1816813380 node_paths=PackedStringArray("progress_bar", "reward_label")]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(80, 32)
 offset_left = 9.0
 offset_top = 32.0
 offset_right = 73.0
 offset_bottom = 64.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_ll1fo")
+theme_override_styles/panel = ExtResource("1_ll1fo")
 script = ExtResource("3_8jd6q")
 progress_bar = NodePath("HBoxContainer/PackageIcon")
 reward_label = NodePath("HBoxContainer/Reward")
@@ -47,17 +44,21 @@ normal_icon = SubResource("AtlasTexture_ll1fo")
 seleted_outline = ExtResource("4_d0foq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=842972389]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 32.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Reward" type="RichTextLabel" parent="HBoxContainer" unique_id=104473162]
-custom_minimum_size = Vector2(28, 0)
+custom_minimum_size = Vector2(44, 0)
 layout_mode = 2
+theme = ExtResource("5_ll1fo")
 bbcode_enabled = true
-text = "1$"
+text = "$1"
 fit_content = true
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="PackageIcon" type="TextureProgressBar" parent="HBoxContainer" unique_id=1394721140]

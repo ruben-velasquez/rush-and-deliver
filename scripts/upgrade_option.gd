@@ -12,7 +12,7 @@ func setup(_u: Upgrade):
 	
 	label.text = _upgrade.name
 	label.tooltip_text = _upgrade.get_description()
-	purchase_button.text = "%s$" % UpgradesManager.get_upgrade_price(_upgrade)
+	purchase_button.text = "$%s" % UpgradesManager.get_upgrade_price(_upgrade)
 	
 	measure_availability()
 	UpgradesManager.on_upgrades_change.connect(measure_availability)

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="1_ifh4c"]
 [ext_resource type="Script" uid="uid://bu8my4i183i63" path="res://scripts/day_ended_popup.gd" id="1_vrxb5"]
 [ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://Themes/popup_theme.tres" id="2_ucxxj"]
+[ext_resource type="Theme" uid="uid://neqkt8wtm3g2" path="res://Themes/bold_theme.tres" id="3_eisdi"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://Themes/thin_theme.tres" id="4_pl7ld"]
 
 [node name="FinishPopup" type="Control" unique_id=537636974 node_paths=PackedStringArray("info")]
 layout_mode = 3
@@ -41,12 +43,13 @@ theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="Panel/VBoxContainer" unique_id=2116667913]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme = ExtResource("3_eisdi")
 text = "Day ended"
 horizontal_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer" unique_id=5753341]
 layout_mode = 2
+theme = ExtResource("4_pl7ld")
 bbcode_enabled = true
 text = "Food: [color=red]-15$[/color]
 Money: 50$"
@@ -55,18 +58,14 @@ horizontal_alignment = 1
 
 [node name="ContinueButton" type="Button" parent="Panel/VBoxContainer" unique_id=2143320266]
 layout_mode = 2
-theme_override_constants/outline_size = 10
-theme_override_constants/h_separation = 0
-theme_override_constants/icon_max_width = 50
+theme = ExtResource("4_pl7ld")
 text = "Continue"
 script = ExtResource("1_ifh4c")
 sceneToLoad = "uid://dr4qd4cw401nu"
 
 [node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer" unique_id=1737862094]
 layout_mode = 2
-theme_override_constants/outline_size = 10
-theme_override_constants/h_separation = 0
-theme_override_constants/icon_max_width = 50
+theme = ExtResource("4_pl7ld")
 text = "Go to main menu"
 script = ExtResource("1_ifh4c")
 sceneToLoad = "uid://dn8dlbfrm5smc"

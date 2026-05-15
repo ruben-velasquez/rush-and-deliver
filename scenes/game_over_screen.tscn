@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://bu8my4i183i63" path="res://scripts/day_ended_popup.gd" id="1_wa2qn"]
 [ext_resource type="Script" uid="uid://cxft821be6h1g" path="res://scripts/restart_game_button.gd" id="2_61w2s"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="3_wa2qn"]
+[ext_resource type="LabelSettings" uid="uid://be0wqcvpuy1y4" path="res://Themes/bolder_label.tres" id="3_xx0b3"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://Themes/thin_theme.tres" id="4_5i0af"]
 
 [node name="GameOverScreen" type="Control" unique_id=2100203153 node_paths=PackedStringArray("info")]
 layout_mode = 3
@@ -13,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wa2qn")
-info = NodePath("Panel/VBoxContainer/RichTextLabel")
+info = NodePath("Panel/Content/VBoxContainer/RichTextLabel")
 
 [node name="Panel" type="Panel" parent="." unique_id=1195852545]
 self_modulate = Color(0.003921569, 0, 0, 0.7647059)
@@ -31,7 +33,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_iwahs")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=61910464]
+[node name="Content" type="Control" parent="Panel" unique_id=1664439548]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -145.0
+offset_right = 115.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Content" unique_id=61910464]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,26 +56,31 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1541022595]
+[node name="Label" type="Label" parent="Panel/Content/VBoxContainer" unique_id=1541022595]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Game Over"
+label_settings = ExtResource("3_xx0b3")
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer" unique_id=1852921387]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Content/VBoxContainer" unique_id=1852921387]
 layout_mode = 2
+theme = ExtResource("4_5i0af")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
 text = "[Info]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="TryAgainButton" type="Button" parent="Panel/VBoxContainer" unique_id=1873165246]
+[node name="TryAgainButton" type="Button" parent="Panel/Content/VBoxContainer" unique_id=1873165246]
 layout_mode = 2
+theme = ExtResource("4_5i0af")
 text = "Try again"
 script = ExtResource("2_61w2s")
 
-[node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer" unique_id=613103596]
+[node name="MainMenuButton" type="Button" parent="Panel/Content/VBoxContainer" unique_id=613103596]
 layout_mode = 2
+theme = ExtResource("4_5i0af")
 text = "Go to main menu"
 script = ExtResource("3_wa2qn")
 sceneToLoad = "uid://dn8dlbfrm5smc"

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cft86kstfxmbc" path="res://scripts/scene_manager.gd" id="1_bqqt6"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="1_ekxnf"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://Themes/thin_theme.tres" id="2_bqqt6"]
 
 [node name="Scene" type="Node2D" unique_id=1615516784]
 script = ExtResource("1_bqqt6")
@@ -32,12 +33,14 @@ grow_vertical = 2
 
 [node name="StartButton" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1352524173]
 layout_mode = 2
+theme = ExtResource("2_bqqt6")
 text = "Start"
 script = ExtResource("1_ekxnf")
 sceneToLoad = "uid://ct2fvys2eo5d4"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1880869476]
 layout_mode = 2
+theme = ExtResource("2_bqqt6")
 text = "Exit"
 script = ExtResource("1_ekxnf")
 buttonType = 1

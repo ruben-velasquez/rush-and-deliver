@@ -1,7 +1,13 @@
-[gd_resource type="StyleBoxFlat" format=3 uid="uid://biwmc72m52d64"]
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://biwmc72m52d64"]
+
+[ext_resource type="Texture2D" uid="uid://lqbwcn5mf2g4" path="res://assets/pixel_panel.png" id="1_4imvb"]
 
 [resource]
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+texture = ExtResource("1_4imvb")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(0, 0, 32, 16)
+modulate_color = Color(0, 0, 0, 0.6039216)
