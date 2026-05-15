@@ -8,4 +8,4 @@ spacing_top = -9
 
 [resource]
 default_font = SubResource("FontVariation_f7ssh")
-default_font_size = 40
+default_font_size = 32
