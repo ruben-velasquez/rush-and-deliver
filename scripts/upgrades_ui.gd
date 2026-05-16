@@ -6,6 +6,6 @@ const ICONS: AtlasDB = preload("res://objects/upgrade_icons.tres")
 func _ready() -> void:
 	for upgrade in UpgradesManager.current_upgrades:
 		var img = TextureRect.new()
-		img.texture = ICONS.sprites.get(upgrade.id)
 		img.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
+		img.texture = ICONS.sprites.get(upgrade.id)
 		add_child(img)

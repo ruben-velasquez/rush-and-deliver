@@ -5,6 +5,9 @@
 [ext_resource type="LabelSettings" uid="uid://jd6rkmvlmdsk" path="res://Themes/thin_label.tres" id="3_tlqjr"]
 
 [node name="UpgradeOption" type="HBoxContainer" unique_id=821656226 node_paths=PackedStringArray("purchase_button", "label")]
+offset_right = 370.0
+offset_bottom = 26.0
+size_flags_horizontal = 4
 script = ExtResource("1_4noig")
 purchase_button = NodePath("PurchaseButton")
 label = NodePath("UpgradeName")
@@ -12,11 +15,14 @@ label = NodePath("UpgradeName")
 [node name="PurchaseButton" type="Button" parent="." unique_id=2109010948]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+size_flags_vertical = 0
 theme = ExtResource("2_4b4l4")
 text = "$?"
 
 [node name="UpgradeName" type="Label" parent="." unique_id=1066972798]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 mouse_filter = 1
 text = "Upgrade Name"
 label_settings = ExtResource("3_tlqjr")
+autowrap_mode = 3
