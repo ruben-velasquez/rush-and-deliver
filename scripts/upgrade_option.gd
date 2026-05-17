@@ -29,6 +29,9 @@ func measure_availability():
 	elif RunData.stats.max_unique_upgrades <= UpgradesManager.unique_upgrades_quantity():
 		purchase_button.disabled = true
 		purchase_button.tooltip_text = "Not enough space"
+	else:
+		purchase_button.disabled = false
+		purchase_button.tooltip_text = ""
 
 func on_purchase():
 	purchase_button.disabled = true

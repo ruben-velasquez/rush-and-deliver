@@ -1,5 +1,7 @@
 extends Node2D
 
+const ICONS: AtlasDB = preload("res://objects/upgrade_icons.tres")
+
 var current_upgrades: Array[Upgrade] = []
 var upgrade_pool: Array[Callable] = [
 	func(): return CapacityUpgrade.new(),
@@ -10,6 +12,7 @@ var upgrade_pool: Array[Callable] = [
 ]
 
 signal on_upgrades_change
+signal on_add_upgrade(upgrade: Upgrade)
 
 func _ready() -> void:
 	GameManager.on_day_end.connect(on_day_end)
@@ -37,6 +40,16 @@ func add_upgrade(upgrade: Upgrade):
 	GameManager.give_money(-get_upgrade_price(upgrade))
 	current_upgrades.append(upgrade)
 	upgrade.on_purchase()
+	
+	on_upgrades_change.emit()
+	on_add_upgrade.emit(upgrade)
+
+func sell_upgrade(upgrade: Upgrade):
+	if !has_upgrade(upgrade) or !upgrade.unique: return
+	
+	GameManager.give_money(upgrade.base_price)
+	current_upgrades.erase(upgrade)
+	print(has_upgrade(upgrade))
 	
 	on_upgrades_change.emit()
 
@@ -96,3 +109,6 @@ func unique_upgrades_quantity() -> int:
 			count += 1
 	
 	return count
+
+func get_icon(id: String) -> Texture2D:
+	return ICONS.sprites.get(id)

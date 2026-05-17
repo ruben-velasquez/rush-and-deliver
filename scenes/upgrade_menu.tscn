@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://yd5kqcmi4g3r" path="res://scripts/upgrades_shop.gd" id="4_ixicc"]
 [ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="5_6vqdt"]
 [ext_resource type="Theme" uid="uid://bfck3uu58nkqx" path="res://Themes/money_theme.tres" id="7_ethjp"]
+[ext_resource type="Theme" uid="uid://neqkt8wtm3g2" path="res://Themes/bold_theme.tres" id="9_he6dt"]
+[ext_resource type="Script" uid="uid://dlbw8osdkq0yw" path="res://scripts/sell_upgrades_menu.gd" id="10_3rs5v"]
 
 [node name="Scene" type="Node2D" unique_id=682139572]
 script = ExtResource("1_ksfom")
@@ -73,6 +75,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -259.0
 offset_top = -150.0
+offset_right = -10.0
 offset_bottom = 150.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -106,3 +109,36 @@ offset_bottom = 23.0
 theme = ExtResource("7_ethjp")
 text = "0$"
 script = ExtResource("5_6vqdt")
+
+[node name="SellPanel" type="Panel" parent="CanvasLayer" unique_id=638725896]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -150.0
+offset_right = 160.0
+offset_bottom = 150.0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_0e30j")
+
+[node name="Content" type="VBoxContainer" parent="CanvasLayer/SellPanel" unique_id=1727871242]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.9
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="CanvasLayer/SellPanel/Content" unique_id=1334090817]
+layout_mode = 2
+theme = ExtResource("9_he6dt")
+text = "Inventory"
+horizontal_alignment = 1
+
+[node name="Upgrades" type="VBoxContainer" parent="CanvasLayer/SellPanel/Content" unique_id=888591439]
+layout_mode = 2
+theme_override_constants/separation = 4
+script = ExtResource("10_3rs5v")

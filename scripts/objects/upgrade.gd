@@ -10,6 +10,9 @@ var id: String
 func on_purchase():
 	pass
 
+func  on_sell():
+	pass
+
 func on_day_start():
 	pass
 
