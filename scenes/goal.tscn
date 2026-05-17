@@ -1,23 +1,34 @@
 [gd_scene format=3 uid="uid://ch77lxuil43wi"]
 
 [ext_resource type="Script" uid="uid://tqymxjarsrqr" path="res://scripts/goal.gd" id="1_jbojv"]
-[ext_resource type="Texture2D" uid="uid://48ternfo7x0u" path="res://assets/tilemap_packed.png" id="2_sx1j4"]
+[ext_resource type="Material" uid="uid://cvnqi0dlpwydk" path="res://materials/ring_mat.tres" id="2_sx1j4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sugp2"]
+radius = 21.0
 
-[node name="Goal" type="Area2D" unique_id=357646220]
+[sub_resource type="Gradient" id="Gradient_sx1j4"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w3gav"]
+gradient = SubResource("Gradient_sx1j4")
+
+[node name="Goal" type="Area2D" unique_id=357646220 node_paths=PackedStringArray("sprite")]
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 script = ExtResource("1_jbojv")
+sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=988644070]
 shape = SubResource("CircleShape2D_sugp2")
 debug_color = Color(0.22352941, 0.627451, 0.24705882, 0.68235296)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=485726337]
-texture = ExtResource("2_sx1j4")
-region_enabled = true
+z_index = -1
+material = ExtResource("2_sx1j4")
+texture = SubResource("GradientTexture2D_w3gav")
 region_rect = Rect2(224, 160, 16, 16)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
