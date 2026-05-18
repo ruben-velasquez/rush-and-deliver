@@ -6,4 +6,4 @@ func _init() -> void:
 	amount = 20
 
 func can_appear() -> bool:
-	return true
+	return RunData.current_day > 3
