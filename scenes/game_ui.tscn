@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="1_u001w"]
 [ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="1_yubou"]
 [ext_resource type="Script" uid="uid://kfwi6o6bgg5" path="res://scripts/timer.gd" id="2_rns2u"]
-[ext_resource type="Theme" uid="uid://bfck3uu58nkqx" path="res://Themes/money_theme.tres" id="3_e0pfi"]
+[ext_resource type="Theme" uid="uid://neqkt8wtm3g2" path="res://Themes/bold_theme.tres" id="3_e0pfi"]
 [ext_resource type="Script" uid="uid://cudx08m51indf" path="res://scripts/packages_info.gd" id="4_u2dgd"]
 [ext_resource type="Script" uid="uid://530o6888woxd" path="res://scripts/upgrades_ui.gd" id="5_bt76a"]
 

@@ -88,16 +88,16 @@ func _generate_package() -> Package:
 	return newPackage
 
 func _calculate_reward(property: Package.PackageProperty, distance: float):
-	var base = 2
-	var per_distance = distance * 0.8 / 100
+	var base = 1
+	var per_distance = distance * 0.5 / 100
 	var multiplier = 1.0
 	var randomness = randf_range(0.9, 1.1)
 	
 	match property:
 		Package.PackageProperty.URGENT:
-			multiplier = 2.2 * RunData.stats.urgent_reward_mult
+			multiplier = 1.8 * RunData.stats.urgent_reward_mult
 		Package.PackageProperty.HEAVY:
-			multiplier = 1.3 * RunData.stats.heavy_reward_mult
+			multiplier = 1.4 * RunData.stats.heavy_reward_mult
 		Package.PackageProperty.FRAGILE:
 			multiplier = 1.5 * RunData.stats.fragile_reward_mult
 	

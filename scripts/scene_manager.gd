@@ -2,6 +2,7 @@ extends Node2D
 class_name SceneManager
 
 const GAME_SCENE: PackedScene = preload("res://scenes/main.tscn")
+const PAYMENT_SCENE: PackedScene = preload("res://scenes/payment_menu.tscn")
 
 static var instance: SceneManager
 
@@ -16,3 +17,6 @@ func load_scene(scene):
 
 func load_game_scene():
 	get_tree().change_scene_to_packed(GAME_SCENE)
+
+func load_payment_scene():
+	get_tree().change_scene_to_packed(PAYMENT_SCENE)

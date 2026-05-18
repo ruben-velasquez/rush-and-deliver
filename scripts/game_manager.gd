@@ -47,7 +47,7 @@ func end_day():
 		RunData.current_day = 1
 		RunData.money = 0
 	else:
-		ui_manager.show_end_day_popup()
+		SceneManager.instance.load_payment_scene()
 
 func start_day():
 	RunData.day_broken_packages = 0

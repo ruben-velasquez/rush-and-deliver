@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://ggsvm7coxewq" path="res://scripts/terrain_manager.gd" id="4_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://y57ny3m78jgd" path="res://scenes/game_ui.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://kceeym4xm35y" path="res://scripts/ui_manager.gd" id="6_tipki"]
-[ext_resource type="PackedScene" uid="uid://dbag44bo4lmxn" path="res://scenes/finish_popup.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://48ternfo7x0u" path="res://assets/tilemap_packed.png" id="8_tipki"]
 [ext_resource type="Script" uid="uid://dr2pxsmitidol" path="res://scripts/restore_area.gd" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://glv0u6cts0iw" path="res://scenes/game_over_screen.tscn" id="9_ya4ey"]
@@ -40,15 +39,11 @@ camera2D = NodePath("../Camera2D")
 [node name="TerrainManager" type="Node2D" parent="." unique_id=1426548566]
 script = ExtResource("4_ya4ey")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1219958642 node_paths=PackedStringArray("finish_popup", "game_over_screen")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1219958642 node_paths=PackedStringArray("game_over_screen")]
 script = ExtResource("6_tipki")
-finish_popup = NodePath("FinishPopup")
 game_over_screen = NodePath("GameOverScreen")
 
 [node name="UI" parent="CanvasLayer" unique_id=1845636788 instance=ExtResource("5_tbgi4")]
-
-[node name="FinishPopup" parent="CanvasLayer" unique_id=537636974 instance=ExtResource("7_o6xl0")]
-visible = false
 
 [node name="GameOverScreen" parent="CanvasLayer" unique_id=2100203153 instance=ExtResource("9_ya4ey")]
 visible = false

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dobof3jt0lofk"]
+
+[ext_resource type="Script" uid="uid://dsiqe27i85yd0" path="res://scripts/payment_menu.gd" id="1_4d04w"]
+[ext_resource type="Script" uid="uid://cft86kstfxmbc" path="res://scripts/scene_manager.gd" id="1_bncvp"]
+[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://Themes/popup_theme.tres" id="1_qbjwo"]
+[ext_resource type="Theme" uid="uid://neqkt8wtm3g2" path="res://Themes/bold_theme.tres" id="2_if5jp"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://Themes/thin_theme.tres" id="3_4d04w"]
+[ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="4_if5jp"]
+
+[node name="Scene" type="Node2D" unique_id=433407285]
+script = ExtResource("1_bncvp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=720956307 node_paths=PackedStringArray("info")]
+script = ExtResource("1_4d04w")
+info = NodePath("Main/Panel/VBoxContainer/Info")
+
+[node name="Main" type="Control" parent="CanvasLayer" unique_id=636594540]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Main" unique_id=2007248735]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 600.0
+offset_bottom = 320.0
+theme_override_styles/panel = ExtResource("1_qbjwo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/Panel" unique_id=939547966]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=541318836]
+layout_mode = 2
+theme = ExtResource("2_if5jp")
+text = "Payment bills"
+horizontal_alignment = 1
+
+[node name="Info" type="RichTextLabel" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=48494173]
+layout_mode = 2
+theme = ExtResource("3_4d04w")
+bbcode_enabled = true
+text = "Food: [font=res://fonts/Retro5.ttf][color=red]-$15[/color][/font]
+Money: [font=res://fonts/Retro5.ttf]$50[/font]
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=1834661687]
+layout_mode = 2
+theme = ExtResource("3_4d04w")
+text = "Continue"
+script = ExtResource("4_if5jp")
+sceneToLoad = "uid://dr4qd4cw401nu"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=1289528671]
+layout_mode = 2
+theme = ExtResource("3_4d04w")
+text = "Go to main menu"
+script = ExtResource("4_if5jp")
+sceneToLoad = "uid://dn8dlbfrm5smc"

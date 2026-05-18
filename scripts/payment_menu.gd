@@ -1,11 +1,10 @@
-# DEPRECATED
-extends Control
-class_name DayEndedPopUp
+extends CanvasLayer
+class_name PaymentMenu
 
 const MONEY_FONT: String = "res://fonts/Retro5.ttf"
 @export var info: RichTextLabel
 
-func setup():
+func _ready():
 	var daily_costs = GameManager.current_costs
 	var output = ""
 	
