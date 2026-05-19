@@ -12,3 +12,6 @@ func should_appear() -> bool:
 
 func can_appear() -> bool:
 	return false
+
+func on_pay():
+	pass

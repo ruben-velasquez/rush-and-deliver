@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b234bio8he2ee" path="res://scripts/player_controller.gd" id="1_c08b3"]
 [ext_resource type="Texture2D" uid="uid://bcosrwwjioh0j" path="res://assets/player.png" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://2mn5r1tr004p" path="res://scripts/player_input.gd" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://lm1gdhcbl0rq" path="res://scenes/smoke_effect.tscn" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://dcnjysto6eg78" path="res://scripts/player_health.gd" id="5_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(10, 20)
@@ -22,3 +24,12 @@ shape = SubResource("RectangleShape2D_qhqgy")
 
 [node name="PlayerInput" type="Node2D" parent="." unique_id=1498764058]
 script = ExtResource("3_qhqgy")
+
+[node name="SmokeEffect" parent="." unique_id=1545635509 instance=ExtResource("4_dqkch")]
+position = Vector2(0, -10)
+emitting = false
+
+[node name="PlayerHealth" type="Node2D" parent="." unique_id=692362014 node_paths=PackedStringArray("controller", "smoke_particles")]
+script = ExtResource("5_qlg0r")
+controller = NodePath("..")
+smoke_particles = NodePath("../SmokeEffect")

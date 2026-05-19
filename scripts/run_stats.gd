@@ -3,6 +3,7 @@ extends Object
 
 var package_capacity := 3
 var speed_multiplier := 1.0
+var max_player_health := 5
 
 var fragile_packages_health := 2.0
 var urgent_packages_time := 20

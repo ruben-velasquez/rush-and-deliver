@@ -40,6 +40,7 @@ func end_day():
 	calculate_costs()
 	
 	for fee in current_costs:
+		fee.on_pay()
 		give_money(-fee.calculate_cost())
 	
 	if RunData.money < 0:
@@ -56,8 +57,10 @@ func start_day():
 	on_day_start.emit()
 
 func reset():
+	RunData.stats = RunStats.new()
 	RunData.current_day = 1
 	RunData.money = 0
+	RunData.player_health = RunData.stats.max_player_health
 	UpgradesManager.current_upgrades.clear()
 
 

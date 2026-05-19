@@ -3,7 +3,10 @@ extends DailyCost
 
 func _init() -> void:
 	name = "Car maintenace"
-	amount = 20
+	amount = 10
 
-func can_appear() -> bool:
-	return RunData.current_day > 3
+func should_appear() -> bool:
+	return RunData.player_health < RunData.stats.max_player_health/2.
+
+func on_pay():
+	RunData.player_health = RunData.stats.max_player_health
