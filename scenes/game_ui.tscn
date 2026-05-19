@@ -7,6 +7,8 @@
 [ext_resource type="Theme" uid="uid://neqkt8wtm3g2" path="res://Themes/bold_theme.tres" id="3_e0pfi"]
 [ext_resource type="Script" uid="uid://cudx08m51indf" path="res://scripts/packages_info.gd" id="4_u2dgd"]
 [ext_resource type="Script" uid="uid://530o6888woxd" path="res://scripts/upgrades_ui.gd" id="5_bt76a"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://Themes/thin_theme.tres" id="6_o3bws"]
+[ext_resource type="Script" uid="uid://dob35pnkslqpm" path="res://scripts/estimated_costs_label.gd" id="7_3huio"]
 
 [node name="UI" type="Control" unique_id=1845636788]
 layout_mode = 3
@@ -58,6 +60,15 @@ timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Layout/Info/TimerLabel" unique_id=154884662]
 one_shot = true
+
+[node name="EstimatedCostsLabel" type="RichTextLabel" parent="Layout/Info" unique_id=2038419642]
+layout_mode = 2
+theme = ExtResource("6_o3bws")
+bbcode_enabled = true
+text = "Estimated Costs: [font=res://fonts/Retro5.ttf]$19"
+fit_content = true
+horizontal_alignment = 2
+script = ExtResource("7_3huio")
 
 [node name="PackagesInfo" type="VBoxContainer" parent="Layout" unique_id=1843767937 node_paths=PackedStringArray("icons_parent", "packages_count_label", "all_packages_shipped_label")]
 layout_mode = 2

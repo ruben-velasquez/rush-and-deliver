@@ -8,6 +8,7 @@ var restore_area: Area2D
 
 signal on_swap_package
 signal on_package_delivered
+signal on_fail_package
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -55,6 +56,7 @@ func fail(package: Package):
 		next_package()
 	
 	on_swap_package.emit()
+	on_fail_package.emit()
 
 func generate_packages():
 	currentPackage = 0
