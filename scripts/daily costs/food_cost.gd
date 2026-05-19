@@ -9,4 +9,4 @@ func should_appear() -> bool:
 	return true
 
 func calculate_cost() -> int:
-	return min(amount + (RunData.current_day * 2), 21)
+	return min(amount + (RunData.get_days_passed()-1)*2, 21)

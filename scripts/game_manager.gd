@@ -49,7 +49,12 @@ func end_day():
 		SceneManager.instance.load_payment_scene()
 
 func start_day():
-	RunData.current_day += 1
+	if(RunData.current_day >= 5):
+		RunData.current_day = 1
+		RunData.current_week += 1
+	else:
+		RunData.current_day += 1
+	
 	RunData.day_broken_packages = 0
 	RunData.day_late_packages = 0
 	SceneManager.instance.load_game_scene()
@@ -58,6 +63,7 @@ func start_day():
 func reset():
 	RunData.stats = RunStats.new()
 	RunData.current_day = 1
+	RunData.current_week = 1
 	RunData.money = 0
 	RunData.player_health = RunData.stats.max_player_health
 	UpgradesManager.current_upgrades.clear()

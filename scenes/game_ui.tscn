@@ -38,7 +38,7 @@ layout_mode = 2
 
 [node name="DayLabel" type="Label" parent="Layout/Info" unique_id=1175414367]
 layout_mode = 2
-text = "Day 1"
+text = "Week 1, Day 1"
 label_settings = ExtResource("1_djwj0")
 horizontal_alignment = 2
 script = ExtResource("1_u001w")
@@ -46,14 +46,23 @@ script = ExtResource("1_u001w")
 [node name="MoneyLabel" type="Label" parent="Layout/Info" unique_id=1811965428]
 layout_mode = 2
 theme = ExtResource("3_e0pfi")
+theme_override_colors/font_color = Color(0.9197332, 0.68036014, 1.1551381e-06, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 7
 text = "$0"
 horizontal_alignment = 2
 script = ExtResource("1_yubou")
 
 [node name="TimerLabel" type="Label" parent="Layout/Info" unique_id=1624639429 node_paths=PackedStringArray("timer")]
 layout_mode = 2
+theme = ExtResource("6_o3bws")
+theme_override_colors/font_shadow_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 7
 text = "0:00"
-label_settings = ExtResource("1_djwj0")
 horizontal_alignment = 2
 script = ExtResource("2_rns2u")
 timer = NodePath("Timer")

@@ -31,10 +31,10 @@ fallbacks=[]
 Compress=null
 compress=true
 preload=[{
-"chars": [],
+"chars": [36],
 "glyphs": [],
 "name": "New Configuration",
-"size": Vector2i(16, 0),
+"size": Vector2i(16, 16),
 &"variation_embolden": 0.0
 }]
 language_support={}
