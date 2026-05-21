@@ -1,0 +1,35 @@
+[gd_resource type="Theme" format=3 uid="uid://dxq1iwfqqk64s"]
+
+[ext_resource type="FontFile" uid="uid://c0o2fmfu3ws2e" path="res://fonts/Retro5.ttf" id="1_ybks7"]
+[ext_resource type="FontFile" uid="uid://bpe4d7416mucp" path="res://fonts/Retro4.ttf" id="2_o2ta1"]
+[ext_resource type="FontFile" uid="uid://cii5lx74hbeme" path="res://fonts/Retro2.ttf" id="3_o2ta1"]
+[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="4_jg5j1"]
+
+[sub_resource type="FontVariation" id="FontVariation_o2ta1"]
+base_font = ExtResource("3_o2ta1")
+spacing_top = -7
+
+[resource]
+BoldLabel/base_type = &"Label"
+BoldLabel/font_sizes/font_size = 32
+BoldLabel/fonts/font = ExtResource("1_ybks7")
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("2_o2ta1")
+CheckBox/colors/checkbox_checked_color = Color(1, 1, 1, 1)
+CheckBox/colors/checkbox_unchecked_color = Color(0, 0, 0, 1)
+CheckBox/constants/h_separation = 10
+CheckBox/fonts/font = ExtResource("2_o2ta1")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("2_o2ta1")
+MoneyButton/base_type = &"Button"
+MoneyButton/font_sizes/font_size = 32
+MoneyButton/fonts/font = SubResource("FontVariation_o2ta1")
+Panel/styles/panel = ExtResource("4_jg5j1")
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/normal_font = ExtResource("2_o2ta1")
+TinyLabel/base_type = &"RichTextLabel"
+TinyLabel/constants/line_separation = 7
+TinyLabel/font_sizes/font_size = 32
+TinyLabel/font_sizes/normal_font_size = 32
+TinyLabel/fonts/font = ExtResource("3_o2ta1")
+TinyLabel/fonts/normal_font = ExtResource("3_o2ta1")

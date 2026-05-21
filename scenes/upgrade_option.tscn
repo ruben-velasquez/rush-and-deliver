@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dh245rqn3t2p6"]
 
 [ext_resource type="Script" uid="uid://74e6pktsngf8" path="res://scripts/upgrade_option.gd" id="1_4noig"]
-[ext_resource type="Theme" uid="uid://bfck3uu58nkqx" path="res://Themes/money_theme.tres" id="2_4b4l4"]
-[ext_resource type="LabelSettings" uid="uid://jd6rkmvlmdsk" path="res://Themes/thin_label.tres" id="3_tlqjr"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="3_4b4l4"]
 
 [node name="UpgradeOption" type="HBoxContainer" unique_id=821656226 node_paths=PackedStringArray("purchase_button", "label")]
 offset_right = 370.0
@@ -16,13 +15,14 @@ label = NodePath("UpgradeName")
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("2_4b4l4")
+theme = ExtResource("3_4b4l4")
+theme_type_variation = &"MoneyButton"
 text = "$?"
 
 [node name="UpgradeName" type="Label" parent="." unique_id=1066972798]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 mouse_filter = 1
+theme = ExtResource("3_4b4l4")
 text = "Upgrade Name"
-label_settings = ExtResource("3_tlqjr")
 autowrap_mode = 3

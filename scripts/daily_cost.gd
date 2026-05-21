@@ -3,6 +3,8 @@ extends Object
 
 var name := ""
 var amount := 0
+var optional := false
+var active := true
 
 func calculate_cost() -> int:
 	return amount

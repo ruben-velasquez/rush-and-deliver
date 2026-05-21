@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://jbvay8bpua7p"]
 
 [ext_resource type="Texture2D" uid="uid://b7odf3tayqn8v" path="res://assets/package_properties_icons.png" id="1_2jlq2"]
-[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://Themes/popup_theme.tres" id="1_ll1fo"]
+[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="1_ll1fo"]
 [ext_resource type="Texture2D" uid="uid://dv0rhu8kpl5pi" path="res://assets/icon_fill.png" id="2_8jd6q"]
 [ext_resource type="Script" uid="uid://c7gf8xcdxld16" path="res://scripts/package_icon.gd" id="3_8jd6q"]
 [ext_resource type="Texture2D" uid="uid://lrpt8dw3fa4j" path="res://assets/icon_selected_outline.png" id="4_d0foq"]
-[ext_resource type="Theme" uid="uid://bfck3uu58nkqx" path="res://Themes/money_theme.tres" id="5_ll1fo"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="5_ll1fo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jd6q"]
 atlas = ExtResource("1_2jlq2")
@@ -56,6 +56,7 @@ theme_override_constants/separation = 8
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 theme = ExtResource("5_ll1fo")
+theme_type_variation = &"TinyLabel"
 bbcode_enabled = true
 text = "$1"
 fit_content = true

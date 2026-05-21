@@ -1,3 +1,4 @@
+class_name FlowButton
 extends Button
 
 enum ButtonType { LOAD_SCENE, EXIT_GAME, NEXT_DAY }

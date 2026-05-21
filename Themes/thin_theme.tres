@@ -1,7 +1,0 @@
-[gd_resource type="Theme" format=3 uid="uid://dxq1iwfqqk64s"]
-
-[ext_resource type="FontFile" uid="uid://bpe4d7416mucp" path="res://fonts/Retro4.ttf" id="1_m5o3c"]
-
-[resource]
-default_font = ExtResource("1_m5o3c")
-default_font_size = 32

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cft86kstfxmbc" path="res://scripts/scene_manager.gd" id="1_bqqt6"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="1_ekxnf"]
-[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://Themes/thin_theme.tres" id="2_bqqt6"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="2_bqqt6"]
 
 [node name="Scene" type="Node2D" unique_id=1615516784]
 script = ExtResource("1_bqqt6")

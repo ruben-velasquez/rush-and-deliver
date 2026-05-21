@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="1_ifh4c"]
 [ext_resource type="Script" uid="uid://bu8my4i183i63" path="res://scripts/day_ended_popup.gd" id="1_vrxb5"]
-[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://Themes/popup_theme.tres" id="2_ucxxj"]
-[ext_resource type="Theme" uid="uid://neqkt8wtm3g2" path="res://Themes/bold_theme.tres" id="3_eisdi"]
-[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://Themes/thin_theme.tres" id="4_pl7ld"]
+[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="2_ucxxj"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="4_pl7ld"]
 
 [node name="FinishPopup" type="Control" unique_id=537636974 node_paths=PackedStringArray("info")]
 layout_mode = 3
@@ -43,7 +42,8 @@ theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="Panel/VBoxContainer" unique_id=2116667913]
 layout_mode = 2
-theme = ExtResource("3_eisdi")
+theme = ExtResource("4_pl7ld")
+theme_type_variation = &"BoldLabel"
 text = "Day ended"
 horizontal_alignment = 1
 

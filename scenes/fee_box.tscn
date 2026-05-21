@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://knbfjcp2w4ee"]
+
+[ext_resource type="Script" uid="uid://dedichkbc1egf" path="res://scripts/fee_box.gd" id="1_t156k"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="2_wnnfb"]
+
+[node name="FeeBox" type="HBoxContainer" unique_id=1274787141 node_paths=PackedStringArray("checkbox", "title_label")]
+theme_override_constants/separation = 10
+script = ExtResource("1_t156k")
+checkbox = NodePath("CheckBox")
+title_label = NodePath("FeeTitle")
+
+[node name="CheckBox" type="CheckBox" parent="." unique_id=1100283397]
+layout_mode = 2
+theme = ExtResource("2_wnnfb")
+button_pressed = true
+
+[node name="FeeTitle" type="RichTextLabel" parent="." unique_id=223896791]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_wnnfb")
+bbcode_enabled = true
+text = "Food: [font=res://fonts/Retro5.ttf][color=red]-$15[/color][/font]"
+fit_content = true
+vertical_alignment = 1

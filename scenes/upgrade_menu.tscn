@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://dr4qd4cw401nu"]
 
 [ext_resource type="Script" uid="uid://cft86kstfxmbc" path="res://scripts/scene_manager.gd" id="1_ksfom"]
-[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://Themes/popup_theme.tres" id="2_0e30j"]
+[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="2_0e30j"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="3_0e30j"]
-[ext_resource type="LabelSettings" uid="uid://be0wqcvpuy1y4" path="res://Themes/bolder_label.tres" id="3_chbti"]
-[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://Themes/thin_theme.tres" id="4_ethjp"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="4_ethjp"]
 [ext_resource type="Script" uid="uid://yd5kqcmi4g3r" path="res://scripts/upgrades_shop.gd" id="4_ixicc"]
 [ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="5_6vqdt"]
-[ext_resource type="Theme" uid="uid://bfck3uu58nkqx" path="res://Themes/money_theme.tres" id="7_ethjp"]
-[ext_resource type="Theme" uid="uid://neqkt8wtm3g2" path="res://Themes/bold_theme.tres" id="9_he6dt"]
 [ext_resource type="Script" uid="uid://dlbw8osdkq0yw" path="res://scripts/sell_upgrades_menu.gd" id="10_3rs5v"]
 
 [node name="Scene" type="Node2D" unique_id=682139572]
@@ -48,8 +45,9 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="CanvasLayer/MainPanel/VBoxContainer" unique_id=2024790595]
 layout_mode = 2
+theme = ExtResource("4_ethjp")
+theme_type_variation = &"BoldLabel"
 text = "Menu"
-label_settings = ExtResource("3_chbti")
 horizontal_alignment = 1
 
 [node name="NextDayButton" type="Button" parent="CanvasLayer/MainPanel/VBoxContainer" unique_id=486614923]
@@ -93,8 +91,9 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=462385176]
 layout_mode = 2
+theme = ExtResource("4_ethjp")
+theme_type_variation = &"BoldLabel"
 text = "Upgrades"
-label_settings = ExtResource("3_chbti")
 horizontal_alignment = 1
 
 [node name="Upgrades" type="VBoxContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=1839415359]
@@ -106,7 +105,8 @@ script = ExtResource("4_ixicc")
 [node name="MoneyLabel" type="Label" parent="CanvasLayer" unique_id=1720780890]
 offset_right = 40.0
 offset_bottom = 23.0
-theme = ExtResource("7_ethjp")
+theme = ExtResource("4_ethjp")
+theme_type_variation = &"BoldLabel"
 text = "0$"
 script = ExtResource("5_6vqdt")
 
@@ -134,7 +134,8 @@ theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="CanvasLayer/SellPanel/Content" unique_id=1334090817]
 layout_mode = 2
-theme = ExtResource("9_he6dt")
+theme = ExtResource("4_ethjp")
+theme_type_variation = &"BoldLabel"
 text = "Inventory"
 horizontal_alignment = 1
 

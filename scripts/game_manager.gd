@@ -38,15 +38,13 @@ func end_day():
 	on_day_end.emit()
 	calculate_costs()
 	
+	SceneManager.instance.load_payment_scene()
+
+func pay_costs():
 	for fee in current_costs:
+		if !fee.active: continue
 		fee.on_pay()
 		give_money(-fee.calculate_cost())
-	
-	if RunData.money < 0:
-		ui_manager.show_game_over_screen()
-		reset()
-	else:
-		SceneManager.instance.load_payment_scene()
 
 func start_day():
 	if(RunData.current_day >= 5):
@@ -85,6 +83,6 @@ func get_estimated_costs() -> int:
 	for fee in daily_costs:
 		var _cost = fee.call() as DailyCost
 		
-		if _cost.should_appear():
+		if _cost.should_appear() and !_cost.optional:
 			total += _cost.calculate_cost()
 	return total

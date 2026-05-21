@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dj6euuai6mww2" path="res://scripts/upgrade_box.gd" id="1_8678i"]
 [ext_resource type="Texture2D" uid="uid://8lg7ih6s2ctc" path="res://assets/upgrades.png" id="2_tfxrb"]
-[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://Themes/thin_theme.tres" id="3_2eado"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="3_2eado"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8ffg"]
 atlas = ExtResource("2_tfxrb")

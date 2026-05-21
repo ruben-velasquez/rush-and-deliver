@@ -3,7 +3,7 @@ extends DailyCost
 
 func _init() -> void:
 	name = "Food"
-	amount = 13
+	amount = 10
 
 func should_appear() -> bool:
 	return true

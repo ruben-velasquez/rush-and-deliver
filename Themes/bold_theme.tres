@@ -1,7 +1,0 @@
-[gd_resource type="Theme" format=3 uid="uid://neqkt8wtm3g2"]
-
-[ext_resource type="FontFile" uid="uid://c0o2fmfu3ws2e" path="res://fonts/Retro5.ttf" id="1_0pt7r"]
-
-[resource]
-default_font = ExtResource("1_0pt7r")
-default_font_size = 32
