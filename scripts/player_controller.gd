@@ -12,7 +12,7 @@ var velocity_multiplier: float = 1.0
 
 signal on_crash
 
-var last_crash = -CRASH_COOLDOWN_MS
+var last_crash = 0
 const CRASH_COOLDOWN_MS = 2000
 
 var move = true
@@ -78,4 +78,7 @@ func _physics_process(delta: float) -> void:
 				
 				if Time.get_ticks_msec() - last_crash > CRASH_COOLDOWN_MS:
 					last_crash = Time.get_ticks_msec()
+					var tween = create_tween()
+					tween.tween_property($Sprite2D, "modulate", Color.BLUE, 1)
+					tween.tween_property($Sprite2D, "modulate", Color.WHITE, 1)
 					on_crash.emit()

@@ -84,7 +84,6 @@ func _process(_delta: float) -> void:
 func _create_npc() -> CarNPC:
 	var _npc = NPC_SCENE.instantiate() as CarNPC
 	_npc.parent = self
-	_npc.deactive()
 	add_child(_npc)
 	npcs.append(_npc)
 	return _npc
