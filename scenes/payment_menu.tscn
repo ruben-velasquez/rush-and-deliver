@@ -33,12 +33,14 @@ offset_bottom = 320.0
 theme_override_styles/panel = ExtResource("1_qbjwo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/Panel" unique_id=939547966]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -80.0
+offset_right = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10

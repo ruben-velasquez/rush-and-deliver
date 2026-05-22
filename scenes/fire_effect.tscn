@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dphw0rss60obn"]
+
+[ext_resource type="Texture2D" uid="uid://bqdbroirnbw5b" path="res://assets/smoke_particle.png" id="1_30xl0"]
+[ext_resource type="Material" uid="uid://cabrpjbipslu6" path="res://vfx/fire_particle_mat.tres" id="2_ax7f7"]
+
+[node name="FireEffect" type="GPUParticles2D" unique_id=1253190424]
+texture = ExtResource("1_30xl0")
+process_material = ExtResource("2_ax7f7")

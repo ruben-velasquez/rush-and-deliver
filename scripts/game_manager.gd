@@ -66,6 +66,9 @@ func reset():
 	RunData.player_health = RunData.stats.max_player_health
 	UpgradesManager.current_upgrades.clear()
 
+func player_died():
+	reset()
+	ui_manager.show_game_over_screen()
 
 func calculate_costs():
 	current_costs.clear()

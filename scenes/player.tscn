@@ -5,9 +5,19 @@
 [ext_resource type="Script" uid="uid://2mn5r1tr004p" path="res://scripts/player_input.gd" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://lm1gdhcbl0rq" path="res://scenes/smoke_effect.tscn" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://dcnjysto6eg78" path="res://scripts/player_health.gd" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://dphw0rss60obn" path="res://scenes/fire_effect.tscn" id="5_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://c0sxano5e42qc" path="res://scenes/explosion_effect.tscn" id="7_fjrip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(10, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(32, 0, 32, 32)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1824379071]
 collision_layer = 8
@@ -17,7 +27,7 @@ script = ExtResource("1_c08b3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1692927882]
 texture_filter = 1
-texture = ExtResource("2_qhqgy")
+texture = SubResource("AtlasTexture_tuyoq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1294073129]
 shape = SubResource("RectangleShape2D_qhqgy")
@@ -29,7 +39,17 @@ script = ExtResource("3_qhqgy")
 position = Vector2(0, -10)
 emitting = false
 
-[node name="PlayerHealth" type="Node2D" parent="." unique_id=692362014 node_paths=PackedStringArray("controller", "smoke_particles")]
+[node name="FireEffect" parent="." unique_id=1253190424 instance=ExtResource("5_tuyoq")]
+position = Vector2(0, -10)
+emitting = false
+
+[node name="PlayerHealth" type="Node2D" parent="." unique_id=692362014 node_paths=PackedStringArray("controller", "smoke_particles", "fire_particles", "explosion_vfx", "player_sprite")]
 script = ExtResource("5_qlg0r")
 controller = NodePath("..")
 smoke_particles = NodePath("../SmokeEffect")
+fire_particles = NodePath("../FireEffect")
+explosion_vfx = NodePath("../ExplosionEffect")
+player_exploded_sprite = SubResource("AtlasTexture_fjrip")
+player_sprite = NodePath("../Sprite2D")
+
+[node name="ExplosionEffect" parent="." unique_id=683551441 instance=ExtResource("7_fjrip")]

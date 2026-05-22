@@ -1,33 +1,9 @@
 [gd_scene format=3 uid="uid://lm1gdhcbl0rq"]
 
 [ext_resource type="Texture2D" uid="uid://bqdbroirnbw5b" path="res://assets/smoke_particle.png" id="1_j6h1q"]
-
-[sub_resource type="Curve" id="Curve_hgo5w"]
-_data = [Vector2(0.7432433, 0.77528095), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_oymn7"]
-curve = SubResource("Curve_hgo5w")
-
-[sub_resource type="Gradient" id="Gradient_kuilo"]
-offsets = PackedFloat32Array(0.3442623, 1)
-colors = PackedColorArray(0.32544085, 0.32544094, 0.3254407, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_81me7"]
-gradient = SubResource("Gradient_kuilo")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2586b"]
-lifetime_randomness = 0.08
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 5.52
-gravity = Vector3(0, 0, 0)
-radial_accel_min = 12.959997
-radial_accel_max = 28.349997
-color_ramp = SubResource("GradientTexture1D_81me7")
-alpha_curve = SubResource("CurveTexture_oymn7")
+[ext_resource type="Material" uid="uid://bccvi2xho4ove" path="res://vfx/smoke_particle_mat.tres" id="2_hgo5w"]
 
 [node name="SmokeEffect" type="GPUParticles2D" unique_id=1545635509]
 amount = 12
 texture = ExtResource("1_j6h1q")
-process_material = SubResource("ParticleProcessMaterial_2586b")
+process_material = ExtResource("2_hgo5w")

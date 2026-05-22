@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://glv0u6cts0iw"]
 
 [ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="1_iwahs"]
-[ext_resource type="Script" uid="uid://bu8my4i183i63" path="res://scripts/day_ended_popup.gd" id="1_wa2qn"]
+[ext_resource type="Script" uid="uid://bu8my4i183i63" path="res://scripts/game_over_popup.gd" id="1_wa2qn"]
 [ext_resource type="Script" uid="uid://cxft821be6h1g" path="res://scripts/restart_game_button.gd" id="2_61w2s"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="3_wa2qn"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="4_5i0af"]

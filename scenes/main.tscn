@@ -39,9 +39,10 @@ camera2D = NodePath("../Camera2D")
 [node name="TerrainManager" type="Node2D" parent="." unique_id=1426548566]
 script = ExtResource("4_ya4ey")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1219958642 node_paths=PackedStringArray("game_over_screen")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1219958642 node_paths=PackedStringArray("game_over_screen", "game_ui_overlay")]
 script = ExtResource("6_tipki")
 game_over_screen = NodePath("GameOverScreen")
+game_ui_overlay = NodePath("UI")
 
 [node name="UI" parent="CanvasLayer" unique_id=1845636788 instance=ExtResource("5_tbgi4")]
 
@@ -64,6 +65,6 @@ script = ExtResource("9_85g3d")
 position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_choun")
 
-[node name="NPCManager" type="Node2D" parent="." unique_id=1704955735 node_paths=PackedStringArray("terrain_manager")]
+[node name="NPCManager" type="Node2D" parent="." unique_id=670815891 node_paths=PackedStringArray("terrain_manager")]
 script = ExtResource("12_eb6dy")
 terrain_manager = NodePath("../TerrainManager")

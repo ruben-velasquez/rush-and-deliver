@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c0sxano5e42qc"]
+
+[ext_resource type="Texture2D" uid="uid://bqdbroirnbw5b" path="res://assets/smoke_particle.png" id="1_7i385"]
+[ext_resource type="Material" uid="uid://cc5g6rai5vvoy" path="res://vfx/explosion_particle_mat.tres" id="2_0gbiy"]
+
+[node name="ExplosionEffect" type="GPUParticles2D" unique_id=683551441]
+emitting = false
+amount = 30
+texture = ExtResource("1_7i385")
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.8
+process_material = ExtResource("2_0gbiy")

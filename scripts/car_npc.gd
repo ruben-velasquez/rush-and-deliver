@@ -17,6 +17,7 @@ var parent: NPCManager
 func _ready() -> void:
 	frontArea.body_entered.connect(func(_b): move = false)
 	frontArea.body_exited.connect(func(_b): move = true)
+	deactive()
 
 func _physics_process(delta: float) -> void:
 	var forward_input := 1 # W/S o flechas
