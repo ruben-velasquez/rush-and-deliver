@@ -63,6 +63,10 @@ func reset():
 	RunData.current_day = 1
 	RunData.current_week = 1
 	RunData.money = 0
+	
+	RunData.day_broken_packages = 0
+	RunData.day_late_packages = 0
+	
 	RunData.player_health = RunData.stats.max_player_health
 	UpgradesManager.current_upgrades.clear()
 
