@@ -34,7 +34,7 @@ func rebuild_stats():
 		upgrade.apply_stats()
 
 func add_upgrade(upgrade: Upgrade):
-	if unique_upgrades_quantity() >= RunData.stats.max_unique_upgrades: return
+	if upgrade.unique and unique_upgrades_quantity() >= RunData.stats.max_unique_upgrades: return
 	if RunData.money <  get_upgrade_price(upgrade): return
 	
 	GameManager.give_money(-get_upgrade_price(upgrade))
