@@ -46,10 +46,8 @@ layout_mode = 2
 theme = ExtResource("6_o3bws")
 theme_type_variation = &"BoldLabel"
 theme_override_colors/font_color = Color(0.9197332, 0.68036014, 1.1551381e-06, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 7
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 7
 text = "$0"
 horizontal_alignment = 2
 script = ExtResource("1_yubou")
@@ -73,7 +71,7 @@ one_shot = true
 layout_mode = 2
 theme = ExtResource("6_o3bws")
 bbcode_enabled = true
-text = "Estimated Costs: [font=res://fonts/Retro5.ttf]$19"
+text = "Estimated Costs: [color=RED][outline_size=7][outline_color=WHITE][font=res://fonts/Retro5.ttf]$19"
 fit_content = true
 horizontal_alignment = 2
 script = ExtResource("7_3huio")
