@@ -1,0 +1,265 @@
+[33mcommit 21d69dd8ce9f44d1bc55d1e64c47846d3b7645d2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Thu May 21 22:03:24 2026 -0300
+
+    feat!: add game over by explosion
+
+[33mcommit b565d2ff8f1e85a9fabaa6e73f8e7ce6bbcea42d[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Thu May 21 14:52:50 2026 -0300
+
+    fix: avoid receiving ghost damage when starting day
+
+[33mcommit a5375859cfb5a34e93015586c8bf096b3ae8149f[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Wed May 20 23:44:41 2026 -0300
+
+    feat: add optional daily costs
+
+[33mcommit 0f4caf333e73911362f56163358f092e615a3359[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Tue May 19 19:58:18 2026 -0300
+
+    feat: add weeks system
+
+[33mcommit 3790670169165503ced7336facedfb27eca6fbca[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 18 23:12:05 2026 -0300
+
+    feat: add estimated costs to the ui
+
+[33mcommit 046bc88f4ca28f33971fe8916a4d0fe369d75560[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 18 21:16:33 2026 -0300
+
+    feat: add smoke when the car is damaged
+
+[33mcommit a98b33b3a7ce3766ebae001f32f7030535e0ac1a[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 18 20:02:03 2026 -0300
+
+    feat: add an payment menu and remove the popup
+
+[33mcommit 987780fc62592882fcd83fbce6150eacfde75998[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 18 20:01:20 2026 -0300
+
+    feat: adjust daily costs
+
+[33mcommit 52bec6def9ed4776545b53db4bd450a2bd6eb323[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sun May 17 14:16:08 2026 -0300
+
+    feat: add ring shader for package deliver zone
+
+[33mcommit 02b8a38dad7f0097e69e108f5184b0fc286cd47f[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sun May 17 12:28:56 2026 -0300
+
+    fix: prevent buying unique upgrades when package capacity is full
+
+[33mcommit b76bf746f924cbc56c0bad30cedc2f019fe89be9[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sat May 16 22:06:57 2026 -0300
+
+    feat: add selling upgrades
+
+[33mcommit 3cf06f363c56fc17a3f307708be3ce2d18ffaf52[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Fri May 15 21:46:28 2026 -0300
+
+    fix(ui): tweak upgrades menu
+
+[33mcommit 867639849923fdf10d61007f375b5b9eb757ae31[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Fri May 15 20:40:54 2026 -0300
+
+    fix(ui): change money font configuration
+
+[33mcommit b1a2e29f2199d26caaef5131e93537a3b0ee62f2[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Fri May 15 20:29:18 2026 -0300
+
+    feat(ui): add pixel fonts for menus
+
+[33mcommit 92c52a2fa2f1112b6838167b05cea38d837ed5d4[m
+Merge: 1d1977e 0f47d61
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Fri May 15 18:56:18 2026 -0300
+
+    Merge branch 'main' of https://github.com/ruben-velasquez/rush-and-deliver
+
+[33mcommit 1d1977ed780d6e17d187c0a9926354e144394e0d[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Thu May 14 23:35:56 2026 -0300
+
+    feat: add upgrades list to the ui
+
+[33mcommit 0f47d618e955b695da3d9e087fcb125a64335cba[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Thu May 14 23:35:56 2026 -0300
+
+    feat: add upgrades list to the ui
+
+[33mcommit 7070d5faaff7990937870fcc12c17d8bc88c5747[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Thu May 14 20:15:20 2026 -0300
+
+    fix: make reward labels of packages work
+
+[33mcommit 5b84c33511c2441785e3c12af22a303fdd0b6614[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Thu May 14 20:09:51 2026 -0300
+
+    feat: simplify packages ui with icons
+
+[33mcommit 39fa5a7d8daff737be1675edd9f032f211e5ef2f[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Tue May 12 23:46:42 2026 -0300
+
+    feat: improve upgrades system and add new upgrades
+
+[33mcommit 3837ca8efcb3a57752ce31cb4d5d5e99ca753eef[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Tue May 12 22:30:11 2026 -0300
+
+    feat: add run stats object and speed upgrade
+
+[33mcommit 5c4ed807797a4037d6e8eaf815868725862d8d8f[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Tue May 12 18:51:36 2026 -0300
+
+    feat: add late packages fee
+
+[33mcommit 92cb8e548b31ae9ef127e713e32a352e54c72688[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 11 23:42:02 2026 -0300
+
+    feat: add daily costs core system
+
+[33mcommit 582ae2520e5355985131472fa33dd9749c465ce3[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 11 22:21:26 2026 -0300
+
+    feat: add upgrades shop system
+
+[33mcommit 244d09a7be5b774b3fb01141d52bfc46ebb45229[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 11 18:44:27 2026 -0300
+
+    fix: make upgrades cost money and give feedback
+
+[33mcommit e33bde05feee655382a439d4c6e8ac9e2f4170b2[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sun May 10 22:41:32 2026 -0300
+
+    feat: create upgrades system
+
+[33mcommit 62a5bc7a7a182ef63c5752e1b484b488d6548d1d[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Fri May 8 23:42:53 2026 -0300
+
+    feat: add upgrades menu
+
+[33mcommit 2f80f4ac5660abc104fb3ab875d01b18b40e1e6c[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Fri May 8 20:52:25 2026 -0300
+
+    fix: update day stat when the timer ends
+
+[33mcommit 0c1b546dc5d4177df9c232f828c7d5e54639f37b[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Thu May 7 21:11:56 2026 -0300
+
+    fix: force ui change when package is failed
+
+[33mcommit 0232dfec2d1bd273a9e3476416adda4b537c115f[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Thu May 7 21:03:15 2026 -0300
+
+    feat: add main menu
+
+[33mcommit 3859a1658bf905c25e632f6db1820e2faa14c45c[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Thu May 7 20:21:15 2026 -0300
+
+    feat: add fragile crash behaviour
+
+[33mcommit cda107471c07bdf04796edf42282e6c25bb6f751[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Wed May 6 23:47:12 2026 -0300
+
+    fix: tweak traffic system
+
+[33mcommit 09af9ba1657d0a933ad21786433998a4681ca2e3[m
+Merge: 4b937e1 c1248bd
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 4 23:58:28 2026 -0300
+
+    Merge branch 'main' of https://github.com/ruben-velasquez/rush-and-deliver
+
+[33mcommit 4b937e1dc792c5947794b39f0458f542c5889fde[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 4 20:44:52 2026 -0300
+
+    feat: add game over menu
+
+[33mcommit c1248bdaee7868e05bce60fe55629d0ffa2e095b[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 4 20:44:52 2026 -0300
+
+    feat: add game over menu
+
+[33mcommit 5b542cc97d2270ad0ac368eb96653a7a9b17c7cb[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Mon May 4 19:18:09 2026 -0300
+
+    feat: add custom data to the day ended popup
+
+[33mcommit 37604edcc1abef67d2af37f75d665fd155272952[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sun May 3 23:44:44 2026 -0300
+
+    feat: add package aditional info to ui
+
+[33mcommit 4d41631c4f522d9e7d3ecbfe788929b52b611740[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sun May 3 21:23:04 2026 -0300
+
+    feat: add package manager
+
+[33mcommit 78ca3362adc9f0fd7ca49e057a8309c3c47525fc[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sun May 3 19:58:50 2026 -0300
+
+    feat: improved terrain management
+
+[33mcommit a0da4e02a8212aeadc2c43ab95d8087a9f257142[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sat May 2 21:21:40 2026 -0300
+
+    feat: add terrain manager
+
+[33mcommit b9ea9f47e8602f7ca7f0b40f16aed566813a6b98[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sat May 2 13:51:27 2026 -0300
+
+    feat: add advice when all packages are done
+
+[33mcommit f5fd92f06a81a6be3d4e69cc701fe8118c0a7a33[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sat May 2 13:22:00 2026 -0300
+
+    feat: add area to restore packages
+
+[33mcommit 8baac9bef601d2a0885ef9fe61b701276664986d[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sat May 2 12:35:16 2026 -0300
+
+    feat: add distance indicator to goal
+
+[33mcommit e323b1ce373e97c0eaa1793cba992b1b2ace2b7f[m
+Author: ruben-velasquez <rualvemo@hotmail.com>
+Date:   Sat May 2 11:51:27 2026 -0300
+
+    First commit
