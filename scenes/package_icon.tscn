@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dv0rhu8kpl5pi" path="res://assets/icon_fill.png" id="2_8jd6q"]
 [ext_resource type="Script" uid="uid://c7gf8xcdxld16" path="res://scripts/package_icon.gd" id="3_8jd6q"]
 [ext_resource type="Texture2D" uid="uid://lrpt8dw3fa4j" path="res://assets/icon_selected_outline.png" id="4_d0foq"]
+[ext_resource type="Texture2D" uid="uid://dmv4dbd0o4x4a" path="res://assets/distance_info_pill.png" id="5_2kc2y"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="5_ll1fo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jd6q"]
@@ -23,49 +24,90 @@ region = Rect2(32, 32, 16, 16)
 atlas = ExtResource("1_2jlq2")
 region = Rect2(96, 32, 16, 16)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7uks"]
+texture = ExtResource("5_2kc2y")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_djwj0"]
 atlas = ExtResource("1_2jlq2")
 region = Rect2(0, 32, 16, 16)
 
-[node name="Panel" type="Panel" unique_id=1816813380 node_paths=PackedStringArray("progress_bar", "reward_label")]
-custom_minimum_size = Vector2(80, 32)
+[node name="Panel" type="Panel" unique_id=1816813380 node_paths=PackedStringArray("progress_bar", "reward_label", "distance_pill", "distance_label")]
+custom_minimum_size = Vector2(63.57, 32)
 offset_left = 9.0
 offset_top = 32.0
 offset_right = 73.0
 offset_bottom = 64.0
 theme_override_styles/panel = ExtResource("1_ll1fo")
 script = ExtResource("3_8jd6q")
-progress_bar = NodePath("HBoxContainer/PackageIcon")
-reward_label = NodePath("HBoxContainer/Reward")
+progress_bar = NodePath("PackageIcon")
+reward_label = NodePath("Reward")
+distance_pill = NodePath("Panel")
+distance_label = NodePath("Panel/Distance")
 fragile_icon = SubResource("AtlasTexture_8jd6q")
 heavy_icon = SubResource("AtlasTexture_d0foq")
 urgent_icon = SubResource("AtlasTexture_tomo5")
 normal_icon = SubResource("AtlasTexture_ll1fo")
 seleted_outline = ExtResource("4_d0foq")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=842972389]
+[node name="Panel" type="Panel" parent="." unique_id=1530743670]
+self_modulate = Color(0.23529412, 0.26666668, 1, 1)
+layout_mode = 0
+offset_left = -44.0
+offset_right = 4.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_m7uks")
+
+[node name="Distance" type="RichTextLabel" parent="Panel" unique_id=102438205]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -16.5
+offset_right = 22.0
+offset_bottom = 16.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 8
+theme = ExtResource("5_ll1fo")
+theme_type_variation = &"TinyLabel"
+bbcode_enabled = true
+text = "100mt"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Reward" type="RichTextLabel" parent="HBoxContainer" unique_id=104473162]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
+[node name="Reward" type="RichTextLabel" parent="." unique_id=104473162]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -16.5
+offset_right = 32.0
+offset_bottom = 16.5
+grow_vertical = 2
 theme = ExtResource("5_ll1fo")
 theme_type_variation = &"TinyLabel"
 bbcode_enabled = true
 text = "$1"
 fit_content = true
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PackageIcon" type="TextureProgressBar" parent="HBoxContainer" unique_id=1394721140]
+[node name="PackageIcon" type="TextureProgressBar" parent="." unique_id=1394721140]
 custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
 fill_mode = 4
 nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_djwj0")
