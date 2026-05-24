@@ -119,6 +119,9 @@ func _spawn_npc(direction: Direction, chunk_offset = Vector2i.ZERO):
 	_npc.velocity = Vector2.ZERO
 	_npc.spawned_time_ms = Time.get_ticks_msec()
 	_npc.global_position = (Vector2(_target_chunk) * terrain_manager.CHUNK_SIZE) + (Vector2.ONE * STREET_CHUNK_OFFSET) +_offset
+	
+	await get_tree().create_timer(0.1).timeout
+	
 	_npc.activate()
 	
 func return_entity(npc: CarNPC):
