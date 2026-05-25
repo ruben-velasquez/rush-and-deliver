@@ -3,8 +3,11 @@ class_name PlayerController
 
 var _PackagesManager: PackagesManager
 
+@export var drift_particles: Array[GPUParticles2D]
+
 const ACCELERATION = 400.0
 const MAX_SPEED = 200.0
+const MIN_DRIFT_SPEED = 60.0
 const FRICTION = 600.0
 const ROTATION_SPEED = 3.0
 
@@ -52,7 +55,14 @@ func _physics_process(delta: float) -> void:
 	# --- Movimiento en dirección del auto ---
 	desired_velocity = -transform.y * _speed * velocity_multiplier * RunData.stats.speed_multiplier
 	
-	velocity = lerp(velocity, desired_velocity, 0.2)
+	if Input.is_action_pressed("drift"):
+		print(velocity.length())
+		set_drift_particles(velocity.length() >= MIN_DRIFT_SPEED and turn_input != 0)
+		velocity *= 0.99
+		velocity = lerp(velocity, desired_velocity, delta * 1.1)
+	else:
+		set_drift_particles(false)
+		velocity = lerp(velocity, desired_velocity, 0.2)
 	
 	camera2D.rotation = rotation
 	camera2D.position = position
@@ -80,3 +90,7 @@ func _physics_process(delta: float) -> void:
 				if Time.get_ticks_msec() - last_crash > CRASH_COOLDOWN_MS:
 					last_crash = Time.get_ticks_msec()
 					on_crash.emit()
+
+func set_drift_particles(active: bool):
+	for p in drift_particles:
+			p.emitting = active

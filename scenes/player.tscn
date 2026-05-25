@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dcnjysto6eg78" path="res://scripts/player_health.gd" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dphw0rss60obn" path="res://scenes/fire_effect.tscn" id="5_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://c0sxano5e42qc" path="res://scenes/explosion_effect.tscn" id="7_fjrip"]
+[ext_resource type="PackedScene" uid="uid://bbn8yliy4afrb" path="res://scenes/drift_effect.tscn" id="8_smehm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
@@ -19,11 +20,12 @@ size = Vector2(10, 20)
 atlas = ExtResource("2_qhqgy")
 region = Rect2(32, 0, 32, 32)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1824379071]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1824379071 node_paths=PackedStringArray("drift_particles")]
 collision_layer = 8
 collision_mask = 17
 motion_mode = 1
 script = ExtResource("1_c08b3")
+drift_particles = [NodePath("DriftEffectRight"), NodePath("DriftEffectLeft")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1692927882]
 texture_filter = 1
@@ -53,3 +55,9 @@ player_exploded_sprite = SubResource("AtlasTexture_fjrip")
 player_sprite = NodePath("../Sprite2D")
 
 [node name="ExplosionEffect" parent="." unique_id=683551441 instance=ExtResource("7_fjrip")]
+
+[node name="DriftEffectRight" parent="." unique_id=1079323208 instance=ExtResource("8_smehm")]
+position = Vector2(4, 10)
+
+[node name="DriftEffectLeft" parent="." unique_id=1010994282 instance=ExtResource("8_smehm")]
+position = Vector2(-4, 10)

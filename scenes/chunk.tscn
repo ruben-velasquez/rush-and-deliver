@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://bb5doh4esds4x" path="res://tilesets/city.tres" id="1_jas4a"]
 
 [node name="Chunk" type="Node2D" unique_id=1153845552]
+z_index = -10
 
 [node name="Details" type="TileMapLayer" parent="." unique_id=1756948084]
 tile_set = ExtResource("1_jas4a")
