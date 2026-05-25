@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cj1ia7th805s7"]
+
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="1_vqah5"]
+[ext_resource type="Script" uid="uid://vkj78sej0rg8" path="res://scripts/floating_text.gd" id="2_ki2nc"]
+
+[node name="FloatingText" type="RichTextLabel" unique_id=1142558542]
+custom_minimum_size = Vector2(28, 33)
+offset_left = 34.0
+offset_top = 5.0
+offset_right = 62.0
+offset_bottom = 38.0
+theme = ExtResource("1_vqah5")
+theme_type_variation = &"TinyLabel"
+theme_override_colors/font_outline_color = Color(0.95686275, 0, 0, 1)
+theme_override_constants/outline_size = 7
+bbcode_enabled = true
+text = "+6$"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_ki2nc")

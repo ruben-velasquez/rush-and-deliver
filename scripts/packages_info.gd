@@ -29,7 +29,7 @@ func _ready() -> void:
 		icons_parent.add_child(icon)
 
 	GameManager.packages_manager.on_swap_package.connect(update_current_package)
-	GameManager.packages_manager.on_package_delivered.connect(update_icons)
+	GameManager.packages_manager.on_package_delivered.connect(update_icons.unbind(1))
 	GameManager.on_money_updated.connect(update_done_packages)
 	_player = GameManager.player
 	update_current_package()

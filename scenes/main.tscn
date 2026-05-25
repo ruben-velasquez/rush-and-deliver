@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://glv0u6cts0iw" path="res://scenes/game_over_screen.tscn" id="9_ya4ey"]
 [ext_resource type="Script" uid="uid://cec300ysgspdf" path="res://scripts/packages_manager.gd" id="10_choun"]
 [ext_resource type="Script" uid="uid://bw38c3un7qoy" path="res://scripts/npc_manager.gd" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://bs7ahf0gpbhfj" path="res://scripts/floating_text_factory.gd" id="12_trceg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
 atlas = ExtResource("8_tipki")
@@ -68,3 +69,8 @@ shape = SubResource("RectangleShape2D_choun")
 [node name="NPCManager" type="Node2D" parent="." unique_id=670815891 node_paths=PackedStringArray("terrain_manager")]
 script = ExtResource("12_eb6dy")
 terrain_manager = NodePath("../TerrainManager")
+
+[node name="FloatingTextFactory" type="Node" parent="." unique_id=958548282 node_paths=PackedStringArray("camera")]
+script = ExtResource("12_trceg")
+camera = NodePath("../Camera2D")
+metadata/_custom_type_script = "uid://bs7ahf0gpbhfj"

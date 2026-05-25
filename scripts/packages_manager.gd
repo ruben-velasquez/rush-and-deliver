@@ -7,8 +7,9 @@ var currentPackage: int = 0
 var restore_area: Area2D
 
 signal on_swap_package
-signal on_package_delivered
-signal on_fail_package
+signal on_package_delivered(package: Package)
+signal on_fail_package(package: Package)
+signal on_late_package
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 				package.reward /= 2
 				RunData.day_late_packages += 1
 				on_swap_package.emit()
+				on_late_package.emit()
 		
 		if is_heavy(package) and is_current_package(package):
 			GameManager.player.velocity_multiplier = package.weight_multiplier
@@ -44,7 +46,7 @@ func deliver(package: Package):
 	if is_current_package(package):
 		next_package()
 	
-	on_package_delivered.emit()
+	on_package_delivered.emit(package)
 
 func fail(package: Package):
 	package.failed = true
@@ -56,7 +58,7 @@ func fail(package: Package):
 		next_package()
 	
 	on_swap_package.emit()
-	on_fail_package.emit()
+	on_fail_package.emit(package)
 
 func generate_packages():
 	currentPackage = 0

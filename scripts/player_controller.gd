@@ -11,6 +11,7 @@ const ROTATION_SPEED = 3.0
 var velocity_multiplier: float = 1.0
 
 signal on_crash
+signal on_engine_damaged
 
 var last_crash = 0
 const CRASH_COOLDOWN_MS = 2000

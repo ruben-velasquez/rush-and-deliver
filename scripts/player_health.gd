@@ -1,3 +1,4 @@
+class_name PlayerHealth
 extends Node2D
 
 @export var controller: PlayerController
@@ -19,6 +20,8 @@ func on_player_crash():
 		if RunData.player_health < 0:
 			die()
 		else:
+			if !smoke_particles.emitting:
+				controller.on_engine_damaged.emit()
 			smoke_particles.emitting = true
 
 func die():
