@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://b234bio8he2ee" path="res://scripts/player_controller.gd" id="1_c08b3"]
 [ext_resource type="Texture2D" uid="uid://bcosrwwjioh0j" path="res://assets/player.png" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://2mn5r1tr004p" path="res://scripts/player_input.gd" id="3_qhqgy"]
+[ext_resource type="Shader" uid="uid://g7i3rrp700qw" path="res://shaders/shadow_2d.gdshader" id="3_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://lm1gdhcbl0rq" path="res://scenes/smoke_effect.tscn" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://c0suppv4vo2cy" path="res://scenes/object_shadow.gd" id="4_y4r1p"]
 [ext_resource type="Script" uid="uid://dcnjysto6eg78" path="res://scripts/player_health.gd" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dphw0rss60obn" path="res://scenes/fire_effect.tscn" id="5_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://c0sxano5e42qc" path="res://scenes/explosion_effect.tscn" id="7_fjrip"]
@@ -12,6 +14,15 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4r1p"]
+shader = ExtResource("3_ur7pv")
+shader_parameter/light_dir = Vector2(0, 0)
+shader_parameter/samples = 16
+shader_parameter/upscale = 1.0
+shader_parameter/useAtlas = true
+shader_parameter/clampX = Vector2(0, 0.5)
+shader_parameter/clampY = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(10, 20)
@@ -30,6 +41,14 @@ drift_particles = [NodePath("DriftEffectRight"), NodePath("DriftEffectLeft")]
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1692927882]
 texture_filter = 1
 texture = SubResource("AtlasTexture_tuyoq")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1102525197]
+z_index = -1
+texture_filter = 1
+texture_repeat = 1
+material = SubResource("ShaderMaterial_y4r1p")
+texture = SubResource("AtlasTexture_tuyoq")
+script = ExtResource("4_y4r1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1294073129]
 shape = SubResource("RectangleShape2D_qhqgy")

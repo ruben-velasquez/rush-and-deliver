@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://b1vevqrdk5ve2"]
 
 [ext_resource type="Script" uid="uid://ccpwcn2s1fby7" path="res://scripts/car_npc.gd" id="1_7vpoj"]
-[ext_resource type="Texture2D" uid="uid://48ternfo7x0u" path="res://assets/tilemap_packed.png" id="1_rbgec"]
+[ext_resource type="Texture2D" uid="uid://bu1y1tggmr67k" path="res://assets/npc_001.png" id="2_6eemc"]
+[ext_resource type="Shader" uid="uid://g7i3rrp700qw" path="res://shaders/shadow_2d.gdshader" id="3_6eemc"]
+[ext_resource type="Script" uid="uid://c0suppv4vo2cy" path="res://scenes/object_shadow.gd" id="4_worr6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7vpoj"]
-atlas = ExtResource("1_rbgec")
-region = Rect2(320, 264, 16, 24)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4r1p"]
+shader = ExtResource("3_6eemc")
+shader_parameter/light_dir = Vector2(0, 0)
+shader_parameter/samples = 16
+shader_parameter/upscale = 2.0
+shader_parameter/useAtlas = false
+shader_parameter/clampX = Vector2(0, 1)
+shader_parameter/clampY = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfpyo"]
 size = Vector2(16, 22)
@@ -21,7 +28,16 @@ script = ExtResource("1_7vpoj")
 frontArea = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1282508017]
-texture = SubResource("AtlasTexture_7vpoj")
+texture = ExtResource("2_6eemc")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1048166385]
+z_index = -1
+texture_filter = 1
+texture_repeat = 1
+material = SubResource("ShaderMaterial_y4r1p")
+scale = Vector2(2, 2)
+texture = ExtResource("2_6eemc")
+script = ExtResource("4_worr6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=977812907]
 position = Vector2(0, 1)

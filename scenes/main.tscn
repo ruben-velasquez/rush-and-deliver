@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://fxlrtqte8oud" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cft86kstfxmbc" path="res://scripts/scene_manager.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://b3c2ng5umu2am" path="res://scripts/shadows_viewport.gd" id="2_trceg"]
 [ext_resource type="PackedScene" uid="uid://epksm7wec32o" path="res://scenes/arrow.tscn" id="4_tefeu"]
 [ext_resource type="Script" uid="uid://ggsvm7coxewq" path="res://scripts/terrain_manager.gd" id="4_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://y57ny3m78jgd" path="res://scenes/game_ui.tscn" id="5_tbgi4"]
@@ -22,8 +23,26 @@ region = Rect2(128, 48, 48, 48)
 [node name="Scene" type="Node2D" unique_id=128191525]
 script = ExtResource("1_sugp2")
 
-[node name="PackagesManager" type="Node2D" parent="." unique_id=1281814035]
-script = ExtResource("10_choun")
+[node name="ShadowsViewportContainer" type="SubViewportContainer" parent="." unique_id=725039573 node_paths=PackedStringArray("subviewport", "camera")]
+self_modulate = Color(1, 1, 1, 0.39215687)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 750.0
+offset_bottom = 750.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_trceg")
+subviewport = NodePath("SubViewport")
+camera = NodePath("../Camera2D")
+
+[node name="SubViewport" type="SubViewport" parent="ShadowsViewportContainer" unique_id=747489594]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(750, 750)
+render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1021496526]
 texture_filter = 1
@@ -31,6 +50,9 @@ ignore_rotation = false
 limit_enabled = false
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="PackagesManager" type="Node2D" parent="." unique_id=1281814035]
+script = ExtResource("10_choun")
 
 [node name="Player" parent="." unique_id=1824379071 node_paths=PackedStringArray("camera2D") instance=ExtResource("1_o5qli")]
 camera2D = NodePath("../Camera2D")
