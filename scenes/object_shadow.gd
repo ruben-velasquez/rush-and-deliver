@@ -11,6 +11,9 @@ func _ready() -> void:
 	ShadowsViewport.instance.append_shadow(self)
 
 func _process(_delta: float) -> void:
+	if !_owner.visible: return hide()
+	else: show()
+	
 	global_position = _owner.global_position + pos_offset
 	global_rotation = _owner.global_rotation
 	
