@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8ffg"]
 atlas = ExtResource("2_tfxrb")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 32, 16, 16)
 
 [node name="UpgradeBox" type="HBoxContainer" unique_id=1624295092 node_paths=PackedStringArray("icon_rect", "sell_button")]
 script = ExtResource("1_8678i")
@@ -17,7 +17,7 @@ sell_button = NodePath("SellButton")
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = SubResource("AtlasTexture_h8ffg")
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="SellButton" type="Button" parent="." unique_id=1900350339]
 layout_mode = 2

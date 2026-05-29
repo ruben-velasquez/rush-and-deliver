@@ -3,6 +3,7 @@ extends Node
 
 @export var purchase_button: Button
 @export var label: Label
+@export var texture: TextureRect
 
 var _upgrade: Upgrade
 
@@ -13,6 +14,7 @@ func setup(_u: Upgrade):
 	label.text = _upgrade.name
 	label.tooltip_text = _upgrade.get_description()
 	purchase_button.text = "$%s" % UpgradesManager.get_upgrade_price(_upgrade)
+	texture.texture = UpgradesManager.get_icon(_u.id)
 	
 	measure_availability()
 	UpgradesManager.on_upgrades_change.connect(measure_availability)

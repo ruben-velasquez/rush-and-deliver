@@ -2,14 +2,20 @@
 
 [ext_resource type="Script" uid="uid://74e6pktsngf8" path="res://scripts/upgrade_option.gd" id="1_4noig"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="3_4b4l4"]
+[ext_resource type="Texture2D" uid="uid://8lg7ih6s2ctc" path="res://assets/upgrades.png" id="3_tlqjr"]
 
-[node name="UpgradeOption" type="HBoxContainer" unique_id=821656226 node_paths=PackedStringArray("purchase_button", "label")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm8do"]
+atlas = ExtResource("3_tlqjr")
+region = Rect2(0, 32, 16, 16)
+
+[node name="UpgradeOption" type="HBoxContainer" unique_id=821656226 node_paths=PackedStringArray("purchase_button", "label", "texture")]
 offset_right = 370.0
 offset_bottom = 26.0
 size_flags_horizontal = 4
 script = ExtResource("1_4noig")
 purchase_button = NodePath("PurchaseButton")
 label = NodePath("UpgradeName")
+texture = NodePath("TextureRect")
 
 [node name="PurchaseButton" type="Button" parent="." unique_id=2109010948]
 custom_minimum_size = Vector2(50, 0)
@@ -26,3 +32,9 @@ mouse_filter = 1
 theme = ExtResource("3_4b4l4")
 text = "Upgrade Name"
 autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1129989655]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_rm8do")
+stretch_mode = 5
