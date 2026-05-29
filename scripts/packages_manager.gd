@@ -22,6 +22,8 @@ func _late_ready():
 	GameManager.player.on_crash.connect(on_player_crash)
 
 func _process(delta: float) -> void:
+	if GameManager.current_timer.is_stopped(): return
+	
 	GameManager.player.velocity_multiplier = 1.0
 	
 	for package in packages:

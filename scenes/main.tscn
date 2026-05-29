@@ -10,9 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://48ternfo7x0u" path="res://assets/tilemap_packed.png" id="8_tipki"]
 [ext_resource type="Script" uid="uid://dr2pxsmitidol" path="res://scripts/restore_area.gd" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://glv0u6cts0iw" path="res://scenes/game_over_screen.tscn" id="9_ya4ey"]
+[ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="10_a8y0u"]
 [ext_resource type="Script" uid="uid://cec300ysgspdf" path="res://scripts/packages_manager.gd" id="10_choun"]
+[ext_resource type="Script" uid="uid://q546cou1t8hm" path="res://scripts/intro_screen.gd" id="10_jkv2x"]
 [ext_resource type="Script" uid="uid://bw38c3un7qoy" path="res://scripts/npc_manager.gd" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://bs7ahf0gpbhfj" path="res://scripts/floating_text_factory.gd" id="12_trceg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkv2x"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
 atlas = ExtResource("8_tipki")
@@ -71,6 +76,49 @@ game_ui_overlay = NodePath("UI")
 
 [node name="GameOverScreen" parent="CanvasLayer" unique_id=2100203153 instance=ExtResource("9_ya4ey")]
 visible = false
+
+[node name="IntroScreen" type="Control" parent="CanvasLayer" unique_id=1527708844 node_paths=PackedStringArray("info_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("10_jkv2x")
+info_label = NodePath("Panel/RichTextLabel")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/IntroScreen" unique_id=1391393487]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("10_a8y0u")
+theme_override_styles/panel = SubResource("StyleBoxFlat_jkv2x")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/IntroScreen/Panel" unique_id=2067867874]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "Week 1, day 1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ShippingOffice" type="Node2D" parent="." unique_id=1366728674]
 position = Vector2(352, 136)

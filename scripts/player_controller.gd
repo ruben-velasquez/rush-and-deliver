@@ -19,7 +19,7 @@ signal on_engine_damaged
 var last_crash = 0
 const CRASH_COOLDOWN_MS = 2000
 
-var move = true
+var move = false
 var _speed := 0.0
 
 @export var camera2D: Camera2D

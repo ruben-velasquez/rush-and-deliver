@@ -7,6 +7,7 @@ const GREEN_COLOR = "#57b069"
 func _ready() -> void:
 	update_estimated()
 	GameManager.packages_manager.on_fail_package.connect(update_estimated)
+	GameManager.packages_manager.on_late_package.connect(update_estimated)
 	GameManager.player.on_crash.connect(update_estimated)
 	GameManager.on_money_updated.connect(update_estimated)
 
