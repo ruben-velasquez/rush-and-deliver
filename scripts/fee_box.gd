@@ -12,7 +12,7 @@ func setup(_fee: DailyCost, _menu: PaymentMenu):
 	fee = _fee
 	payment_menu = _menu
 	
-	title_label.text =  "%s: [font=%s][color=red]-%s$[/color][/font]\n" % [fee.name.capitalize(), MONEY_FONT, fee.calculate_cost()]
+	title_label.text =  "%s: [font=%s][color=red]-%s$[/color][/font]\n" % [fee.get_name().capitalize(), MONEY_FONT, fee.calculate_cost()]
 	
 	if fee.optional:
 		checkbox.button_pressed = false

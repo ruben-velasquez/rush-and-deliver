@@ -10,3 +10,6 @@ func calculate_cost() -> int:
 
 func should_appear() -> bool:
 	return RunData.day_late_packages > 0
+
+func get_name() -> String:
+	return "%s (%s)" % [name, RunData.day_late_packages]

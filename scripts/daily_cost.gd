@@ -6,6 +6,9 @@ var amount := 0
 var optional := false
 var active := true
 
+func get_name() -> String:
+	return name
+
 func calculate_cost() -> int:
 	return amount
 
