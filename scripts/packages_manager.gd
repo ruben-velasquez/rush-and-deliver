@@ -1,7 +1,7 @@
 extends Node2D
 class_name PackagesManager
 
-const GOAL_SCENE = preload("res://scenes/goal.tscn")
+@export var GOAL_SCENE: PackedScene
 var packages: Array[Package]
 var currentPackage: int = 0
 var restore_area: Area2D

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ChunksContentDB" format=3 uid="uid://cht644rjc7pa6"]
+
+[ext_resource type="Script" uid="uid://lnwien7afuhy" path="res://scripts/chunks_content_db.gd" id="1_soeuv"]
+[ext_resource type="PackedScene" uid="uid://bopksnr8qvgy1" path="res://scenes/chunks/chunk_001.tscn" id="1_vjlsp"]
+[ext_resource type="PackedScene" uid="uid://y38j5upw2a3u" path="res://scenes/chunks/chunk_002.tscn" id="2_kturn"]
+
+[resource]
+script = ExtResource("1_soeuv")
+elements = Dictionary[String, PackedScene]({
+"001": ExtResource("1_vjlsp"),
+"002": ExtResource("2_kturn")
+})

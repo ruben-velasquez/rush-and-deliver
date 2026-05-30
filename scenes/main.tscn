@@ -3,12 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://fxlrtqte8oud" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cft86kstfxmbc" path="res://scripts/scene_manager.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://b3c2ng5umu2am" path="res://scripts/shadows_viewport.gd" id="2_trceg"]
+[ext_resource type="PackedScene" uid="uid://ch77lxuil43wi" path="res://scenes/goal.tscn" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://epksm7wec32o" path="res://scenes/arrow.tscn" id="4_tefeu"]
 [ext_resource type="Script" uid="uid://ggsvm7coxewq" path="res://scripts/terrain_manager.gd" id="4_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://y57ny3m78jgd" path="res://scenes/game_ui.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://kceeym4xm35y" path="res://scripts/ui_manager.gd" id="6_tipki"]
-[ext_resource type="Texture2D" uid="uid://48ternfo7x0u" path="res://assets/tilemap_packed.png" id="8_tipki"]
-[ext_resource type="Script" uid="uid://dr2pxsmitidol" path="res://scripts/restore_area.gd" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://glv0u6cts0iw" path="res://scenes/game_over_screen.tscn" id="9_ya4ey"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="10_a8y0u"]
 [ext_resource type="Script" uid="uid://cec300ysgspdf" path="res://scripts/packages_manager.gd" id="10_choun"]
@@ -18,12 +17,6 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkv2x"]
 bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
-atlas = ExtResource("8_tipki")
-region = Rect2(128, 48, 48, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
 
 [node name="Scene" type="Node2D" unique_id=128191525]
 script = ExtResource("1_sugp2")
@@ -58,14 +51,12 @@ rotation_smoothing_enabled = true
 
 [node name="PackagesManager" type="Node2D" parent="." unique_id=1281814035]
 script = ExtResource("10_choun")
+GOAL_SCENE = ExtResource("4_a8y0u")
 
 [node name="Player" parent="." unique_id=1824379071 node_paths=PackedStringArray("camera2D") instance=ExtResource("1_o5qli")]
 camera2D = NodePath("../Camera2D")
 
 [node name="Arrow" parent="Player" unique_id=1530096444 instance=ExtResource("4_tefeu")]
-
-[node name="TerrainManager" type="Node2D" parent="." unique_id=1426548566]
-script = ExtResource("4_ya4ey")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1219958642 node_paths=PackedStringArray("game_over_screen", "game_ui_overlay")]
 script = ExtResource("6_tipki")
@@ -120,25 +111,12 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ShippingOffice" type="Node2D" parent="." unique_id=1366728674]
-position = Vector2(352, 136)
-
-[node name="Sprite2D" type="Sprite2D" parent="ShippingOffice" unique_id=1148028829]
-texture = SubResource("AtlasTexture_85g3d")
-
-[node name="Area2D" type="Area2D" parent="ShippingOffice" unique_id=724189237]
-collision_layer = 0
-collision_mask = 8
-monitorable = false
-script = ExtResource("9_85g3d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShippingOffice/Area2D" unique_id=458713081]
-position = Vector2(0, 44)
-shape = SubResource("RectangleShape2D_choun")
-
 [node name="NPCManager" type="Node2D" parent="." unique_id=670815891 node_paths=PackedStringArray("terrain_manager")]
 script = ExtResource("12_eb6dy")
 terrain_manager = NodePath("../TerrainManager")
+
+[node name="TerrainManager" type="Node2D" parent="." unique_id=1426548566]
+script = ExtResource("4_ya4ey")
 
 [node name="FloatingTextFactory" type="Node" parent="." unique_id=958548282 node_paths=PackedStringArray("camera")]
 script = ExtResource("12_trceg")

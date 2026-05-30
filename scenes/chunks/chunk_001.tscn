@@ -1,0 +1,304 @@
+[gd_scene format=4 uid="uid://bopksnr8qvgy1"]
+
+[ext_resource type="TileSet" uid="uid://bb5doh4esds4x" path="res://tilesets/city.tres" id="1_w41bc"]
+[ext_resource type="Texture2D" uid="uid://c4g3buln03m6c" path="res://assets/buildings.png" id="2_c7vmv"]
+[ext_resource type="Shader" uid="uid://g7i3rrp700qw" path="res://shaders/shadow_2d.gdshader" id="3_pugw2"]
+[ext_resource type="Script" uid="uid://c0suppv4vo2cy" path="res://scenes/object_shadow.gd" id="4_lci0d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv5vc"]
+atlas = ExtResource("2_c7vmv")
+region = Rect2(16, 16, 48, 48)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0kdxn"]
+shader = ExtResource("3_pugw2")
+shader_parameter/light_dir = Vector2(0, 0)
+shader_parameter/samples = 16
+shader_parameter/upscale = 2.0
+shader_parameter/useAtlas = false
+shader_parameter/clampX = Vector2(0, 1)
+shader_parameter/clampY = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujcds"]
+size = Vector2(48, 48)
+
+[node name="ChunkContent" type="Node2D" unique_id=1153845552]
+z_index = -9
+z_as_relative = false
+
+[node name="Background" type="TileMapLayer" parent="." unique_id=517521555]
+tile_map_data = PackedByteArray("AAD3//f/AAAIAAAAAAD3//j/AAAIAAEAAAD3//n/AAAIAAEAAAD3//r/AAAIAAEAAAD3//v/AAAIAAEAAAD3//z/AAAIAAEAAAD3//3/AAAIAAEAAAD3//7/AAAIAAEAAAD3////AAAIAAEAAAD3/wAAAAAIAAEAAAD3/wEAAAAIAAEAAAD3/wIAAAAIAAEAAAD3/wMAAAAIAAEAAAD3/wQAAAAIAAEAAAD3/wUAAAAIAAEAAAD3/wYAAAAIAAEAAAD3/wcAAAAIAAEAAAD3/wgAAAAIAAEAAAD3/wkAAAAIAAIAAAD4//f/AAAJAAAAAAD4//j/AAAJAAEAAAD4//n/AAAJAAEAAAD4//r/AAAJAAEAAAD4//v/AAAJAAEAAAD4//z/AAAJAAEAAAD4//3/AAAJAAEAAAD4//7/AAAJAAEAAAD4////AAAJAAEAAAD4/wAAAAAJAAEAAAD4/wEAAAAJAAEAAAD4/wIAAAAJAAEAAAD4/wMAAAAJAAEAAAD4/wQAAAAJAAEAAAD4/wUAAAAJAAEAAAD4/wYAAAAJAAEAAAD4/wcAAAAJAAEAAAD4/wgAAAAJAAEAAAD4/wkAAAAJAAIAAAD5//f/AAAJAAAAAAD5//j/AAAJAAEAAAD5//n/AAAJAAEAAAD5//r/AAAJAAEAAAD5//v/AAAJAAEAAAD5//z/AAAJAAEAAAD5//3/AAAJAAEAAAD5//7/AAAJAAEAAAD5////AAAJAAEAAAD5/wAAAAAJAAEAAAD5/wEAAAAJAAEAAAD5/wIAAAAJAAEAAAD5/wMAAAAJAAEAAAD5/wQAAAAJAAEAAAD5/wUAAAAJAAEAAAD5/wYAAAAJAAEAAAD5/wcAAAAJAAEAAAD5/wgAAAAJAAEAAAD5/wkAAAAJAAIAAAD6//f/AAAJAAAAAAD6//j/AAAJAAEAAAD6//n/AAAJAAEAAAD6//r/AAAJAAEAAAD6//v/AAAJAAEAAAD6//z/AAAJAAEAAAD6//3/AAAJAAEAAAD6//7/AAAJAAEAAAD6////AAAJAAEAAAD6/wAAAAAJAAEAAAD6/wEAAAAJAAEAAAD6/wIAAAAJAAEAAAD6/wMAAAAJAAEAAAD6/wQAAAAJAAEAAAD6/wUAAAAJAAEAAAD6/wYAAAAJAAEAAAD6/wcAAAAJAAEAAAD6/wgAAAAJAAEAAAD6/wkAAAAJAAIAAAD7//f/AAAJAAAAAAD7//j/AAAJAAEAAAD7//n/AAAJAAEAAAD7//r/AAAJAAEAAAD7//v/AAAJAAEAAAD7//z/AAAJAAEAAAD7//3/AAAJAAEAAAD7//7/AAAJAAEAAAD7////AAAJAAEAAAD7/wAAAAAJAAEAAAD7/wEAAAAJAAEAAAD7/wIAAAAJAAEAAAD7/wMAAAAJAAEAAAD7/wQAAAAJAAEAAAD7/wUAAAAJAAEAAAD7/wYAAAAJAAEAAAD7/wcAAAAJAAEAAAD7/wgAAAAJAAEAAAD7/wkAAAAJAAIAAAD8//f/AAAJAAAAAAD8//j/AAAJAAEAAAD8//n/AAAJAAEAAAD8//r/AAAJAAEAAAD8//v/AAAJAAEAAAD8//z/AAAJAAEAAAD8//3/AAAJAAEAAAD8//7/AAAJAAEAAAD8////AAAJAAEAAAD8/wAAAAAJAAEAAAD8/wEAAAAJAAEAAAD8/wIAAAAJAAEAAAD8/wMAAAAJAAEAAAD8/wQAAAAJAAEAAAD8/wUAAAAJAAEAAAD8/wYAAAAJAAEAAAD8/wcAAAAJAAEAAAD8/wgAAAAJAAEAAAD8/wkAAAAJAAIAAAD9//f/AAAJAAAAAAD9//j/AAAJAAEAAAD9//n/AAAJAAEAAAD9//r/AAAJAAEAAAD9//v/AAAJAAEAAAD9//z/AAAJAAEAAAD9//3/AAAJAAEAAAD9//7/AAAJAAEAAAD9////AAAJAAEAAAD9/wAAAAAJAAEAAAD9/wEAAAAJAAEAAAD9/wIAAAAJAAEAAAD9/wMAAAAJAAEAAAD9/wQAAAAJAAEAAAD9/wUAAAAJAAEAAAD9/wYAAAAJAAEAAAD9/wcAAAAJAAEAAAD9/wgAAAAJAAEAAAD9/wkAAAAJAAIAAAD+//f/AAAJAAAAAAD+//j/AAAJAAEAAAD+//n/AAAJAAEAAAD+//r/AAAJAAEAAAD+//v/AAAJAAEAAAD+//z/AAAJAAEAAAD+//3/AAAJAAEAAAD+//7/AAAJAAEAAAD+////AAAJAAEAAAD+/wAAAAAJAAEAAAD+/wEAAAAJAAEAAAD+/wIAAAAJAAEAAAD+/wMAAAAJAAEAAAD+/wQAAAAJAAEAAAD+/wUAAAAJAAEAAAD+/wYAAAAJAAEAAAD+/wcAAAAJAAEAAAD+/wgAAAAJAAEAAAD+/wkAAAAJAAIAAAD///f/AAAJAAAAAAD///j/AAAJAAEAAAD///n/AAAJAAEAAAD///r/AAAJAAEAAAD///v/AAAJAAEAAAD///z/AAAJAAEAAAD///3/AAAJAAEAAAD///7/AAAJAAEAAAD/////AAAJAAEAAAD//wAAAAAJAAEAAAD//wEAAAAJAAEAAAD//wIAAAAJAAEAAAD//wMAAAAJAAEAAAD//wQAAAAJAAEAAAD//wUAAAAJAAEAAAD//wYAAAAJAAEAAAD//wcAAAAJAAEAAAD//wgAAAAJAAEAAAD//wkAAAAJAAIAAAAAAPf/AAAJAAAAAAAAAPj/AAAJAAEAAAAAAPn/AAAJAAEAAAAAAPr/AAAJAAEAAAAAAPv/AAAJAAEAAAAAAPz/AAAJAAEAAAAAAP3/AAAJAAEAAAAAAP7/AAAJAAEAAAAAAP//AAAJAAEAAAAAAAAAAAAJAAEAAAAAAAEAAAAJAAEAAAAAAAIAAAAJAAEAAAAAAAMAAAAJAAEAAAAAAAQAAAAJAAEAAAAAAAUAAAAJAAEAAAAAAAYAAAAJAAEAAAAAAAcAAAAJAAEAAAAAAAgAAAAJAAEAAAAAAAkAAAAJAAIAAAABAPf/AAAJAAAAAAABAPj/AAAJAAEAAAABAPn/AAAJAAEAAAABAPr/AAAJAAEAAAABAPv/AAAJAAEAAAABAPz/AAAJAAEAAAABAP3/AAAJAAEAAAABAP7/AAAJAAEAAAABAP//AAAJAAEAAAABAAAAAAAJAAEAAAABAAEAAAAJAAEAAAABAAIAAAAJAAEAAAABAAMAAAAJAAEAAAABAAQAAAAJAAEAAAABAAUAAAAJAAEAAAABAAYAAAAJAAEAAAABAAcAAAAJAAEAAAABAAgAAAAJAAEAAAABAAkAAAAJAAIAAAACAPf/AAAJAAAAAAACAPj/AAAJAAEAAAACAPn/AAAJAAEAAAACAPr/AAAJAAEAAAACAPv/AAAJAAEAAAACAPz/AAAJAAEAAAACAP3/AAAJAAEAAAACAP7/AAAJAAEAAAACAP//AAAJAAEAAAACAAAAAAAJAAEAAAACAAEAAAAJAAEAAAACAAIAAAAJAAEAAAACAAMAAAAJAAEAAAACAAQAAAAJAAEAAAACAAUAAAAJAAEAAAACAAYAAAAJAAEAAAACAAcAAAAJAAEAAAACAAgAAAAJAAEAAAACAAkAAAAJAAIAAAADAPf/AAAJAAAAAAADAPj/AAAJAAEAAAADAPn/AAAJAAEAAAADAPr/AAAJAAEAAAADAPv/AAAJAAEAAAADAPz/AAAJAAEAAAADAP3/AAAJAAEAAAADAP7/AAAJAAEAAAADAP//AAAJAAEAAAADAAAAAAAJAAEAAAADAAEAAAAJAAEAAAADAAIAAAAJAAEAAAADAAMAAAAJAAEAAAADAAQAAAAJAAEAAAADAAUAAAAJAAEAAAADAAYAAAAJAAEAAAADAAcAAAAJAAEAAAADAAgAAAAJAAEAAAADAAkAAAAJAAIAAAAEAPf/AAAJAAAAAAAEAPj/AAAJAAEAAAAEAPn/AAAJAAEAAAAEAPr/AAAJAAEAAAAEAPv/AAAJAAEAAAAEAPz/AAAJAAEAAAAEAP3/AAAJAAEAAAAEAP7/AAAJAAEAAAAEAP//AAAJAAEAAAAEAAAAAAAJAAEAAAAEAAEAAAAJAAEAAAAEAAIAAAAJAAEAAAAEAAMAAAAJAAEAAAAEAAQAAAAJAAEAAAAEAAUAAAAJAAEAAAAEAAYAAAAJAAEAAAAEAAcAAAAJAAEAAAAEAAgAAAAJAAEAAAAEAAkAAAAJAAIAAAAFAPf/AAAJAAAAAAAFAPj/AAAJAAEAAAAFAPn/AAAJAAEAAAAFAPr/AAAJAAEAAAAFAPv/AAAJAAEAAAAFAPz/AAAJAAEAAAAFAP3/AAAJAAEAAAAFAP7/AAAJAAEAAAAFAP//AAAJAAEAAAAFAAAAAAAJAAEAAAAFAAEAAAAJAAEAAAAFAAIAAAAJAAEAAAAFAAMAAAAJAAEAAAAFAAQAAAAJAAEAAAAFAAUAAAAJAAEAAAAFAAYAAAAJAAEAAAAFAAcAAAAJAAEAAAAFAAgAAAAJAAEAAAAFAAkAAAAJAAIAAAAGAPf/AAAJAAAAAAAGAPj/AAAJAAEAAAAGAPn/AAAJAAEAAAAGAPr/AAAJAAEAAAAGAPv/AAAJAAEAAAAGAPz/AAAJAAEAAAAGAP3/AAAJAAEAAAAGAP7/AAAJAAEAAAAGAP//AAAJAAEAAAAGAAAAAAAJAAEAAAAGAAEAAAAJAAEAAAAGAAIAAAAJAAEAAAAGAAMAAAAJAAEAAAAGAAQAAAAJAAEAAAAGAAUAAAAJAAEAAAAGAAYAAAAJAAEAAAAGAAcAAAAJAAEAAAAGAAgAAAAJAAEAAAAGAAkAAAAJAAIAAAAHAPf/AAAJAAAAAAAHAPj/AAAJAAEAAAAHAPn/AAAJAAEAAAAHAPr/AAAJAAEAAAAHAPv/AAAJAAEAAAAHAPz/AAAJAAEAAAAHAP3/AAAJAAEAAAAHAP7/AAAJAAEAAAAHAP//AAAJAAEAAAAHAAAAAAAJAAEAAAAHAAEAAAAJAAEAAAAHAAIAAAAJAAEAAAAHAAMAAAAJAAEAAAAHAAQAAAAJAAEAAAAHAAUAAAAJAAEAAAAHAAYAAAAJAAEAAAAHAAcAAAAJAAEAAAAHAAgAAAAJAAEAAAAHAAkAAAAJAAIAAAAIAPf/AAAJAAAAAAAIAPj/AAAJAAEAAAAIAPn/AAAJAAEAAAAIAPr/AAAJAAEAAAAIAPv/AAAJAAEAAAAIAPz/AAAJAAEAAAAIAP3/AAAJAAEAAAAIAP7/AAAJAAEAAAAIAP//AAAJAAEAAAAIAAAAAAAJAAEAAAAIAAEAAAAJAAEAAAAIAAIAAAAJAAEAAAAIAAMAAAAJAAEAAAAIAAQAAAAJAAEAAAAIAAUAAAAJAAEAAAAIAAYAAAAJAAEAAAAIAAcAAAAJAAEAAAAIAAgAAAAJAAEAAAAIAAkAAAAJAAIAAAAJAPf/AAAKAAAAAAAJAPj/AAAKAAEAAAAJAPn/AAAKAAEAAAAJAPr/AAAKAAEAAAAJAPv/AAAKAAEAAAAJAPz/AAAKAAEAAAAJAP3/AAAKAAEAAAAJAP7/AAAKAAEAAAAJAP//AAAKAAEAAAAJAAAAAAAKAAEAAAAJAAEAAAAKAAEAAAAJAAIAAAAKAAEAAAAJAAMAAAAKAAEAAAAJAAQAAAAKAAEAAAAJAAUAAAAKAAEAAAAJAAYAAAAKAAEAAAAJAAcAAAAKAAEAAAAJAAgAAAAKAAEAAAAJAAkAAAAKAAIAAAA=")
+tile_set = ExtResource("1_w41bc")
+
+[node name="Buildings" type="Node2D" parent="." unique_id=1987316848]
+
+[node name="Building" type="StaticBody2D" parent="Buildings" unique_id=703998640]
+position = Vector2(104, 104)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building" unique_id=1665641884]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building" unique_id=1913280624]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building" unique_id=5077666]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building2" type="StaticBody2D" parent="Buildings" unique_id=212993351]
+position = Vector2(40, 104)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building2" unique_id=993122062]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building2" unique_id=693075]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building2" unique_id=549175476]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building3" type="StaticBody2D" parent="Buildings" unique_id=1728742526]
+position = Vector2(-24, 104)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building3" unique_id=642761230]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building3" unique_id=1673420940]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building3" unique_id=1953546879]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building4" type="StaticBody2D" parent="Buildings" unique_id=1872921166]
+position = Vector2(-88, 104)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building4" unique_id=97467029]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building4" unique_id=1612653211]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building4" unique_id=2135662356]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building5" type="StaticBody2D" parent="Buildings" unique_id=731144778]
+position = Vector2(104, 40)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building5" unique_id=1406140593]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building5" unique_id=2047265009]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building5" unique_id=998753250]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building6" type="StaticBody2D" parent="Buildings" unique_id=357495139]
+position = Vector2(40, 40)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building6" unique_id=1258701239]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building6" unique_id=1825175771]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building6" unique_id=936498449]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building7" type="StaticBody2D" parent="Buildings" unique_id=1834515067]
+position = Vector2(-24, 40)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building7" unique_id=1417080099]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building7" unique_id=182453310]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building7" unique_id=1075755217]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building8" type="StaticBody2D" parent="Buildings" unique_id=1546810968]
+position = Vector2(-88, 40)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building8" unique_id=1112613786]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building8" unique_id=1740129369]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building8" unique_id=2004260251]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building9" type="StaticBody2D" parent="Buildings" unique_id=1849622892]
+position = Vector2(104, -24)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building9" unique_id=329751664]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building9" unique_id=1088971900]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building9" unique_id=1637616215]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building10" type="StaticBody2D" parent="Buildings" unique_id=1439911778]
+position = Vector2(40, -24)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building10" unique_id=1882585160]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building10" unique_id=30508795]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building10" unique_id=1507200836]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building11" type="StaticBody2D" parent="Buildings" unique_id=479204581]
+position = Vector2(-24, -24)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building11" unique_id=1269175603]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building11" unique_id=1363866918]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building11" unique_id=195541291]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building12" type="StaticBody2D" parent="Buildings" unique_id=2010722459]
+position = Vector2(-88, -24)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building12" unique_id=614118415]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building12" unique_id=1450586567]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building12" unique_id=892639713]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building13" type="StaticBody2D" parent="Buildings" unique_id=1921052665]
+position = Vector2(104, -88)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building13" unique_id=1963185341]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building13" unique_id=265335581]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building13" unique_id=1077338826]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building14" type="StaticBody2D" parent="Buildings" unique_id=57225091]
+position = Vector2(40, -88)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building14" unique_id=731425666]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building14" unique_id=786101060]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building14" unique_id=1535104027]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building15" type="StaticBody2D" parent="Buildings" unique_id=1467115582]
+position = Vector2(-24, -88)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building15" unique_id=1474670935]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building15" unique_id=1460936911]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building15" unique_id=1132843823]
+shape = SubResource("RectangleShape2D_ujcds")
+
+[node name="Building16" type="StaticBody2D" parent="Buildings" unique_id=774092621]
+position = Vector2(-88, -88)
+
+[node name="Sprite" type="Sprite2D" parent="Buildings/Building16" unique_id=852522413]
+z_index = 2
+z_as_relative = false
+texture = SubResource("AtlasTexture_dv5vc")
+
+[node name="Shadow2" type="Sprite2D" parent="Buildings/Building16" unique_id=782687388]
+material = SubResource("ShaderMaterial_0kdxn")
+scale = Vector2(2, 2)
+texture = ExtResource("2_c7vmv")
+script = ExtResource("4_lci0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Building16" unique_id=735158288]
+shape = SubResource("RectangleShape2D_ujcds")
