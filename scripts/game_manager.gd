@@ -60,6 +60,7 @@ func start_day():
 
 func reset():
 	RunData.stats = RunStats.new()
+	RunData.run_state = RunData.RunState.GAME
 	RunData.current_day = 1
 	RunData.current_week = 1
 	RunData.money = 0

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cft86kstfxmbc" path="res://scripts/scene_manager.gd" id="1_bqqt6"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="1_ekxnf"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="2_bqqt6"]
+[ext_resource type="Script" uid="uid://b78uf2ul2xrhb" path="res://scripts/resume_game_button.gd" id="4_8ln24"]
 [ext_resource type="Texture2D" uid="uid://dj37k0nfgn7s3" path="res://assets/logo.png" id="4_wu84c"]
 
 [node name="Scene" type="Node2D" unique_id=1615516784]
@@ -50,8 +51,7 @@ grow_vertical = 2
 layout_mode = 2
 theme = ExtResource("2_bqqt6")
 text = "Start"
-script = ExtResource("1_ekxnf")
-sceneToLoad = "uid://ct2fvys2eo5d4"
+script = ExtResource("4_8ln24")
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1880869476]
 layout_mode = 2
