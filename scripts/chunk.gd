@@ -25,5 +25,4 @@ func set_content(id: String):
 		var content = TerrainManager.instance.get_chunk_content(id).instantiate()
 		contents[id] = content
 		current_content = content
-		
 		add_child(content)

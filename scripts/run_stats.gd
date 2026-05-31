@@ -17,4 +17,4 @@ var heavy_reward_mult := 1.0
 
 var repair_car_cost := 10
 
-var day_duration_segs := 60
+var day_duration_segs := 600

@@ -7,6 +7,14 @@
 atlas = ExtResource("2_ejj0c")
 region = Rect2(0, 32, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejj0c"]
+atlas = ExtResource("2_ejj0c")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44a7i"]
+atlas = ExtResource("2_ejj0c")
+region = Rect2(96, 32, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_47gjq"]
 atlas = ExtResource("2_ejj0c")
 region = Rect2(32, 32, 16, 16)
@@ -22,14 +30,6 @@ region = Rect2(48, 32, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcqnx"]
 atlas = ExtResource("2_ejj0c")
 region = Rect2(16, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ejj0c"]
-atlas = ExtResource("2_ejj0c")
-region = Rect2(80, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_44a7i"]
-atlas = ExtResource("2_ejj0c")
-region = Rect2(96, 32, 16, 16)
 
 [resource]
 script = ExtResource("1_p7nyx")
