@@ -8,7 +8,9 @@ var upgrade_pool: Array[Callable] = [
 	func(): return SpeedUpgrade.new(),
 	func(): return ReinforcedStorageUpgrade.new(),
 	func(): return RushDeliveryLicenseUpgrade.new(),
-	func(): return RiskyDeliveryUpgrade.new()
+	func(): return RiskyDeliveryUpgrade.new(),
+	func(): return HeavyHaulerUpgrade.new(),
+	func(): return CheapRepairUpgrade.new(),
 ]
 
 signal on_upgrades_change
@@ -111,4 +113,6 @@ func unique_upgrades_quantity() -> int:
 	return count
 
 func get_icon(id: String) -> Texture2D:
-	return ICONS.sprites.get(id)
+	if ICONS.sprites.has(id):
+		return ICONS.sprites.get(id)
+	return ICONS.sprites.get("capacity")

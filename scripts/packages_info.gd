@@ -3,8 +3,6 @@ extends VBoxContainer
 const PACKAGE_ICON_SCENE: PackedScene = preload("res://scenes/package_icon.tscn")
 @export var icons_parent: Control
 
-@export var packages_count_label: Label
-
 @export var all_packages_shipped_label: Label
 
 var packages_manager: PackagesManager
@@ -37,8 +35,6 @@ func _ready() -> void:
 func update_done_packages():
 	if packages_manager == null:
 		packages_manager = GameManager.packages_manager
-	
-	packages_count_label.text = "Packages " + str(GameManager.packages_manager.done_count()) + "/" + str(len(GameManager.packages_manager.packages))
 	
 	if packages_manager.all_done():
 		hide_package_info()

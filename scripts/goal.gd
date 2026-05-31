@@ -5,7 +5,7 @@ const WAIT_TIME_SEG = 1
 
 @export var sprite: Sprite2D
 
-var appear_range: int = 4
+var appear_range: int = 3
 var package: Package
 var player_on_zone: bool = false
 var player_time = 0

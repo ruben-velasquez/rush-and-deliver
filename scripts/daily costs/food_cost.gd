@@ -3,10 +3,16 @@ extends DailyCost
 
 func _init() -> void:
 	name = "Food"
-	amount = 10
 
 func should_appear() -> bool:
 	return true
 
 func calculate_cost() -> int:
-	return min(amount + (RunData.get_days_passed()-1)*2, 21)
+	if RunData.current_week == 1:
+		return 12
+	elif RunData.current_week == 2:
+		return 15
+	elif RunData.current_week == 3:
+		return 18
+	else:
+		return 22

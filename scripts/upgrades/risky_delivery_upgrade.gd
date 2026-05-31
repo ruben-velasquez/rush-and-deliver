@@ -8,8 +8,8 @@ func _init() -> void:
 	unique = true
 
 func get_description() -> String:
-	return "1.5x Fragile Reward\n-1 Fragile durability"
+	return "1.25x Fragile Reward\n-1 Fragile durability"
 
 func apply_stats():
 	RunData.stats.fragile_packages_health -= 1
-	RunData.stats.fragile_reward_mult *= 1.5
+	RunData.stats.fragile_reward_mult *= 1.25

@@ -3,8 +3,10 @@ extends DailyCost
 
 func _init() -> void:
 	name = "Car maintenace"
-	amount = 10
 	optional = true
+
+func calculate_cost() -> int:
+	return RunData.stats.repair_car_cost
 
 func should_appear() -> bool:
 	return RunData.player_health < RunData.stats.max_player_health/2.

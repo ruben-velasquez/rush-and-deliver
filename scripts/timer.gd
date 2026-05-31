@@ -1,11 +1,10 @@
 extends Label
 
 @export var timer: Timer
-const DAY_DURATION_SEG: float = 40
 
 func _ready() -> void:
 	GameManager.current_timer = timer
-	timer.wait_time = DAY_DURATION_SEG
+	timer.wait_time = RunData.stats.day_duration_segs
 	timer.timeout.connect(GameManager.on_timer_end.emit)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
