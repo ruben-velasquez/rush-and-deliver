@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cytnfefos0pc1"]
+
+[ext_resource type="Shader" uid="uid://g7i3rrp700qw" path="res://shaders/shadow_2d.gdshader" id="1_1gupa"]
+
+[resource]
+shader = ExtResource("1_1gupa")
+shader_parameter/light_dir = Vector2(0, 0)
+shader_parameter/samples = 16
+shader_parameter/upscale = 2.0
+shader_parameter/useAtlas = true
+shader_parameter/height = 12.0000005225
+shader_parameter/texture_size = Vector2(176, 80)
+shader_parameter/region_offset = Vector2(16, 16)
+shader_parameter/region_size = Vector2(48, 48)

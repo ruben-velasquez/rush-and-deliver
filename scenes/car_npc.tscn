@@ -11,8 +11,10 @@ shader_parameter/light_dir = Vector2(0, 0)
 shader_parameter/samples = 16
 shader_parameter/upscale = 2.0
 shader_parameter/useAtlas = false
-shader_parameter/clampX = Vector2(0, 1)
-shader_parameter/clampY = Vector2(0, 1)
+shader_parameter/height = 2.0000000475
+shader_parameter/texture_size = Vector2(24, 24)
+shader_parameter/region_offset = Vector2(0, 0)
+shader_parameter/region_size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfpyo"]
 size = Vector2(16, 22)
