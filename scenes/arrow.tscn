@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://n0bohax6kf1t" path="res://scripts/arrow.gd" id="1_23jat"]
 [ext_resource type="Texture2D" uid="uid://wylyfqeqv2w" path="res://assets/arrowUp.png" id="2_q8ifc"]
 
-[node name="Arrow" type="Node2D" unique_id=1530096444 node_paths=PackedStringArray("goal")]
+[node name="Arrow" type="Node2D" unique_id=1530096444]
 script = ExtResource("1_23jat")
-goal = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=156478542]
 position = Vector2(50, 0)

@@ -4,7 +4,7 @@ class_name PackagesManager
 @export var GOAL_SCENE: PackedScene
 var packages: Array[Package]
 var currentPackage: int = 0
-var restore_area: Area2D
+const RESTORE_AREA_POS := Vector2(88.0, 184.0)
 
 signal on_swap_package
 signal on_package_delivered(package: Package)

@@ -17,8 +17,10 @@ shader_parameter/light_dir = Vector2(0, 0)
 shader_parameter/samples = 16
 shader_parameter/upscale = 2.0
 shader_parameter/useAtlas = false
-shader_parameter/clampX = Vector2(0, 1)
-shader_parameter/clampY = Vector2(0, 1)
+shader_parameter/height = 0.0
+shader_parameter/texture_size = Vector2(0, 0)
+shader_parameter/region_offset = Vector2(0, 0)
+shader_parameter/region_size = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu1tw"]
 
@@ -61,7 +63,7 @@ script = ExtResource("3_uxfcc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShippingOffice/Area2D" unique_id=1277129869]
 shape = SubResource("RectangleShape2D_cu1tw")
 
-[node name="Sprite2D" type="Sprite2D" parent="ShippingOffice/Area2D/CollisionShape2D" unique_id=13696984]
+[node name="Sprite2D" type="Sprite2D" parent="ShippingOffice/Area2D" unique_id=13696984]
 material = ExtResource("4_fknjc")
 texture = SubResource("GradientTexture2D_cu1tw")
 region_rect = Rect2(224, 160, 16, 16)

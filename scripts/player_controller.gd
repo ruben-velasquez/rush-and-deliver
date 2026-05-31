@@ -56,7 +56,6 @@ func _physics_process(delta: float) -> void:
 	desired_velocity = -transform.y * _speed * velocity_multiplier * RunData.stats.speed_multiplier
 	
 	if Input.is_action_pressed("drift"):
-		print(velocity.length())
 		set_drift_particles(velocity.length() >= MIN_DRIFT_SPEED and turn_input != 0)
 		velocity *= 0.99
 		velocity = lerp(velocity, desired_velocity, delta * 1.1)
