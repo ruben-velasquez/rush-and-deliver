@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="4_ethjp"]
 [ext_resource type="Script" uid="uid://yd5kqcmi4g3r" path="res://scripts/upgrades_shop.gd" id="4_ixicc"]
 [ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="5_6vqdt"]
+[ext_resource type="PackedScene" uid="uid://dpflyyrefqj54" path="res://scenes/upgrade_tooltip.tscn" id="6_ethjp"]
 [ext_resource type="Script" uid="uid://dlbw8osdkq0yw" path="res://scripts/sell_upgrades_menu.gd" id="10_3rs5v"]
 
 [node name="Scene" type="Node2D" unique_id=682139572]
@@ -13,6 +14,8 @@ script = ExtResource("1_ksfom")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1891708903]
 follow_viewport_enabled = true
+
+[node name="UpgradeTooltip" parent="CanvasLayer" unique_id=1050260578 instance=ExtResource("6_ethjp")]
 
 [node name="MainPanel" type="Panel" parent="CanvasLayer" unique_id=1009923771]
 self_modulate = Color(0.003921569, 0, 0, 0.7647059)
@@ -96,11 +99,12 @@ theme_type_variation = &"BoldLabel"
 text = "Upgrades"
 horizontal_alignment = 1
 
-[node name="Upgrades" type="VBoxContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=1839415359]
+[node name="Upgrades" type="HBoxContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=1342032108 node_paths=PackedStringArray("tooltip")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
 script = ExtResource("4_ixicc")
+tooltip = NodePath("../../../UpgradeTooltip")
 
 [node name="MoneyLabel" type="Label" parent="CanvasLayer" unique_id=1720780890]
 offset_right = 40.0

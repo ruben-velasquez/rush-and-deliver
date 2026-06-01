@@ -13,6 +13,7 @@ spacing_top = -7
 BoldLabel/base_type = &"Label"
 BoldLabel/font_sizes/font_size = 32
 BoldLabel/fonts/font = ExtResource("1_ybks7")
+BoldLabel/fonts/normal_font = ExtResource("1_ybks7")
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("2_o2ta1")
 CheckBox/colors/checkbox_checked_color = Color(1, 1, 1, 1)

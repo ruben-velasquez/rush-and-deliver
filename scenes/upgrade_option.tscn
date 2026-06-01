@@ -8,33 +8,35 @@
 atlas = ExtResource("3_tlqjr")
 region = Rect2(0, 32, 16, 16)
 
-[node name="UpgradeOption" type="HBoxContainer" unique_id=821656226 node_paths=PackedStringArray("purchase_button", "label", "texture")]
-offset_right = 370.0
-offset_bottom = 26.0
+[node name="UpgradeOption" type="VBoxContainer" unique_id=880064569 node_paths=PackedStringArray("purchase_button", "label", "texture")]
+offset_right = 32.0
+offset_bottom = 68.0
 size_flags_horizontal = 4
 script = ExtResource("1_4noig")
 purchase_button = NodePath("PurchaseButton")
 label = NodePath("UpgradeName")
 texture = NodePath("TextureRect")
 
-[node name="PurchaseButton" type="Button" parent="." unique_id=2109010948]
-custom_minimum_size = Vector2(50, 0)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1129989655]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_vertical = 0
 theme = ExtResource("3_4b4l4")
-theme_type_variation = &"MoneyButton"
-text = "$?"
+texture = SubResource("AtlasTexture_rm8do")
+stretch_mode = 5
 
 [node name="UpgradeName" type="Label" parent="." unique_id=1066972798]
-custom_minimum_size = Vector2(150, 0)
+visible = false
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("3_4b4l4")
 text = "Upgrade Name"
 autowrap_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1129989655]
-custom_minimum_size = Vector2(32, 32)
+[node name="PurchaseButton" type="Button" parent="." unique_id=2109010948]
+custom_minimum_size = Vector2(42, 24)
 layout_mode = 2
-texture = SubResource("AtlasTexture_rm8do")
-stretch_mode = 5
+size_flags_vertical = 0
+theme = ExtResource("3_4b4l4")
+theme_type_variation = &"MoneyButton"
+text = "$?"

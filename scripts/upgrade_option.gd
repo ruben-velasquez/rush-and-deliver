@@ -8,13 +8,15 @@ extends Node
 var _upgrade: Upgrade
 
 # Called when the node enters the scene tree for the first time.
-func setup(_u: Upgrade):
+func setup(_u: Upgrade, _tooltip: Tooltip):
 	_upgrade = _u
 	
 	label.text = _upgrade.name
-	label.tooltip_text = _upgrade.get_description()
 	purchase_button.text = "$%s" % UpgradesManager.get_upgrade_price(_upgrade)
 	texture.texture = UpgradesManager.get_icon(_u.id)
+	
+	texture.mouse_entered.connect(_tooltip.show_tooltip.bind(_u.name, _u.get_description()))
+	texture.mouse_exited.connect(_tooltip.hide_tooltip)
 	
 	measure_availability()
 	UpgradesManager.on_upgrades_change.connect(measure_availability)
