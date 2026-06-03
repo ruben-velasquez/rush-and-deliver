@@ -1,8 +1,10 @@
-extends RichTextLabel
+extends TextureProgressBar
 
-const MONEY_FONT = "res://fonts/Retro5.ttf"
-const RED_COLOR = "#be173b"
-const GREEN_COLOR = "#57b069"
+@export var label: RichTextLabel
+
+const RED_COLOR = "#f7436a"
+const GREEN_COLOR = "#6dfc8a"
+const YELLOW_COLOR = Color("f8b63dff")
 
 func _ready() -> void:
 	update_estimated()
@@ -14,12 +16,14 @@ func _ready() -> void:
 func update_estimated(_p: Package = null):
 	var money_text: String
 	var estimated_costs = GameManager.get_estimated_costs()
+	max_value = GameManager.get_estimated_costs()
+	value = min(RunData.money, max_value)
 	
 	if RunData.money < estimated_costs:
+		tint_progress = Color(YELLOW_COLOR)
 		money_text = "[color=%s]$%s[/color]" % [RED_COLOR, estimated_costs]
 	else:
+		tint_progress = Color(GREEN_COLOR)
 		money_text = "[color=%s]$%s[/color]" % [GREEN_COLOR,estimated_costs]
 	
-	money_text = "[outline_size=7][outline_color=WHITE]%s[/outline_color][/outline_size]" % money_text
-	
-	text = "Estimated Costs: [font=%s]%s" % [MONEY_FONT, money_text]
+	label.text = "Estimated Costs: %s" % [money_text]

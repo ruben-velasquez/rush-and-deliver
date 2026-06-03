@@ -5,8 +5,15 @@
 [ext_resource type="Script" uid="uid://kfwi6o6bgg5" path="res://scripts/timer.gd" id="2_rns2u"]
 [ext_resource type="Script" uid="uid://cudx08m51indf" path="res://scripts/packages_info.gd" id="4_u2dgd"]
 [ext_resource type="Script" uid="uid://530o6888woxd" path="res://scripts/upgrades_ui.gd" id="5_bt76a"]
+[ext_resource type="Texture2D" uid="uid://lqbwcn5mf2g4" path="res://assets/pixel_panel.png" id="6_3huio"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="6_o3bws"]
 [ext_resource type="Script" uid="uid://dob35pnkslqpm" path="res://scripts/estimated_costs_label.gd" id="7_3huio"]
+[ext_resource type="FontFile" uid="uid://cii5lx74hbeme" path="res://fonts/Retro2.ttf" id="7_sjwyb"]
+
+[sub_resource type="FontVariation" id="FontVariation_3huio"]
+base_font = ExtResource("7_sjwyb")
+spacing_top = -5
+spacing_bottom = -4
 
 [node name="UI" type="Control" unique_id=1845636788]
 layout_mode = 3
@@ -67,14 +74,42 @@ timer = NodePath("Timer")
 [node name="Timer" type="Timer" parent="Layout/Info/TimerLabel" unique_id=154884662]
 one_shot = true
 
-[node name="EstimatedCostsLabel" type="RichTextLabel" parent="Layout/Info" unique_id=2038419642]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Layout/Info" unique_id=1598202648 node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(200, 24)
 layout_mode = 2
-theme = ExtResource("6_o3bws")
-bbcode_enabled = true
-text = "Estimated Costs: [color=#be173b][outline_size=7][outline_color=WHITE][font=res://fonts/Retro5.ttf]$19"
-fit_content = true
-horizontal_alignment = 2
+size_flags_horizontal = 8
+max_value = 3.0
+value = 1.0
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_top = 5
+stretch_margin_right = 5
+stretch_margin_bottom = 5
+texture_under = ExtResource("6_3huio")
+texture_progress = ExtResource("6_3huio")
+tint_under = Color(0.26293245, 0.26293245, 0.26293245, 1)
+tint_progress = Color(0.62050086, 0.9999998, 0.6036572, 1)
 script = ExtResource("7_3huio")
+label = NodePath("Label")
+
+[node name="Label" type="RichTextLabel" parent="Layout/Info/TextureProgressBar" unique_id=792765165]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_o3bws")
+theme_type_variation = &"TinyLabel"
+theme_override_colors/font_outline_color = Color(0.45452422, 0.45452428, 0.45452422, 1)
+theme_override_colors/font_shadow_color = Color(0.45490196, 0.45490196, 0.45490196, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/normal_font = SubResource("FontVariation_3huio")
+bbcode_enabled = true
+text = "Estimated costs: [color=#f7436a] $19"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PackagesInfo" type="VBoxContainer" parent="Layout" unique_id=1843767937 node_paths=PackedStringArray("icons_parent", "all_packages_shipped_label")]
 layout_mode = 2
