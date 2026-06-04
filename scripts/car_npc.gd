@@ -4,6 +4,7 @@ class_name CarNPC
 @export var frontArea: Area2D
 
 var move =  true
+var free_traffic = true
 var speed := 0.0
 var spawned_time_ms = 0
 
@@ -24,11 +25,12 @@ func _physics_process(delta: float) -> void:
 	var turn_input := 0
 	var desired_velocity: Vector2
 	var weight = 0.2
+	var can_move = move and free_traffic
 	
 	if Time.get_ticks_msec() - spawned_time_ms > parent.NPC_MINIMUN_LIFETIME_MS and GameManager.player.global_position.distance_to(global_position) > parent.despawn_distance:
 		parent.return_entity(self)
 
-	if move != true: 
+	if can_move != true: 
 		forward_input = 0
 		if velocity.y > MAX_SPEED / 2:
 			weight = 0.9
