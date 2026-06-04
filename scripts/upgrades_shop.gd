@@ -13,4 +13,5 @@ func _ready() -> void:
 		
 		add_child(option_node)
 		
+
 		option_node.setup(upgrade, tooltip)

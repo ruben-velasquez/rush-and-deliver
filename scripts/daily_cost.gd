@@ -5,6 +5,7 @@ var name := ""
 var amount := 0
 var optional := false
 var active := true
+var tooltip := false
 
 func get_name() -> String:
 	return name
@@ -20,3 +21,6 @@ func can_appear() -> bool:
 
 func on_pay():
 	pass
+
+func get_description() -> String:
+	return ""

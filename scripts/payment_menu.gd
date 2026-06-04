@@ -7,6 +7,7 @@ const FEE_BOX_NODE: PackedScene = preload("res://scenes/fee_box.tscn")
 @export var continue_button: Button
 @export var info: RichTextLabel
 @export var fee_boxes_parent: Control
+@export var fee_tooltip: Tooltip
 
 signal on_changed_fee
 
@@ -18,6 +19,7 @@ func _ready():
 	for fee in daily_costs:
 		fee.active = !fee.optional
 		var box = FEE_BOX_NODE.instantiate() as FeeBox
+		box.tooltip = fee_tooltip
 		box.setup(fee, self);
 		fee_boxes_parent.add_child(box)
 	

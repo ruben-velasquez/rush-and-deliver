@@ -11,4 +11,4 @@ func apply_stats():
 	RunData.stats.repair_car_cost /= 2
 
 func get_description() -> String:
-	return "Reduced heavy packages effect"
+	return "Reduced price of car maintenance"

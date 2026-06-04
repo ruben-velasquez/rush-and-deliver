@@ -5,6 +5,7 @@ extends HBoxContainer
 @export var title_label: RichTextLabel
 var payment_menu: PaymentMenu
 var fee: DailyCost
+var tooltip: Tooltip
 
 const MONEY_FONT := "res://fonts/Retro5.ttf"
 
@@ -13,6 +14,10 @@ func setup(_fee: DailyCost, _menu: PaymentMenu):
 	payment_menu = _menu
 	
 	title_label.text =  "%s: [font=%s][color=red]-%s$[/color][/font]\n" % [fee.get_name().capitalize(), MONEY_FONT, fee.calculate_cost()]
+	
+	if fee.tooltip:
+		title_label.mouse_entered.connect(tooltip.show_tooltip.bind(fee.name, fee.get_description()))
+		title_label.mouse_exited.connect(tooltip.hide_tooltip)
 	
 	if fee.optional:
 		checkbox.button_pressed = false

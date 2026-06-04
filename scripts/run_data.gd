@@ -19,4 +19,6 @@ var player_health := 5
 
 var stats: RunStats = RunStats.new()
 
+var cost_states: Dictionary[String, Variant] = {}
+
 func get_days_passed() -> int: return current_day + (current_week-1)*5

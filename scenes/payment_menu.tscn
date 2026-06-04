@@ -5,15 +5,17 @@
 [ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="1_qbjwo"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="3_4d04w"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="4_if5jp"]
+[ext_resource type="PackedScene" uid="uid://dpflyyrefqj54" path="res://scenes/upgrade_tooltip.tscn" id="6_bncvp"]
 
 [node name="Scene" type="Node2D" unique_id=433407285]
 script = ExtResource("1_bncvp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=720956307 node_paths=PackedStringArray("continue_button", "info", "fee_boxes_parent")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=720956307 node_paths=PackedStringArray("continue_button", "info", "fee_boxes_parent", "fee_tooltip")]
 script = ExtResource("1_4d04w")
 continue_button = NodePath("Main/Panel/VBoxContainer/ContinueButton")
 info = NodePath("Main/Panel/VBoxContainer/Info")
 fee_boxes_parent = NodePath("Main/Panel/VBoxContainer/FeeList")
+fee_tooltip = NodePath("Main/Panel/VBoxContainer/UpgradeTooltip")
 
 [node name="Main" type="Control" parent="CanvasLayer" unique_id=636594540]
 layout_mode = 3
@@ -74,3 +76,6 @@ theme = ExtResource("3_4d04w")
 text = "Go to main menu"
 script = ExtResource("4_if5jp")
 sceneToLoad = "uid://dn8dlbfrm5smc"
+
+[node name="UpgradeTooltip" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=1050260578 instance=ExtResource("6_bncvp")]
+layout_mode = 2

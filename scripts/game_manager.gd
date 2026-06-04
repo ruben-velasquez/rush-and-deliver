@@ -12,6 +12,7 @@ var daily_costs: Array[Callable] = [
 	func(): return MaintenaceCost.new(),
 	func(): return BrokenPackagesCost.new(),
 	func(): return LatePackagesCost.new(),
+	func(): return DebtCost.new(),
 ]
 
 var player: PlayerController
@@ -67,6 +68,8 @@ func reset():
 	
 	RunData.day_broken_packages = 0
 	RunData.day_late_packages = 0
+	
+	RunData.cost_states.clear()
 	
 	RunData.player_health = RunData.stats.max_player_health
 	UpgradesManager.current_upgrades.clear()
