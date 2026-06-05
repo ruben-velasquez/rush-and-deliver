@@ -13,6 +13,7 @@ var daily_costs: Array[Callable] = [
 	func(): return BrokenPackagesCost.new(),
 	func(): return LatePackagesCost.new(),
 	func(): return DebtCost.new(),
+	func(): return BankDebtCost.new(),
 ]
 
 var player: PlayerController

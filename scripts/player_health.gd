@@ -9,7 +9,7 @@ extends Node2D
 @export var player_sprite: Sprite2D
 
 func _ready() -> void:
-	if RunData.player_health < RunData.stats.max_player_health/2.:
+	if RunData.player_health < 3:
 		smoke_particles.emitting = true
 		
 	controller.on_crash.connect(on_player_crash)
