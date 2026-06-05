@@ -6,7 +6,7 @@ enum RunState {
 	GAME
 }
 
-var run_state: RunState = RunState.GAME
+var run_state: RunState = RunState.PAYMENT
 
 var money := 0
 var current_week := 1

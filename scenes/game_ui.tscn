@@ -41,10 +41,11 @@ theme_override_constants/separation = 32
 [node name="Info" type="VBoxContainer" parent="Layout" unique_id=1611460846]
 layout_mode = 2
 
-[node name="DayLabel" type="Label" parent="Layout/Info" unique_id=1175414367]
+[node name="DayLabel" type="RichTextLabel" parent="Layout/Info" unique_id=91054493]
 layout_mode = 2
 theme = ExtResource("6_o3bws")
 text = "Week 1, Day 1"
+fit_content = true
 horizontal_alignment = 2
 script = ExtResource("1_u001w")
 

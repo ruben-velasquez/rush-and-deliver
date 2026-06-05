@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://yd5kqcmi4g3r" path="res://scripts/upgrades_shop.gd" id="4_ixicc"]
 [ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="5_6vqdt"]
 [ext_resource type="PackedScene" uid="uid://dpflyyrefqj54" path="res://scenes/upgrade_tooltip.tscn" id="6_ethjp"]
+[ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="9_0isde"]
 [ext_resource type="Script" uid="uid://dlbw8osdkq0yw" path="res://scripts/sell_upgrades_menu.gd" id="10_3rs5v"]
 
 [node name="Scene" type="Node2D" unique_id=682139572]
@@ -16,18 +17,18 @@ script = ExtResource("1_ksfom")
 follow_viewport_enabled = true
 
 [node name="UpgradeTooltip" parent="CanvasLayer" unique_id=1050260578 instance=ExtResource("6_ethjp")]
+visible = false
 
 [node name="MainPanel" type="Panel" parent="CanvasLayer" unique_id=1009923771]
-self_modulate = Color(0.003921569, 0, 0, 0.7647059)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -149.0
+offset_top = -135.0
 offset_right = 50.0
-offset_bottom = 151.0
+offset_bottom = 165.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -68,16 +69,15 @@ script = ExtResource("3_0e30j")
 sceneToLoad = "uid://dn8dlbfrm5smc"
 
 [node name="UpgradesPanel" type="Panel" parent="CanvasLayer" unique_id=628536767]
-self_modulate = Color(0.003921569, 0, 0, 0.7647059)
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -259.0
-offset_top = -150.0
+offset_top = -136.0
 offset_right = -10.0
-offset_bottom = 150.0
+offset_bottom = 164.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_0e30j")
@@ -106,12 +106,25 @@ theme_override_constants/separation = 20
 script = ExtResource("4_ixicc")
 tooltip = NodePath("../../../UpgradeTooltip")
 
-[node name="MoneyLabel" type="Label" parent="CanvasLayer" unique_id=1720780890]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Panel" type="PanelContainer" parent="CanvasLayer" unique_id=361774980]
+custom_minimum_size = Vector2(40, 0)
+offset_left = 12.0
+offset_top = 3.0
+offset_right = 52.0
+offset_bottom = 41.0
+size_flags_horizontal = 0
+theme = ExtResource("4_ethjp")
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/Panel" unique_id=237447369]
+layout_mode = 2
 theme = ExtResource("4_ethjp")
 theme_type_variation = &"BoldLabel"
-text = "0$"
+theme_override_colors/font_color = Color(0.8666667, 0.6745098, 0.27450982, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 7
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("5_6vqdt")
 
 [node name="SellPanel" type="Panel" parent="CanvasLayer" unique_id=638725896]
@@ -119,9 +132,9 @@ anchors_preset = -1
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 10.0
-offset_top = -150.0
+offset_top = -136.0
 offset_right = 160.0
-offset_bottom = 150.0
+offset_bottom = 164.0
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_0e30j")
 
@@ -147,3 +160,29 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 4
 script = ExtResource("10_3rs5v")
+
+[node name="DayPanel" type="Panel" parent="CanvasLayer" unique_id=894472881]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme = ExtResource("4_ethjp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/DayPanel" unique_id=1374313316]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ethjp")
+theme_type_variation = &"SecondaryLabel"
+bbcode_enabled = true
+text = "Week 1, Day 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_0isde")

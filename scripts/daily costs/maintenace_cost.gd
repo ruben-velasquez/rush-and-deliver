@@ -4,6 +4,7 @@ extends DailyCost
 func _init() -> void:
 	name = "Car maintenace"
 	optional = true
+	tooltip = true
 
 func calculate_cost() -> int:
 	return RunData.stats.repair_car_cost
@@ -13,3 +14,6 @@ func should_appear() -> bool:
 
 func on_pay():
 	RunData.player_health = RunData.stats.max_player_health
+
+func get_description() -> String:
+	return "Get your car fixed to avoid accidents"

@@ -6,16 +6,17 @@
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="3_4d04w"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="4_if5jp"]
 [ext_resource type="PackedScene" uid="uid://dpflyyrefqj54" path="res://scenes/upgrade_tooltip.tscn" id="6_bncvp"]
+[ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="7_48vcv"]
 
 [node name="Scene" type="Node2D" unique_id=433407285]
 script = ExtResource("1_bncvp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=720956307 node_paths=PackedStringArray("continue_button", "info", "fee_boxes_parent", "fee_tooltip")]
 script = ExtResource("1_4d04w")
-continue_button = NodePath("Main/Panel/VBoxContainer/ContinueButton")
-info = NodePath("Main/Panel/VBoxContainer/Info")
-fee_boxes_parent = NodePath("Main/Panel/VBoxContainer/FeeList")
-fee_tooltip = NodePath("Main/Panel/VBoxContainer/UpgradeTooltip")
+continue_button = NodePath("Main/Panel/MarginContainer/VBoxContainer/ContinueButton")
+info = NodePath("Main/Panel/MarginContainer/VBoxContainer/Info")
+fee_boxes_parent = NodePath("Main/Panel/MarginContainer/VBoxContainer/ScrollContainer/FeeList")
+fee_tooltip = NodePath("Main/Panel/MarginContainer/VBoxContainer/UpgradeTooltip")
 
 [node name="Main" type="Control" parent="CanvasLayer" unique_id=636594540]
 layout_mode = 3
@@ -34,48 +35,87 @@ offset_right = 600.0
 offset_bottom = 320.0
 theme_override_styles/panel = ExtResource("1_qbjwo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/Panel" unique_id=939547966]
-custom_minimum_size = Vector2(300, 0)
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/Panel" unique_id=1246897449]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -80.0
-offset_right = 80.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer" unique_id=939547966]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=541318836]
+[node name="Label" type="Label" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=541318836]
 layout_mode = 2
 theme = ExtResource("3_4d04w")
 theme_type_variation = &"BoldLabel"
 text = "Payment bills"
 horizontal_alignment = 1
 
-[node name="FeeList" type="VBoxContainer" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=134316512]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1816006939]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Info" type="RichTextLabel" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=48494173]
+[node name="FeeList" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=134316512]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Info" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=48494173]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("3_4d04w")
 bbcode_enabled = true
 text = "Money: [font=res://fonts/Retro5.ttf]$50[/font]
 "
 fit_content = true
 
-[node name="ContinueButton" type="Button" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=1834661687]
+[node name="ContinueButton" type="Button" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1834661687]
 layout_mode = 2
 theme = ExtResource("3_4d04w")
 text = "Continue"
 
-[node name="MainMenuButton" type="Button" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=1289528671]
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1289528671]
 layout_mode = 2
 theme = ExtResource("3_4d04w")
 text = "Go to main menu"
 script = ExtResource("4_if5jp")
 sceneToLoad = "uid://dn8dlbfrm5smc"
 
-[node name="UpgradeTooltip" parent="CanvasLayer/Main/Panel/VBoxContainer" unique_id=1050260578 instance=ExtResource("6_bncvp")]
+[node name="UpgradeTooltip" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1050260578 instance=ExtResource("6_bncvp")]
 layout_mode = 2
+
+[node name="DayPanel" type="Panel" parent="CanvasLayer/Main" unique_id=1032721523]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme = ExtResource("3_4d04w")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Main/DayPanel" unique_id=1094859531]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"SecondaryLabel"
+bbcode_enabled = true
+text = "Week 1, Day 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_48vcv")
