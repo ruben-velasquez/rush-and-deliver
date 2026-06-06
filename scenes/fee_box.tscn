@@ -22,4 +22,5 @@ theme = ExtResource("2_wnnfb")
 bbcode_enabled = true
 text = "Food: [font=res://fonts/Retro5.ttf][color=red]-$15[/color][/font]"
 fit_content = true
+autowrap_mode = 0
 vertical_alignment = 1

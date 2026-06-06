@@ -6,6 +6,12 @@ enum RunState {
 	GAME
 }
 
+class SummaryEntry:
+	var title: String
+	var money_movement: int
+
+var day_summary: Array[SummaryEntry] = []
+
 var run_state: RunState = RunState.GAME
 
 var money := 0

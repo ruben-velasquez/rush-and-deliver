@@ -81,7 +81,7 @@ func generate_shop(quantity: int) -> Array[Upgrade]:
 	for _upg in upgrade_pool:
 		var upgrade = _upg.call() as Upgrade
 		
-		if upgrade.unique and has_upgrade(upgrade):
+		if !upgrade.unique or has_upgrade(upgrade):
 			continue
 		
 		if upgrade.can_appear():
@@ -97,6 +97,14 @@ func generate_shop(quantity: int) -> Array[Upgrade]:
 		shop_upgrades.append(selected)
 	
 	return shop_upgrades
+
+func get_special_upgrade() -> Upgrade:
+	var pool: Array[Callable] = upgrade_pool.filter(func(_upg): return !_upg.call().unique)
+	
+	if len(pool) < 1:
+		return null
+	
+	return upgrade_pool[0].call() as Upgrade
 
 func has_upgrade(upgrade: Upgrade) -> bool:
 	return current_upgrades.any(func(_upg):

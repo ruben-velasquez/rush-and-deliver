@@ -7,8 +7,26 @@
 [ext_resource type="Script" uid="uid://yd5kqcmi4g3r" path="res://scripts/upgrades_shop.gd" id="4_ixicc"]
 [ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="5_6vqdt"]
 [ext_resource type="PackedScene" uid="uid://dpflyyrefqj54" path="res://scenes/upgrade_tooltip.tscn" id="6_ethjp"]
+[ext_resource type="Texture2D" uid="uid://lqbwcn5mf2g4" path="res://assets/pixel_panel.png" id="7_1eg5u"]
+[ext_resource type="Texture2D" uid="uid://bhkuu6g6m876c" path="res://assets/icon_background_shop_menu.png" id="7_3rs5v"]
+[ext_resource type="Script" uid="uid://74e6pktsngf8" path="res://scripts/upgrade_option.gd" id="7_h8ffg"]
+[ext_resource type="Texture2D" uid="uid://8lg7ih6s2ctc" path="res://assets/upgrades.png" id="7_he6dt"]
 [ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="9_0isde"]
 [ext_resource type="Script" uid="uid://dlbw8osdkq0yw" path="res://scripts/sell_upgrades_menu.gd" id="10_3rs5v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o1026"]
+texture = ExtResource("7_1eg5u")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(0, 0, 32, 16)
+modulate_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rs5v"]
+atlas = ExtResource("7_he6dt")
+region = Rect2(0, 32, 16, 16)
 
 [node name="Scene" type="Node2D" unique_id=682139572]
 script = ExtResource("1_ksfom")
@@ -96,15 +114,64 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme = ExtResource("4_ethjp")
 theme_type_variation = &"BoldLabel"
-text = "Upgrades"
+text = "Shop"
 horizontal_alignment = 1
 
-[node name="Upgrades" type="HBoxContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=1342032108 node_paths=PackedStringArray("tooltip")]
+[node name="Upgrades" type="HBoxContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=1342032108 node_paths=PackedStringArray("tooltip", "special_upgrade_option")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
 script = ExtResource("4_ixicc")
 tooltip = NodePath("../../../UpgradeTooltip")
+special_upgrade_option = NodePath("../PanelContainer/SpecialUpgrade")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=174731412]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme = ExtResource("4_ethjp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_o1026")
+
+[node name="SpecialUpgrade" type="HBoxContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer/PanelContainer" unique_id=777122659 node_paths=PackedStringArray("purchase_button", "texture")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+script = ExtResource("7_h8ffg")
+purchase_button = NodePath("PurchaseButton")
+texture = NodePath("Bg/PackageIcon")
+
+[node name="Bg" type="TextureRect" parent="CanvasLayer/UpgradesPanel/VBoxContainer/PanelContainer/SpecialUpgrade" unique_id=1141946984]
+self_modulate = Color(0.2159017, 0.21590173, 0.2159017, 1)
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+texture = ExtResource("7_3rs5v")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="PackageIcon" type="TextureRect" parent="CanvasLayer/UpgradesPanel/VBoxContainer/PanelContainer/SpecialUpgrade/Bg" unique_id=1512080250]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_3rs5v")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="PurchaseButton" type="Button" parent="CanvasLayer/UpgradesPanel/VBoxContainer/PanelContainer/SpecialUpgrade" unique_id=263381942]
+custom_minimum_size = Vector2(42, 24)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("4_ethjp")
+theme_type_variation = &"MoneyButton"
+text = "$?"
 
 [node name="Panel" type="PanelContainer" parent="CanvasLayer" unique_id=361774980]
 custom_minimum_size = Vector2(40, 0)

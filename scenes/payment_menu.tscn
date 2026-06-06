@@ -11,11 +11,11 @@
 [node name="Scene" type="Node2D" unique_id=433407285]
 script = ExtResource("1_bncvp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=720956307 node_paths=PackedStringArray("continue_button", "info", "fee_boxes_parent", "fee_tooltip")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=720956307 node_paths=PackedStringArray("continue_button", "info", "summary_boxes_parent", "fee_tooltip")]
 script = ExtResource("1_4d04w")
 continue_button = NodePath("Main/Panel/MarginContainer/VBoxContainer/ContinueButton")
 info = NodePath("Main/Panel/MarginContainer/VBoxContainer/Info")
-fee_boxes_parent = NodePath("Main/Panel/MarginContainer/VBoxContainer/ScrollContainer/FeeList")
+summary_boxes_parent = NodePath("Main/Panel/MarginContainer/VBoxContainer/ScrollContainer/Summary")
 fee_tooltip = NodePath("Main/Panel/MarginContainer/VBoxContainer/UpgradeTooltip")
 
 [node name="Main" type="Control" parent="CanvasLayer" unique_id=636594540]
@@ -63,7 +63,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="FeeList" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=134316512]
+[node name="Summary" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=134316512]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

@@ -4,7 +4,7 @@ extends Upgrade
 func _init() -> void:
 	name = "Upgrade capacity"
 	id = "capacity"
-	base_price = 5
+	base_price = 10
 	unique = false
 
 func apply_stats():

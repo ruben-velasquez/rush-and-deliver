@@ -3,10 +3,11 @@ class_name PaymentMenu
 
 const MONEY_FONT: String = "res://fonts/Retro5.ttf"
 const FEE_BOX_NODE: PackedScene = preload("res://scenes/fee_box.tscn")
+const REWARD_BOX_NODE: PackedScene = preload("res://scenes/reward_box.tscn")
 
 @export var continue_button: Button
 @export var info: RichTextLabel
-@export var fee_boxes_parent: Control
+@export var summary_boxes_parent: Control
 @export var fee_tooltip: Tooltip
 
 signal on_changed_fee
@@ -21,7 +22,14 @@ func _ready():
 		var box = FEE_BOX_NODE.instantiate() as FeeBox
 		box.tooltip = fee_tooltip
 		box.setup(fee, self);
-		fee_boxes_parent.add_child(box)
+		summary_boxes_parent.add_child(box)
+	
+	for entry in RunData.day_summary:
+		var box = REWARD_BOX_NODE.instantiate() as RewardBox
+		box.setup(entry)
+		summary_boxes_parent.add_child(box)
+	
+	RunData.day_summary.clear()
 	
 	update_money_left()
 	
