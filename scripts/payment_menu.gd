@@ -17,6 +17,13 @@ var money_left: int
 func _ready():
 	var daily_costs = GameManager.current_costs
 	
+	for entry in RunData.day_summary:
+		if entry.appear_bottom: continue
+		
+		var box = REWARD_BOX_NODE.instantiate() as RewardBox
+		box.setup(entry)
+		summary_boxes_parent.add_child(box)
+	
 	for fee in daily_costs:
 		fee.active = !fee.optional
 		var box = FEE_BOX_NODE.instantiate() as FeeBox
@@ -25,6 +32,8 @@ func _ready():
 		summary_boxes_parent.add_child(box)
 	
 	for entry in RunData.day_summary:
+		if !entry.appear_bottom: continue
+		
 		var box = REWARD_BOX_NODE.instantiate() as RewardBox
 		box.setup(entry)
 		summary_boxes_parent.add_child(box)
@@ -44,7 +53,7 @@ func update_money_left():
 			money_left -= fee.calculate_cost()
 	
 	on_changed_fee.emit()
-	info.text = "Money: [font=%s]%s$[/font]" % [MONEY_FONT, money_left]
+	info.text = "[color=ddac46][font=%s]%s$[/font]" % [MONEY_FONT, money_left]
 
 func on_continue():
 	if money_left < 0:

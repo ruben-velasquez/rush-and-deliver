@@ -69,6 +69,8 @@ func _default_debt_info() -> DebtInfo:
 	info.total_amount = 50
 	info.amount = info.total_amount
 	info.payments = 5
+	info.appear_week = 3
+	
 	info.deadline = {
 		"day": 5,
 		"week": 3

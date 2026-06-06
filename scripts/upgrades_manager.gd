@@ -11,6 +11,7 @@ var upgrade_pool: Array[Callable] = [
 	func(): return RiskyDeliveryUpgrade.new(),
 	func(): return HeavyHaulerUpgrade.new(),
 	func(): return CheapRepairUpgrade.new(),
+	func(): return InterestsUpgrade.new(),
 ]
 
 signal on_upgrades_change

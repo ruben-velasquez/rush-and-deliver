@@ -9,6 +9,7 @@ enum RunState {
 class SummaryEntry:
 	var title: String
 	var money_movement: int
+	var appear_bottom: bool = false
 
 var day_summary: Array[SummaryEntry] = []
 

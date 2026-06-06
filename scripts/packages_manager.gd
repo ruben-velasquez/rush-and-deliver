@@ -45,6 +45,13 @@ func deliver(package: Package):
 	package.done = true
 	GameManager.give_money(package.reward)
 	
+	if len(RunData.day_summary) < 1:
+		RunData.day_summary.append(RunData.SummaryEntry.new())
+		RunData.day_summary[0].title = "Packages"
+		RunData.day_summary[0].money_movement = 0
+	
+	RunData.day_summary[0].money_movement += package.reward
+	
 	if is_current_package(package):
 		next_package()
 	

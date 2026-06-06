@@ -5,6 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="1_qbjwo"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="3_4d04w"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="4_if5jp"]
+[ext_resource type="Texture2D" uid="uid://pfjf2j72ivoj" path="res://assets/dotted_line_texture.png" id="5_267j7"]
 [ext_resource type="PackedScene" uid="uid://dpflyyrefqj54" path="res://scenes/upgrade_tooltip.tscn" id="6_bncvp"]
 [ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="7_48vcv"]
 
@@ -14,7 +15,7 @@ script = ExtResource("1_bncvp")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=720956307 node_paths=PackedStringArray("continue_button", "info", "summary_boxes_parent", "fee_tooltip")]
 script = ExtResource("1_4d04w")
 continue_button = NodePath("Main/Panel/MarginContainer/VBoxContainer/ContinueButton")
-info = NodePath("Main/Panel/MarginContainer/VBoxContainer/Info")
+info = NodePath("Main/Panel/MarginContainer/VBoxContainer/HBoxContainer/Money")
 summary_boxes_parent = NodePath("Main/Panel/MarginContainer/VBoxContainer/ScrollContainer/Summary")
 fee_tooltip = NodePath("Main/Panel/MarginContainer/VBoxContainer/UpgradeTooltip")
 
@@ -59,6 +60,21 @@ theme_type_variation = &"BoldLabel"
 text = "Payment bills"
 horizontal_alignment = 1
 
+[node name="DottedSeparator" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer/Label" unique_id=890140930]
+self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 0
+offset_top = 30.0
+offset_right = 360.0
+offset_bottom = 32.0
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BoldLabel"
+texture = ExtResource("5_267j7")
+expand_mode = 3
+stretch_mode = 1
+
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1816006939]
 layout_mode = 2
 size_flags_vertical = 3
@@ -68,13 +84,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Info" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=48494173]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1145077403]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=48494173]
+custom_minimum_size = Vector2(60, 36)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_4d04w")
+bbcode_enabled = true
+text = "Money:
+"
+fit_content = true
+
+[node name="Money" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=849213826]
+clip_contents = false
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_4d04w")
 bbcode_enabled = true
-text = "Money: [font=res://fonts/Retro5.ttf]$50[/font]
+text = "[color=ddac46][font=res://fonts/Retro5.ttf]$50
 "
 fit_content = true
 

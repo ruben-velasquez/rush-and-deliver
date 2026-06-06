@@ -31,12 +31,17 @@ region = Rect2(48, 32, 16, 16)
 atlas = ExtResource("2_ejj0c")
 region = Rect2(16, 32, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l6na"]
+atlas = ExtResource("2_ejj0c")
+region = Rect2(112, 32, 16, 16)
+
 [resource]
 script = ExtResource("1_p7nyx")
 sprites = Dictionary[String, Texture2D]({
 "capacity": SubResource("AtlasTexture_uhkbm"),
 "cheap_repair": SubResource("AtlasTexture_ejj0c"),
 "heavy_hauler": SubResource("AtlasTexture_44a7i"),
+"interests": SubResource("AtlasTexture_3l6na"),
 "reinforced_storage": SubResource("AtlasTexture_47gjq"),
 "risky_delivery": SubResource("AtlasTexture_hxrie"),
 "rush_delivery_license": SubResource("AtlasTexture_0ntkf"),

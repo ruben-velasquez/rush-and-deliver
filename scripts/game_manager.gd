@@ -39,8 +39,8 @@ func give_money(reward: int):
 	on_money_updated.emit()
 
 func end_day():
-	on_day_end.emit()
 	calculate_costs()
+	on_day_end.emit()
 	
 	SceneManager.instance.load_payment_scene()
 
@@ -56,6 +56,10 @@ func start_day():
 		RunData.current_week += 1
 	else:
 		RunData.current_day += 1
+	
+	RunData.day_summary.append(RunData.SummaryEntry.new())
+	RunData.day_summary[0].title = "Packages Reward"
+	RunData.day_summary[0].money_movement = 0
 	
 	RunData.day_broken_packages = 0
 	RunData.day_late_packages = 0
@@ -73,6 +77,7 @@ func reset():
 	RunData.day_late_packages = 0
 	
 	RunData.cost_states.clear()
+	RunData.day_summary.clear()
 	
 	RunData.player_health = RunData.stats.max_player_health
 	UpgradesManager.current_upgrades.clear()
