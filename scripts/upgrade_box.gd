@@ -10,7 +10,7 @@ func setup(_upgrade: Upgrade):
 	upgrade = _upgrade
 	icon_rect.texture = UpgradesManager.get_icon(upgrade.id)
 	icon_rect.tooltip_text = upgrade.get_description()
-	sell_button.text = "Sell $%s" % [upgrade.base_price]
+	sell_button.text = "$%s" % [floori(upgrade.get_price()*0.75)]
 	sell_button.pressed.connect(sell_upgrade)
 
 func sell_upgrade():

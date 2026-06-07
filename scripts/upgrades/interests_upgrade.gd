@@ -4,8 +4,8 @@ extends Upgrade
 func _init() -> void:
 	name = "Interest"
 	id = "interest"
-	base_price = 12
-	unique = true
+	base_price = 20
+	unique = false
 
 func on_day_end():
 	var brute_money = RunData.money

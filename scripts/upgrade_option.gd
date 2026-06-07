@@ -1,5 +1,5 @@
 class_name UpgradeOption
-extends Node
+extends BoxContainer
 
 @export var purchase_button: Button
 @export var texture: TextureRect

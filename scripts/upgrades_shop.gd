@@ -18,4 +18,9 @@ func _ready() -> void:
 
 		option_node.setup(upgrade, tooltip)
 	
-	special_upgrade_option.setup(UpgradesManager.get_special_upgrade(), tooltip)
+	var specialUpgrade: Upgrade = UpgradesManager.get_special_upgrade()
+	
+	if specialUpgrade:
+		special_upgrade_option.setup(specialUpgrade, tooltip)
+	else:
+		special_upgrade_option.hide()

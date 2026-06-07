@@ -100,12 +100,12 @@ func generate_shop(quantity: int) -> Array[Upgrade]:
 	return shop_upgrades
 
 func get_special_upgrade() -> Upgrade:
-	var pool: Array[Callable] = upgrade_pool.filter(func(_upg): return !_upg.call().unique)
+	var pool: Array[Callable] = upgrade_pool.filter(func(_upg): return !_upg.call().unique and !has_upgrade(_upg.call()))
 	
 	if len(pool) < 1:
 		return null
 	
-	return upgrade_pool[0].call() as Upgrade
+	return pool.pick_random().call() as Upgrade
 
 func has_upgrade(upgrade: Upgrade) -> bool:
 	return current_upgrades.any(func(_upg):
