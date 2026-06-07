@@ -89,7 +89,7 @@ func player_died():
 func calculate_costs():
 	current_costs.clear()
 	
-	for fee in daily_costs:
+	for fee in get_costs_pool():
 		var _cost = fee.call() as DailyCost
 		
 		if _cost.should_appear():
@@ -99,9 +99,12 @@ func calculate_costs():
 
 func get_estimated_costs() -> int:
 	var total = 0
-	for fee in daily_costs:
+	for fee in get_costs_pool():
 		var _cost = fee.call() as DailyCost
 		
 		if _cost.should_appear() and !_cost.optional:
 			total += _cost.calculate_cost()
 	return total
+
+func get_costs_pool() -> Array[Callable]:
+	return daily_costs + RunData.run_costs

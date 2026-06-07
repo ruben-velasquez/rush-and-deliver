@@ -15,6 +15,8 @@ var day_summary: Array[SummaryEntry] = []
 
 var run_state: RunState = RunState.GAME
 
+var run_costs: Array[Callable] = []
+
 var money := 0
 var current_week := 1
 var current_day := 1

@@ -12,6 +12,7 @@ var upgrade_pool: Array[Callable] = [
 	func(): return HeavyHaulerUpgrade.new(),
 	func(): return CheapRepairUpgrade.new(),
 	func(): return InterestsUpgrade.new(),
+	func(): return LoanUpgrade.new()
 ]
 
 signal on_upgrades_change
@@ -50,7 +51,7 @@ func add_upgrade(upgrade: Upgrade):
 func sell_upgrade(upgrade: Upgrade):
 	if !has_upgrade(upgrade) or !upgrade.unique: return
 	
-	GameManager.give_money(upgrade.base_price)
+	GameManager.give_money(floori(upgrade.get_price()*0.75))
 	current_upgrades.erase(upgrade)
 	print(has_upgrade(upgrade))
 	

@@ -12,7 +12,11 @@ var debt_name = "Debt"
 var debt_id = "debt"
 var debt_info: DebtInfo
 
-func _init() -> void:
+func _init(_name: String = debt_name, _id: String = debt_id, _info: DebtInfo = debt_info) -> void:
+	debt_name = _name
+	debt_id = _id
+	debt_info = _info
+	
 	name = debt_name
 	tooltip = true
 	
@@ -32,7 +36,7 @@ func _init() -> void:
 func should_appear() -> bool:
 	var data = RunData.cost_states[debt_id] as DebtInfo
 	
-	return RunData.current_week == data.appear_week and data.amount > 0
+	return RunData.current_week >= data.appear_week and data.amount > 0
 
 func calculate_cost() -> int:
 	var data = RunData.cost_states[debt_id] as DebtInfo
