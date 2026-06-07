@@ -10,7 +10,7 @@ func _ready() -> void:
 	UpgradesManager.on_add_upgrade.connect(add_upgrade)
 
 func add_upgrade(upgrade: Upgrade):
-	if !upgrade.unique: return
+	if upgrade.is_special: return
 	var box = UPGRADE_BOX_NODE.instantiate() as UpgradeBox
 	box.setup(upgrade)
 	add_child(box)

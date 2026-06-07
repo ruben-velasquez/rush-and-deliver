@@ -5,7 +5,6 @@ func _init() -> void:
 	name = "Heavy Hauler"
 	id = "heavy_hauler"
 	base_price = 6
-	unique = true
 
 func apply_stats():
 	RunData.stats.heavy_packages_speed_mult = 1

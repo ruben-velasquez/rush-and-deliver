@@ -38,7 +38,7 @@ func rebuild_stats():
 		upgrade.apply_stats()
 
 func add_upgrade(upgrade: Upgrade):
-	if upgrade.unique and unique_upgrades_quantity() >= RunData.stats.max_unique_upgrades: return
+	if !upgrade.is_special and normal_upgrades_quantity() >= RunData.stats.max_normal_upgrades: return
 	if RunData.money <  get_upgrade_price(upgrade): return
 	
 	GameManager.give_money(-get_upgrade_price(upgrade))
@@ -49,7 +49,7 @@ func add_upgrade(upgrade: Upgrade):
 	on_add_upgrade.emit(upgrade)
 
 func sell_upgrade(upgrade: Upgrade):
-	if !has_upgrade(upgrade) or !upgrade.unique: return
+	if !has_upgrade(upgrade) or upgrade.is_special: return
 	
 	GameManager.give_money(floori(upgrade.get_price()*0.75))
 	current_upgrades.erase(upgrade)
@@ -83,7 +83,7 @@ func generate_shop(quantity: int) -> Array[Upgrade]:
 	for _upg in upgrade_pool:
 		var upgrade = _upg.call() as Upgrade
 		
-		if !upgrade.unique or has_upgrade(upgrade):
+		if upgrade.is_special or has_upgrade(upgrade):
 			continue
 		
 		if upgrade.can_appear():
@@ -101,7 +101,7 @@ func generate_shop(quantity: int) -> Array[Upgrade]:
 	return shop_upgrades
 
 func get_special_upgrade() -> Upgrade:
-	var pool: Array[Callable] = upgrade_pool.filter(func(_upg): return !_upg.call().unique and !has_upgrade(_upg.call()))
+	var pool: Array[Callable] = upgrade_pool.filter(func(_upg): return _upg.call().is_special and !has_upgrade(_upg.call()))
 	
 	if len(pool) < 1:
 		return null
@@ -113,11 +113,11 @@ func has_upgrade(upgrade: Upgrade) -> bool:
 		return upgrade.name == _upg.name
 	)
 
-func unique_upgrades_quantity() -> int:
+func normal_upgrades_quantity() -> int:
 	var count = 0
 	
 	for upg in current_upgrades:
-		if upg.unique:
+		if !upg.is_special:
 			count += 1
 	
 	return count

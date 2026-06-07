@@ -2,7 +2,6 @@ class_name SpeedUpgrade
 extends Upgrade
 
 func _init() -> void:
-	unique = true
 	name = "Speed Upgrade"
 	base_price = 10
 	id = "speed"

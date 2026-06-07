@@ -3,7 +3,7 @@ extends Object
 
 var name: String
 var base_price: int
-var unique: bool
+var is_special: bool = false
 var weight: int = 1
 var id: String
 

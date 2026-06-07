@@ -5,7 +5,6 @@ func _init() -> void:
 	name = "Reinforced Storage"
 	id = "reinforced_storage"
 	base_price = 7
-	unique = true
 
 func apply_stats():
 	RunData.stats.fragile_packages_health += 1

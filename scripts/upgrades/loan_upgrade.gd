@@ -5,7 +5,7 @@ func _init() -> void:
 	name = "Loan Upgrade"
 	id = "loan"
 	base_price = 2
-	unique = false
+	is_special = true
 
 func on_purchase():
 	GameManager.give_money(40)

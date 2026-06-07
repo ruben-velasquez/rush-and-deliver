@@ -5,7 +5,7 @@ func _init() -> void:
 	name = "Interest"
 	id = "interest"
 	base_price = 20
-	unique = false
+	is_special = true
 
 func on_day_end():
 	var brute_money = RunData.money
