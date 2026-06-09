@@ -22,5 +22,8 @@ func can_appear() -> bool:
 func on_pay():
 	pass
 
+func on_skip():
+	pass
+
 func get_description() -> String:
 	return ""

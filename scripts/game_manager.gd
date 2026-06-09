@@ -15,7 +15,7 @@ var daily_costs: Array[Callable] = [
 	func(): return DebtCost.new(),
 	func(): return BankDebtCost.new(),
 	func(): return FuelCost.new(),
-	
+	func(): return MedicineCost.new(),
 ]
 
 var player: PlayerController
@@ -46,7 +46,9 @@ func end_day():
 
 func pay_costs():
 	for fee in current_costs:
-		if !fee.active: continue
+		if !fee.active: 
+			fee.on_skip()
+			continue
 		fee.on_pay()
 		give_money(-fee.calculate_cost())
 
