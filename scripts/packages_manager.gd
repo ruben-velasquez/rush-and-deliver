@@ -180,14 +180,14 @@ func on_player_crash():
 
 # Helpers
 
-func is_current_package(pkg: Package) -> bool:
-	return packages.find(pkg) == currentPackage
+static func is_current_package(pkg: Package) -> bool:
+	return GameManager.packages_manager.packages.find(pkg) ==  GameManager.packages_manager.currentPackage
 
-func is_heavy(pkg: Package) -> bool:
-	return pkg.property == Package.PackageProperty.HEAVY
+static func is_heavy(pkg: Package) -> bool:
+	return  pkg.property == Package.PackageProperty.HEAVY
 
-func is_urgent(pkg: Package) -> bool:
-	return pkg.property == Package.PackageProperty.URGENT
+static func is_urgent(pkg: Package) -> bool:
+	return  pkg.property == Package.PackageProperty.URGENT
 
-func is_fragile(pkg: Package) -> bool:
-	return pkg.property == Package.PackageProperty.FRAGILE
+static func is_fragile(pkg: Package) -> bool:
+	return  pkg.property == Package.PackageProperty.FRAGILE

@@ -13,6 +13,7 @@ offset_bottom = 38.0
 theme = ExtResource("1_vqah5")
 theme_type_variation = &"TinyLabel"
 theme_override_colors/font_outline_color = Color(0.95686275, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.95686275, 0, 0, 1)
 theme_override_constants/outline_size = 7
 bbcode_enabled = true
 text = "+6$"

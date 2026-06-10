@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dphw0rss60obn" path="res://scenes/fire_effect.tscn" id="5_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://c0sxano5e42qc" path="res://scenes/explosion_effect.tscn" id="7_fjrip"]
 [ext_resource type="PackedScene" uid="uid://bbn8yliy4afrb" path="res://scenes/drift_effect.tscn" id="8_smehm"]
+[ext_resource type="PackedScene" uid="uid://dmfx17an34onp" path="res://scenes/slowed_arrow_vfx.tscn" id="11_d2wvv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
@@ -82,3 +83,6 @@ position = Vector2(4, 10)
 
 [node name="DriftEffectLeft" parent="." unique_id=1010994282 instance=ExtResource("8_smehm")]
 position = Vector2(-4, 10)
+
+[node name="Sprite2D2" parent="." unique_id=1962222346 instance=ExtResource("11_d2wvv")]
+position = Vector2(10, -14)

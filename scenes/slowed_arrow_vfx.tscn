@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dmfx17an34onp"]
+
+[ext_resource type="Texture2D" uid="uid://b2bqqxbipke0a" path="res://assets/slow_arrow_vfx.png" id="1_l3gkg"]
+[ext_resource type="Script" uid="uid://dhfnmaf1myhqd" path="res://scripts/slowed_arrow_vfx.gd" id="2_k3yft"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1962222346]
+texture_repeat = 2
+texture = ExtResource("1_l3gkg")
+script = ExtResource("2_k3yft")

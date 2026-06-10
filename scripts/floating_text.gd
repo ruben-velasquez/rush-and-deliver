@@ -11,6 +11,7 @@ func setup(_text: String, _text_color: Color):
 	
 	add_theme_color_override("default_color", _text_color)
 	add_theme_color_override("font_outline_color", Color.WHITE)
+	add_theme_color_override("font_shadow_color", Color.WHITE)
 	
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, 1)
