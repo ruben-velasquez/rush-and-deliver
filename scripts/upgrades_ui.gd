@@ -1,9 +1,16 @@
 extends HBoxContainer
 
+enum UpgradeType {
+	NORMAL,
+	SPECIAL
+}
+
+@export var upgrade_type: UpgradeType
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for upgrade in UpgradesManager.current_upgrades:
-		if upgrade.is_special: continue
+		if upgrade.is_special != (upgrade_type == UpgradeType.SPECIAL) : continue
 		
 		
 		var img = TextureRect.new()
@@ -12,3 +19,6 @@ func _ready() -> void:
 		img.texture = UpgradesManager.get_icon(upgrade.id)
 		img.tooltip_text = upgrade.get_description()
 		add_child(img)
+	
+	if get_child_count(false) < 1:
+		hide()

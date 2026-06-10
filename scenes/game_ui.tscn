@@ -44,6 +44,8 @@ layout_mode = 2
 [node name="DayLabel" type="RichTextLabel" parent="Layout/Info" unique_id=91054493]
 layout_mode = 2
 theme = ExtResource("6_o3bws")
+theme_override_colors/font_outline_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
+theme_override_constants/outline_size = 7
 text = "Week 1, Day 1"
 fit_content = true
 horizontal_alignment = 2
@@ -127,12 +129,30 @@ size_flags_horizontal = 8
 [node name="UnavailableAdvice" type="Label" parent="Layout/PackagesInfo" unique_id=1418236425]
 layout_mode = 2
 theme = ExtResource("6_o3bws")
+theme_override_colors/font_outline_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+theme_override_constants/outline_size = 7
 text = "All packages are shipped.
 Go to the shipping office"
 horizontal_alignment = 2
 
-[node name="Upgrades" type="HBoxContainer" parent="." unique_id=1954800613]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2122096011]
+custom_minimum_size = Vector2(0, 66)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 32.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 68.0
+theme_override_constants/separation = 2
+
+[node name="Upgrades" type="HBoxContainer" parent="VBoxContainer" unique_id=1954800613]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 2
 script = ExtResource("5_bt76a")
+
+[node name="SpecialUpgrades" type="HBoxContainer" parent="VBoxContainer" unique_id=1909013694]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 2
+script = ExtResource("5_bt76a")
+upgrade_type = 1
