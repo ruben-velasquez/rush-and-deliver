@@ -53,7 +53,7 @@ func update_money_left():
 			money_left -= fee.calculate_cost()
 	
 	on_changed_fee.emit()
-	info.text = "[color=ddac46][font=%s]%s$[/font]" % [MONEY_FONT, money_left]
+	info.text = "[color=ddac46][font=%s]$%s[/font]" % [MONEY_FONT, money_left]
 
 func on_continue():
 	if money_left < 0:

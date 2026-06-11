@@ -2,30 +2,42 @@
 
 [ext_resource type="Script" uid="uid://dsiqe27i85yd0" path="res://scripts/payment_menu.gd" id="1_4d04w"]
 [ext_resource type="Script" uid="uid://cft86kstfxmbc" path="res://scripts/scene_manager.gd" id="1_bncvp"]
-[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="1_qbjwo"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="3_4d04w"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="4_if5jp"]
 [ext_resource type="Texture2D" uid="uid://pfjf2j72ivoj" path="res://assets/dotted_line_texture.png" id="5_267j7"]
 [ext_resource type="PackedScene" uid="uid://dpflyyrefqj54" path="res://scenes/upgrade_tooltip.tscn" id="6_bncvp"]
 [ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="7_48vcv"]
+[ext_resource type="Texture2D" uid="uid://bkv8nopf1udcv" path="res://assets/drift_particle.png" id="7_52am5"]
+[ext_resource type="Texture2D" uid="uid://bejwfi6qyrq0y" path="res://assets/line_pattern_1.png" id="9_52am5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48vcv"]
+bg_color = Color(0.10747974, 0.10747974, 0.10747967, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48vcv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52am5"]
+atlas = ExtResource("7_52am5")
+region = Rect2(2, 2, 4, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_267j7"]
 
 [node name="Scene" type="Node2D" unique_id=433407285]
 script = ExtResource("1_bncvp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=720956307 node_paths=PackedStringArray("continue_button", "info", "summary_boxes_parent", "fee_tooltip")]
 script = ExtResource("1_4d04w")
-continue_button = NodePath("Main/Panel/MarginContainer/VBoxContainer/ContinueButton")
-info = NodePath("Main/Panel/MarginContainer/VBoxContainer/HBoxContainer/Money")
-summary_boxes_parent = NodePath("Main/Panel/MarginContainer/VBoxContainer/ScrollContainer/Summary")
-fee_tooltip = NodePath("Main/Panel/MarginContainer/VBoxContainer/UpgradeTooltip")
+continue_button = NodePath("Main/Panel/MarginContainer/Main/ButtonsFooter/ContinueButton")
+info = NodePath("Main/Panel/MarginContainer/Main/Content/HBoxContainer/Money")
+summary_boxes_parent = NodePath("Main/Panel/MarginContainer/Main/Content/ScrollContainer/Summary")
+fee_tooltip = NodePath("Main/Panel/MarginContainer/Main/Content/UpgradeTooltip")
 
-[node name="Main" type="Control" parent="CanvasLayer" unique_id=636594540]
-layout_mode = 3
+[node name="Main" type="Panel" parent="CanvasLayer" unique_id=1127629717]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_48vcv")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Main" unique_id=2007248735]
 layout_mode = 1
@@ -33,8 +45,8 @@ anchors_preset = -1
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 600.0
-offset_bottom = 320.0
-theme_override_styles/panel = ExtResource("1_qbjwo")
+offset_bottom = 340.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_48vcv")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/Panel" unique_id=1246897449]
 layout_mode = 1
@@ -48,56 +60,122 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer" unique_id=939547966]
+[node name="Main" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer" unique_id=1400103882]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Content" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/Main" unique_id=939547966]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=541318836]
+[node name="Label" type="Label" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content" unique_id=541318836]
 layout_mode = 2
 theme = ExtResource("3_4d04w")
 theme_type_variation = &"BoldLabel"
 text = "Payment bills"
 horizontal_alignment = 1
 
-[node name="DottedSeparator" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer/Label" unique_id=890140930]
+[node name="DottedSeparator" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/Label" unique_id=890140930]
 self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
 texture_filter = 1
 texture_repeat = 2
 custom_minimum_size = Vector2(0, 3)
-layout_mode = 0
-offset_top = 30.0
-offset_right = 360.0
-offset_bottom = 32.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = 3.0
+offset_right = 182.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = ExtResource("3_4d04w")
 theme_type_variation = &"BoldLabel"
 texture = ExtResource("5_267j7")
 expand_mode = 3
 stretch_mode = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1816006939]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content" unique_id=1816006939]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_4d04w")
+theme_override_constants/scrollbar_h_separation = 4
 
-[node name="Summary" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=134316512]
+[node name="Summary" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/ScrollContainer" unique_id=134316512]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("3_4d04w")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1145077403]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content" unique_id=1145077403]
 layout_mode = 2
 
-[node name="Label" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=48494173]
-custom_minimum_size = Vector2(60, 36)
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/HBoxContainer" unique_id=48494173]
+clip_contents = false
+custom_minimum_size = Vector2(68, 36)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("3_4d04w")
 bbcode_enabled = true
-text = "Money:
+text = " Money:
 "
 fit_content = true
 
-[node name="Money" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=849213826]
+[node name="DottedSeparator2" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/HBoxContainer/Label" unique_id=1176810777]
+self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -38.0
+offset_right = 328.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BoldLabel"
+texture = ExtResource("5_267j7")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="DottedSeparator3" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/HBoxContainer/Label" unique_id=836606784]
+self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -8.0
+offset_right = 328.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BoldLabel"
+texture = ExtResource("5_267j7")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="Money" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/HBoxContainer" unique_id=849213826]
 clip_contents = false
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
@@ -107,21 +185,42 @@ bbcode_enabled = true
 text = "[color=ddac46][font=res://fonts/Retro5.ttf]$50
 "
 fit_content = true
+horizontal_alignment = 2
 
-[node name="ContinueButton" type="Button" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1834661687]
+[node name="UpgradeTooltip" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content" unique_id=1050260578 instance=ExtResource("6_bncvp")]
+visible = false
 layout_mode = 2
-theme = ExtResource("3_4d04w")
-text = "Continue"
 
-[node name="MainMenuButton" type="Button" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1289528671]
+[node name="ButtonsFooter" type="HBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/Main" unique_id=260885982]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/Main/Panel/MarginContainer/Main/ButtonsFooter" unique_id=1289528671]
+layout_mode = 2
+size_flags_horizontal = 0
 theme = ExtResource("3_4d04w")
+theme_type_variation = &"BigButton"
 text = "Go to main menu"
 script = ExtResource("4_if5jp")
 sceneToLoad = "uid://dn8dlbfrm5smc"
 
-[node name="UpgradeTooltip" parent="CanvasLayer/Main/Panel/MarginContainer/VBoxContainer" unique_id=1050260578 instance=ExtResource("6_bncvp")]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/Main/ButtonsFooter" unique_id=1382880061]
+modulate = Color(0.54509807, 0.54509807, 0.54509807, 1)
+custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_52am5")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/Main/Panel/MarginContainer/Main/ButtonsFooter" unique_id=1834661687]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BigButton"
+text = "Continue"
 
 [node name="DayPanel" type="Panel" parent="CanvasLayer/Main" unique_id=1032721523]
 layout_mode = 1
@@ -134,6 +233,7 @@ offset_right = 75.0
 offset_bottom = 35.0
 grow_horizontal = 2
 theme = ExtResource("3_4d04w")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_267j7")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Main/DayPanel" unique_id=1094859531]
 layout_mode = 1
@@ -149,3 +249,31 @@ text = "Week 1, Day 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_48vcv")
+
+[node name="LinePattern" type="TextureProgressBar" parent="CanvasLayer/Main/DayPanel" unique_id=297252198]
+modulate = Color(0.54509807, 0.54509807, 0.54509807, 1)
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 150.0
+offset_top = 16.0
+offset_right = 395.0
+offset_bottom = 18.0
+min_value = 100.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 28
+texture_progress = ExtResource("9_52am5")
+
+[node name="LinePattern2" type="TextureProgressBar" parent="CanvasLayer/Main/DayPanel" unique_id=23793883]
+modulate = Color(0.54509807, 0.54509807, 0.54509807, 1)
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_top = 18.0
+offset_right = 245.0
+offset_bottom = 20.0
+rotation = 3.1415927
+min_value = 100.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 28
+texture_progress = ExtResource("9_52am5")

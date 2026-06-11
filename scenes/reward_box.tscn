@@ -3,22 +3,36 @@
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="1_avdq4"]
 [ext_resource type="Script" uid="uid://cny6oh62ypgm6" path="res://scenes/reward_box.gd" id="1_qr47p"]
 
-[node name="RewardBox" type="HBoxContainer" unique_id=1274787141 node_paths=PackedStringArray("label")]
-theme_override_constants/separation = 10
-script = ExtResource("1_qr47p")
-label = NodePath("MarginContainer/RewardTitle")
-
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2004074219]
-layout_mode = 2
+[node name="RewardBox" type="MarginContainer" unique_id=2004074219 node_paths=PackedStringArray("label", "amount_label")]
+offset_right = 168.0
+offset_bottom = 26.0
 theme_override_constants/margin_left = 34
+script = ExtResource("1_qr47p")
+label = NodePath("HBox/RewardTitle")
+amount_label = NodePath("HBox/Amount")
 
-[node name="RewardTitle" type="RichTextLabel" parent="MarginContainer" unique_id=223896791]
+[node name="HBox" type="HBoxContainer" parent="." unique_id=1274787141]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RewardTitle" type="RichTextLabel" parent="HBox" unique_id=223896791]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_avdq4")
+bbcode_enabled = true
+text = "Interest:"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Amount" type="RichTextLabel" parent="HBox" unique_id=1741468172]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_avdq4")
 bbcode_enabled = true
-text = "Interest: [font=res://fonts/Retro5.ttf][color=green]+$15[/color][/font]"
+text = "[font=res://fonts/Retro5.ttf][color=green]+$15[/color][/font]"
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 2
 vertical_alignment = 1

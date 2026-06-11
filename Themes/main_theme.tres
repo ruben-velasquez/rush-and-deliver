@@ -2,24 +2,91 @@
 
 [ext_resource type="FontFile" uid="uid://c0o2fmfu3ws2e" path="res://fonts/Retro5.ttf" id="1_ybks7"]
 [ext_resource type="FontFile" uid="uid://bpe4d7416mucp" path="res://fonts/Retro4.ttf" id="2_o2ta1"]
+[ext_resource type="Texture2D" uid="uid://ttsh811ite1o" path="res://assets/payment_checkbox.png" id="3_g21io"]
 [ext_resource type="FontFile" uid="uid://cii5lx74hbeme" path="res://fonts/Retro2.ttf" id="3_o2ta1"]
 [ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="4_jg5j1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gw6x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g21io"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ceur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uobgu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puucq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ceur"]
+atlas = ExtResource("3_g21io")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g21io"]
+atlas = ExtResource("3_g21io")
+region = Rect2(0, 20, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uobgu"]
+atlas = ExtResource("3_g21io")
+region = Rect2(0, 40, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puucq"]
+atlas = ExtResource("3_g21io")
+region = Rect2(0, 60, 18, 18)
 
 [sub_resource type="FontVariation" id="FontVariation_o2ta1"]
 base_font = ExtResource("3_o2ta1")
 spacing_top = -7
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gw6x"]
+bg_color = Color(0.38928655, 0.38928664, 0.38928658, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g21io"]
+bg_color = Color(0.601223, 0.601223, 0.60122293, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ceur"]
+bg_color = Color(0.86036915, 0.8603692, 0.8603692, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uobgu"]
+border_width_left = 4
+border_color = Color(0, 0, 0, 0.32500002)
+
 [resource]
+BigButton/base_type = &"Button"
+BigButton/colors/font_color = Color(1, 1, 1, 1)
+BigButton/colors/font_disabled_color = Color(1, 1, 1, 0.36100003)
+BigButton/colors/font_focus_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+BigButton/colors/font_hover_color = Color(0.5890956, 0.5890956, 0.5890956, 1)
+BigButton/colors/font_hover_pressed_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+BigButton/colors/font_pressed_color = Color(0.39215687, 0.39215687, 0.39215687, 1)
+BigButton/colors/icon_disabled_color = Color(0, 0, 0, 1)
+BigButton/colors/icon_focus_color = Color(0, 0, 0, 1)
+BigButton/colors/icon_hover_color = Color(0, 0, 0, 1)
+BigButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+BigButton/colors/icon_normal_color = Color(0, 0, 0, 1)
+BigButton/colors/icon_pressed_color = Color(0, 0, 0, 1)
+BigButton/constants/align_to_largest_stylebox = 0
+BigButton/constants/h_separation = 0
+BigButton/constants/icon_max_width = 0
+BigButton/constants/outline_size = 0
+BigButton/font_sizes/font_size = 32
+BigButton/fonts/font = ExtResource("1_ybks7")
+BigButton/styles/disabled = SubResource("StyleBoxEmpty_8gw6x")
+BigButton/styles/focus = SubResource("StyleBoxEmpty_g21io")
+BigButton/styles/hover = SubResource("StyleBoxEmpty_7ceur")
+BigButton/styles/normal = SubResource("StyleBoxEmpty_uobgu")
+BigButton/styles/pressed = SubResource("StyleBoxEmpty_puucq")
 BoldLabel/base_type = &"Label"
 BoldLabel/font_sizes/font_size = 32
 BoldLabel/fonts/font = ExtResource("1_ybks7")
 BoldLabel/fonts/normal_font = ExtResource("1_ybks7")
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("2_o2ta1")
-CheckBox/colors/checkbox_checked_color = Color(1, 1, 1, 1)
-CheckBox/colors/checkbox_unchecked_color = Color(0, 0, 0, 1)
+CheckBox/constants/check_v_offset = 2
 CheckBox/constants/h_separation = 10
 CheckBox/fonts/font = ExtResource("2_o2ta1")
+CheckBox/icons/checked = SubResource("AtlasTexture_7ceur")
+CheckBox/icons/checked_disabled = SubResource("AtlasTexture_g21io")
+CheckBox/icons/unchecked = SubResource("AtlasTexture_uobgu")
+CheckBox/icons/unchecked_disabled = SubResource("AtlasTexture_puucq")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("2_o2ta1")
 MoneyButton/base_type = &"Button"
@@ -37,3 +104,7 @@ TinyLabel/font_sizes/font_size = 32
 TinyLabel/font_sizes/normal_font_size = 32
 TinyLabel/fonts/font = ExtResource("3_o2ta1")
 TinyLabel/fonts/normal_font = ExtResource("3_o2ta1")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_8gw6x")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_g21io")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_7ceur")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_uobgu")
