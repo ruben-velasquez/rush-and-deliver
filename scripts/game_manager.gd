@@ -16,6 +16,8 @@ var daily_costs: Array[Callable] = [
 	func(): return BankDebtCost.new(),
 	func(): return FuelCost.new(),
 	func(): return MedicineCost.new(),
+	func(): return RentCost.new(),
+	func(): return InternetBillCost.new(),
 ]
 
 var player: PlayerController

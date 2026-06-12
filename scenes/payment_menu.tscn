@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="3_4d04w"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="4_if5jp"]
 [ext_resource type="Texture2D" uid="uid://pfjf2j72ivoj" path="res://assets/dotted_line_texture.png" id="5_267j7"]
+[ext_resource type="Script" uid="uid://bhlfjqc1pdjsr" path="res://scripts/friday_expenses_info.gd" id="6_6sqc2"]
 [ext_resource type="PackedScene" uid="uid://dpflyyrefqj54" path="res://scenes/upgrade_tooltip.tscn" id="6_bncvp"]
 [ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="7_48vcv"]
 [ext_resource type="Texture2D" uid="uid://bkv8nopf1udcv" path="res://assets/drift_particle.png" id="7_52am5"]
@@ -26,10 +27,10 @@ script = ExtResource("1_bncvp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=720956307 node_paths=PackedStringArray("continue_button", "info", "summary_boxes_parent", "fee_tooltip")]
 script = ExtResource("1_4d04w")
-continue_button = NodePath("Main/Panel/MarginContainer/Main/ButtonsFooter/ContinueButton")
-info = NodePath("Main/Panel/MarginContainer/Main/Content/HBoxContainer/Money")
-summary_boxes_parent = NodePath("Main/Panel/MarginContainer/Main/Content/ScrollContainer/Summary")
-fee_tooltip = NodePath("Main/Panel/MarginContainer/Main/Content/UpgradeTooltip")
+continue_button = NodePath("Main/Panel/MarginContainer/MainFlow/ButtonsFooter/ContinueButton")
+info = NodePath("Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content/HBoxContainer/Money")
+summary_boxes_parent = NodePath("Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content/ScrollContainer/Summary")
+fee_tooltip = NodePath("Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content/UpgradeTooltip")
 
 [node name="Main" type="Panel" parent="CanvasLayer" unique_id=1127629717]
 anchors_preset = 15
@@ -55,42 +56,46 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 10
 
-[node name="Main" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer" unique_id=1400103882]
+[node name="MainFlow" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer" unique_id=1031428541]
 layout_mode = 2
+
+[node name="Bills" type="HBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow" unique_id=1460674729]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Content" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/Main" unique_id=939547966]
+[node name="MainBill" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills" unique_id=1400103882]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Content" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill" unique_id=939547966]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content" unique_id=541318836]
+[node name="Title" type="Label" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content" unique_id=541318836]
 layout_mode = 2
 theme = ExtResource("3_4d04w")
 theme_type_variation = &"BoldLabel"
 text = "Payment bills"
 horizontal_alignment = 1
 
-[node name="DottedSeparator" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/Label" unique_id=890140930]
+[node name="DottedSeparator" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content/Title" unique_id=890140930]
 self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
 texture_filter = 1
 texture_repeat = 2
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = -1
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -180.0
 offset_top = 3.0
-offset_right = 182.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -101,22 +106,23 @@ texture = ExtResource("5_267j7")
 expand_mode = 3
 stretch_mode = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content" unique_id=1816006939]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content" unique_id=1816006939]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_4d04w")
 theme_override_constants/scrollbar_h_separation = 4
+horizontal_scroll_mode = 0
 
-[node name="Summary" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/ScrollContainer" unique_id=134316512]
+[node name="Summary" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content/ScrollContainer" unique_id=134316512]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("3_4d04w")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content" unique_id=1145077403]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content" unique_id=1145077403]
 layout_mode = 2
 
-[node name="Label" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/HBoxContainer" unique_id=48494173]
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content/HBoxContainer" unique_id=48494173]
 clip_contents = false
 custom_minimum_size = Vector2(68, 36)
 layout_mode = 2
@@ -127,55 +133,7 @@ text = " Money:
 "
 fit_content = true
 
-[node name="DottedSeparator2" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/HBoxContainer/Label" unique_id=1176810777]
-self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
-texture_filter = 1
-texture_repeat = 2
-custom_minimum_size = Vector2(0, 3)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -34.0
-offset_top = -38.0
-offset_right = 328.0
-offset_bottom = -35.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme = ExtResource("3_4d04w")
-theme_type_variation = &"BoldLabel"
-texture = ExtResource("5_267j7")
-expand_mode = 3
-stretch_mode = 1
-
-[node name="DottedSeparator3" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/HBoxContainer/Label" unique_id=836606784]
-self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
-texture_filter = 1
-texture_repeat = 2
-custom_minimum_size = Vector2(0, 3)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -34.0
-offset_top = -8.0
-offset_right = 328.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme = ExtResource("3_4d04w")
-theme_type_variation = &"BoldLabel"
-texture = ExtResource("5_267j7")
-expand_mode = 3
-stretch_mode = 1
-
-[node name="Money" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content/HBoxContainer" unique_id=849213826]
+[node name="Money" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content/HBoxContainer" unique_id=849213826]
 clip_contents = false
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
@@ -187,25 +145,195 @@ text = "[color=ddac46][font=res://fonts/Retro5.ttf]$50
 fit_content = true
 horizontal_alignment = 2
 
-[node name="UpgradeTooltip" parent="CanvasLayer/Main/Panel/MarginContainer/Main/Content" unique_id=1050260578 instance=ExtResource("6_bncvp")]
+[node name="Separations" type="Control" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content" unique_id=2039448973]
+layout_mode = 2
+
+[node name="DottedSeparator2" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content/Separations" unique_id=1176810777]
+self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BoldLabel"
+texture = ExtResource("5_267j7")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="DottedSeparator3" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content/Separations" unique_id=836606784]
+self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -18.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BoldLabel"
+texture = ExtResource("5_267j7")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="UpgradeTooltip" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/MainBill/Content" unique_id=1050260578 instance=ExtResource("6_bncvp")]
 visible = false
 layout_mode = 2
 
-[node name="ButtonsFooter" type="HBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/Main" unique_id=260885982]
+[node name="FridayExpenses" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills" unique_id=904613914 node_paths=PackedStringArray("summary", "total_label")]
+layout_mode = 2
+theme_override_constants/separation = 20
+script = ExtResource("6_6sqc2")
+summary = NodePath("Content/ScrollContainer/Summary")
+total_label = NodePath("Content/HBoxContainer/Money")
+
+[node name="Content" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses" unique_id=700643158]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses/Content" unique_id=2123607053]
+layout_mode = 2
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BoldLabel"
+text = "Friday Expenses"
+horizontal_alignment = 1
+
+[node name="DottedSeparator" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses/Content/Title" unique_id=2029904724]
+self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BoldLabel"
+texture = ExtResource("5_267j7")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses/Content" unique_id=1277170892]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_4d04w")
+theme_override_constants/scrollbar_h_separation = 4
+
+[node name="Summary" type="VBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses/Content/ScrollContainer" unique_id=1195853455]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_4d04w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses/Content" unique_id=414098814]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses/Content/HBoxContainer" unique_id=1639058149]
+clip_contents = false
+custom_minimum_size = Vector2(68, 36)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_4d04w")
+bbcode_enabled = true
+text = " Total:
+"
+fit_content = true
+
+[node name="Money" type="RichTextLabel" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses/Content/HBoxContainer" unique_id=455363501]
+clip_contents = false
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BoldLabel"
+theme_override_colors/default_color = Color(0.54509807, 0.54509807, 0.54509807, 1)
+bbcode_enabled = true
+text = "$50"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="Separations" type="Control" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses/Content" unique_id=961276036]
+layout_mode = 2
+
+[node name="DottedSeparator2" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses/Content/Separations" unique_id=1922458688]
+self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BoldLabel"
+texture = ExtResource("5_267j7")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="DottedSeparator3" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/Bills/FridayExpenses/Content/Separations" unique_id=1296741618]
+self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -18.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("3_4d04w")
+theme_type_variation = &"BoldLabel"
+texture = ExtResource("5_267j7")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="ButtonsFooter" type="HBoxContainer" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow" unique_id=260885982]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 
-[node name="MainMenuButton" type="Button" parent="CanvasLayer/Main/Panel/MarginContainer/Main/ButtonsFooter" unique_id=1289528671]
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/ButtonsFooter" unique_id=1289528671]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("3_4d04w")
 theme_type_variation = &"BigButton"
-text = "Go to main menu"
+text = "GO TO MAIN MENU"
 script = ExtResource("4_if5jp")
 sceneToLoad = "uid://dn8dlbfrm5smc"
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/Main/ButtonsFooter" unique_id=1382880061]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/ButtonsFooter" unique_id=1382880061]
 modulate = Color(0.54509807, 0.54509807, 0.54509807, 1)
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
@@ -215,12 +343,12 @@ texture = SubResource("AtlasTexture_52am5")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="ContinueButton" type="Button" parent="CanvasLayer/Main/Panel/MarginContainer/Main/ButtonsFooter" unique_id=1834661687]
+[node name="ContinueButton" type="Button" parent="CanvasLayer/Main/Panel/MarginContainer/MainFlow/ButtonsFooter" unique_id=1834661687]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("3_4d04w")
 theme_type_variation = &"BigButton"
-text = "Continue"
+text = "CONTINUE"
 
 [node name="DayPanel" type="Panel" parent="CanvasLayer/Main" unique_id=1032721523]
 layout_mode = 1

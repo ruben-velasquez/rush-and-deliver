@@ -272,7 +272,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("4_ethjp")
 theme_type_variation = &"BigButton"
-text = "Go to main menu"
+text = "GO TO MAIN MENU"
 script = ExtResource("3_0e30j")
 sceneToLoad = "uid://dn8dlbfrm5smc"
 
@@ -290,7 +290,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("4_ethjp")
 theme_type_variation = &"BigButton"
-text = "Go next day"
+text = "GO NEXT DAY"
 script = ExtResource("3_0e30j")
 buttonType = 2
 

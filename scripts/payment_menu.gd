@@ -3,7 +3,7 @@ class_name PaymentMenu
 
 const MONEY_FONT: String = "res://fonts/Retro5.ttf"
 const FEE_BOX_NODE: PackedScene = preload("res://scenes/fee_box.tscn")
-const REWARD_BOX_NODE: PackedScene = preload("res://scenes/reward_box.tscn")
+const REWARD_BOX_NODE: PackedScene = preload("res://scenes/bill_entry.tscn")
 
 @export var continue_button: Button
 @export var info: RichTextLabel
@@ -20,8 +20,8 @@ func _ready():
 	for entry in RunData.day_summary:
 		if entry.appear_bottom: continue
 		
-		var box = REWARD_BOX_NODE.instantiate() as RewardBox
-		box.setup(entry)
+		var box = REWARD_BOX_NODE.instantiate() as BillEntry
+		box.setup(entry, Color.GREEN, true, "+")
 		summary_boxes_parent.add_child(box)
 	
 	for fee in daily_costs:
@@ -34,8 +34,8 @@ func _ready():
 	for entry in RunData.day_summary:
 		if !entry.appear_bottom: continue
 		
-		var box = REWARD_BOX_NODE.instantiate() as RewardBox
-		box.setup(entry)
+		var box = REWARD_BOX_NODE.instantiate() as BillEntry
+		box.setup(entry, Color.GREEN, true, "+")
 		summary_boxes_parent.add_child(box)
 	
 	RunData.day_summary.clear()
