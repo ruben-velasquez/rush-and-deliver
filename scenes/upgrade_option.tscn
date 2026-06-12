@@ -24,7 +24,7 @@ texture = SubResource("AtlasTexture_rm8do")
 stretch_mode = 5
 
 [node name="PurchaseButton" type="Button" parent="." unique_id=2109010948]
-custom_minimum_size = Vector2(42, 24)
+custom_minimum_size = Vector2(38, 26)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_4b4l4")

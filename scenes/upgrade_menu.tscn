@@ -1,32 +1,52 @@
 [gd_scene format=3 uid="uid://dr4qd4cw401nu"]
 
 [ext_resource type="Script" uid="uid://cft86kstfxmbc" path="res://scripts/scene_manager.gd" id="1_ksfom"]
-[ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="2_0e30j"]
 [ext_resource type="Script" uid="uid://bk7l3nkmi2rqp" path="res://scripts/change_scene_button.gd" id="3_0e30j"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="4_ethjp"]
 [ext_resource type="Script" uid="uid://yd5kqcmi4g3r" path="res://scripts/upgrades_shop.gd" id="4_ixicc"]
 [ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="5_6vqdt"]
 [ext_resource type="PackedScene" uid="uid://dpflyyrefqj54" path="res://scenes/upgrade_tooltip.tscn" id="6_ethjp"]
-[ext_resource type="Texture2D" uid="uid://lqbwcn5mf2g4" path="res://assets/pixel_panel.png" id="7_1eg5u"]
+[ext_resource type="Texture2D" uid="uid://pfjf2j72ivoj" path="res://assets/dotted_line_texture.png" id="6_o1026"]
 [ext_resource type="Texture2D" uid="uid://bhkuu6g6m876c" path="res://assets/icon_background_shop_menu.png" id="7_3rs5v"]
 [ext_resource type="Script" uid="uid://74e6pktsngf8" path="res://scripts/upgrade_option.gd" id="7_h8ffg"]
 [ext_resource type="Texture2D" uid="uid://8lg7ih6s2ctc" path="res://assets/upgrades.png" id="7_he6dt"]
+[ext_resource type="Texture2D" uid="uid://bjl8mybrrvako" path="res://assets/pixel_panel_rounded.png" id="8_o1026"]
 [ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="9_0isde"]
 [ext_resource type="Script" uid="uid://dlbw8osdkq0yw" path="res://scripts/sell_upgrades_menu.gd" id="10_3rs5v"]
+[ext_resource type="Texture2D" uid="uid://d4cr5lon3mb2s" path="res://assets/upgrade_placeholder.png" id="12_ydl78"]
+[ext_resource type="Texture2D" uid="uid://bkv8nopf1udcv" path="res://assets/drift_particle.png" id="13_1eg5u"]
+[ext_resource type="Texture2D" uid="uid://bejwfi6qyrq0y" path="res://assets/line_pattern_1.png" id="16_ydl78"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o1026"]
-texture = ExtResource("7_1eg5u")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 6.0
-axis_stretch_horizontal = 1
-region_rect = Rect2(0, 0, 32, 16)
-modulate_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1026"]
+bg_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2218r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2218r"]
+texture = ExtResource("8_o1026")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.078431375, 0.078431375, 0.078431375, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3rs5v"]
 atlas = ExtResource("7_he6dt")
 region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ydl78"]
+texture = ExtResource("8_o1026")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u3xo"]
+atlas = ExtResource("13_1eg5u")
+region = Rect2(2, 2, 4, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7u3xo"]
 
 [node name="Scene" type="Node2D" unique_id=682139572]
 script = ExtResource("1_ksfom")
@@ -34,104 +54,116 @@ script = ExtResource("1_ksfom")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1891708903]
 follow_viewport_enabled = true
 
-[node name="UpgradeTooltip" parent="CanvasLayer" unique_id=1050260578 instance=ExtResource("6_ethjp")]
-visible = false
-
-[node name="MainPanel" type="Panel" parent="CanvasLayer" unique_id=1009923771]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -135.0
-offset_right = 50.0
-offset_bottom = 165.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = ExtResource("2_0e30j")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainPanel" unique_id=1804060675]
-layout_mode = 1
-anchors_preset = -1
+[node name="Main" type="Panel" parent="CanvasLayer" unique_id=296360765]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme = ExtResource("4_ethjp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_o1026")
 
-[node name="Label" type="Label" parent="CanvasLayer/MainPanel/VBoxContainer" unique_id=2024790595]
+[node name="UpgradeTooltip" parent="CanvasLayer/Main" unique_id=1050260578 instance=ExtResource("6_ethjp")]
+visible = false
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main" unique_id=851631231]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/Main/MarginContainer" unique_id=237447369]
+z_index = 1
+z_as_relative = false
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource("4_ethjp")
 theme_type_variation = &"BoldLabel"
-text = "Menu"
+theme_override_colors/font_color = Color(0.8666667, 0.6745098, 0.27450982, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 7
+text = "$0"
 horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_6vqdt")
 
-[node name="NextDayButton" type="Button" parent="CanvasLayer/MainPanel/VBoxContainer" unique_id=486614923]
+[node name="DayLabel" type="RichTextLabel" parent="CanvasLayer/Main/MarginContainer" unique_id=1374313316]
+visible = false
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme = ExtResource("4_ethjp")
-text = "Go next day"
-script = ExtResource("3_0e30j")
-buttonType = 2
+theme_type_variation = &"SecondaryLabel"
+bbcode_enabled = true
+text = "Week 1, Day 1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_0isde")
 
-[node name="MainMenuButton" type="Button" parent="CanvasLayer/MainPanel/VBoxContainer" unique_id=435839579]
+[node name="ShopPanel" type="PanelContainer" parent="CanvasLayer/Main/MarginContainer" unique_id=86332549]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme = ExtResource("4_ethjp")
-text = "Go to main menu"
-script = ExtResource("3_0e30j")
-sceneToLoad = "uid://dn8dlbfrm5smc"
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2218r")
 
-[node name="UpgradesPanel" type="Panel" parent="CanvasLayer" unique_id=628536767]
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -259.0
-offset_top = -136.0
-offset_right = -10.0
-offset_bottom = 164.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_0e30j")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UpgradesPanel" unique_id=1052719029]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/MarginContainer/ShopPanel" unique_id=1052719029]
 clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.05
-anchor_right = 0.95
-anchor_bottom = 0.95
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=462385176]
+[node name="Label" type="Label" parent="CanvasLayer/Main/MarginContainer/ShopPanel/VBoxContainer" unique_id=462385176]
 layout_mode = 2
 theme = ExtResource("4_ethjp")
 theme_type_variation = &"BoldLabel"
 text = "Shop"
 horizontal_alignment = 1
 
-[node name="Upgrades" type="HBoxContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=1342032108 node_paths=PackedStringArray("tooltip", "special_upgrade_option")]
+[node name="DottedSeparator2" type="TextureRect" parent="CanvasLayer/Main/MarginContainer/ShopPanel/VBoxContainer/Label" unique_id=376668513]
+self_modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 0
+offset_top = 30.0
+offset_right = 250.0
+offset_bottom = 33.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_vertical = 4
+theme = ExtResource("4_ethjp")
+theme_type_variation = &"BoldLabel"
+texture = ExtResource("6_o1026")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="Upgrades" type="HBoxContainer" parent="CanvasLayer/Main/MarginContainer/ShopPanel/VBoxContainer" unique_id=1342032108 node_paths=PackedStringArray("tooltip", "special_upgrade_option")]
+custom_minimum_size = Vector2(38, 58)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
 script = ExtResource("4_ixicc")
-tooltip = NodePath("../../../UpgradeTooltip")
+tooltip = NodePath("../../../../UpgradeTooltip")
 special_upgrade_option = NodePath("../PanelContainer/SpecialUpgrade")
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer" unique_id=174731412]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Main/MarginContainer/ShopPanel/VBoxContainer" unique_id=174731412]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme = ExtResource("4_ethjp")
-theme_override_styles/panel = SubResource("StyleBoxTexture_o1026")
+theme_override_styles/panel = SubResource("StyleBoxTexture_2218r")
 
-[node name="SpecialUpgrade" type="HBoxContainer" parent="CanvasLayer/UpgradesPanel/VBoxContainer/PanelContainer" unique_id=777122659 node_paths=PackedStringArray("purchase_button", "texture")]
+[node name="SpecialUpgrade" type="HBoxContainer" parent="CanvasLayer/Main/MarginContainer/ShopPanel/VBoxContainer/PanelContainer" unique_id=777122659 node_paths=PackedStringArray("purchase_button", "texture")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
@@ -139,15 +171,15 @@ script = ExtResource("7_h8ffg")
 purchase_button = NodePath("PurchaseButton")
 texture = NodePath("Bg/PackageIcon")
 
-[node name="Bg" type="TextureRect" parent="CanvasLayer/UpgradesPanel/VBoxContainer/PanelContainer/SpecialUpgrade" unique_id=1141946984]
-self_modulate = Color(0.2159017, 0.21590173, 0.2159017, 1)
+[node name="Bg" type="TextureRect" parent="CanvasLayer/Main/MarginContainer/ShopPanel/VBoxContainer/PanelContainer/SpecialUpgrade" unique_id=1141946984]
+self_modulate = Color(0.07058824, 0.07058824, 0.07058824, 1)
 custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 texture = ExtResource("7_3rs5v")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="PackageIcon" type="TextureRect" parent="CanvasLayer/UpgradesPanel/VBoxContainer/PanelContainer/SpecialUpgrade/Bg" unique_id=1512080250]
+[node name="PackageIcon" type="TextureRect" parent="CanvasLayer/Main/MarginContainer/ShopPanel/VBoxContainer/PanelContainer/SpecialUpgrade/Bg" unique_id=1512080250]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -165,82 +197,114 @@ texture = SubResource("AtlasTexture_3rs5v")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="PurchaseButton" type="Button" parent="CanvasLayer/UpgradesPanel/VBoxContainer/PanelContainer/SpecialUpgrade" unique_id=263381942]
-custom_minimum_size = Vector2(42, 24)
+[node name="PurchaseButton" type="Button" parent="CanvasLayer/Main/MarginContainer/ShopPanel/VBoxContainer/PanelContainer/SpecialUpgrade" unique_id=263381942]
+custom_minimum_size = Vector2(38, 26)
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("4_ethjp")
 theme_type_variation = &"MoneyButton"
 text = "$?"
 
-[node name="Panel" type="PanelContainer" parent="CanvasLayer" unique_id=361774980]
-custom_minimum_size = Vector2(40, 0)
-offset_left = 12.0
-offset_top = 3.0
-offset_right = 52.0
-offset_bottom = 41.0
-size_flags_horizontal = 0
-theme = ExtResource("4_ethjp")
-
-[node name="MoneyLabel" type="Label" parent="CanvasLayer/Panel" unique_id=237447369]
+[node name="SellPanel" type="Panel" parent="CanvasLayer/Main/MarginContainer" unique_id=1888625108]
+custom_minimum_size = Vector2(48, 120)
 layout_mode = 2
-theme = ExtResource("4_ethjp")
-theme_type_variation = &"BoldLabel"
-theme_override_colors/font_color = Color(0.8666667, 0.6745098, 0.27450982, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 7
-text = "$0"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_6vqdt")
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ydl78")
 
-[node name="SellPanel" type="Panel" parent="CanvasLayer" unique_id=638725896]
-anchors_preset = -1
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 10.0
-offset_top = -136.0
-offset_right = 160.0
-offset_bottom = 164.0
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_0e30j")
-
-[node name="Content" type="VBoxContainer" parent="CanvasLayer/SellPanel" unique_id=1727871242]
+[node name="PlaceHolder" type="VBoxContainer" parent="CanvasLayer/Main/MarginContainer/SellPanel" unique_id=485094]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.05
-anchor_right = 0.9
-anchor_bottom = 0.95
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -52.0
+offset_right = 16.0
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="CanvasLayer/SellPanel/Content" unique_id=1334090817]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Main/MarginContainer/SellPanel/PlaceHolder" unique_id=1259452189]
+modulate = Color(0.105882354, 0.105882354, 0.105882354, 1)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-theme = ExtResource("4_ethjp")
-theme_type_variation = &"BoldLabel"
-text = "Inventory"
-horizontal_alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_ydl78")
 
-[node name="Upgrades" type="VBoxContainer" parent="CanvasLayer/SellPanel/Content" unique_id=888591439]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Main/MarginContainer/SellPanel/PlaceHolder" unique_id=388214136]
+modulate = Color(0.105882354, 0.105882354, 0.105882354, 1)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_ydl78")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Main/MarginContainer/SellPanel/PlaceHolder" unique_id=713626384]
+modulate = Color(0.105882354, 0.105882354, 0.105882354, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_ydl78")
+
+[node name="Upgrades" type="VBoxContainer" parent="CanvasLayer/Main/MarginContainer/SellPanel" unique_id=888591439 node_paths=PackedStringArray("tooltip")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 122.0
+offset_bottom = 112.0
 theme_override_constants/separation = 4
 script = ExtResource("10_3rs5v")
+tooltip = NodePath("../../../UpgradeTooltip")
 
-[node name="DayPanel" type="Panel" parent="CanvasLayer" unique_id=894472881]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -75.0
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/Main/MarginContainer" unique_id=516780546]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/Main/MarginContainer/Buttons" unique_id=435839579]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("4_ethjp")
+theme_type_variation = &"BigButton"
+text = "Go to main menu"
+script = ExtResource("3_0e30j")
+sceneToLoad = "uid://dn8dlbfrm5smc"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Main/MarginContainer/Buttons" unique_id=441658805]
+modulate = Color(0.54509807, 0.54509807, 0.54509807, 1)
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_7u3xo")
+expand_mode = 2
+
+[node name="NextDayButton" type="Button" parent="CanvasLayer/Main/MarginContainer/Buttons" unique_id=486614923]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("4_ethjp")
+theme_type_variation = &"BigButton"
+text = "Go next day"
+script = ExtResource("3_0e30j")
+buttonType = 2
+
+[node name="DayPanel" type="Panel" parent="CanvasLayer" unique_id=1182155301]
+anchors_preset = 10
+anchor_right = 1.0
 offset_top = 5.0
-offset_right = 75.0
 offset_bottom = 35.0
 grow_horizontal = 2
 theme = ExtResource("4_ethjp")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7u3xo")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/DayPanel" unique_id=1374313316]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/DayPanel" unique_id=1210275071]
+custom_minimum_size = Vector2(200, 20)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -251,6 +315,36 @@ theme = ExtResource("4_ethjp")
 theme_type_variation = &"SecondaryLabel"
 bbcode_enabled = true
 text = "Week 1, Day 1"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_0isde")
+
+[node name="LinePattern" type="TextureProgressBar" parent="CanvasLayer/DayPanel" unique_id=1683021717]
+modulate = Color(0.54509807, 0.54509807, 0.54509807, 1)
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 395.0
+offset_top = 16.0
+offset_right = 640.0
+offset_bottom = 18.0
+min_value = 100.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 28
+texture_progress = ExtResource("16_ydl78")
+
+[node name="LinePattern2" type="TextureProgressBar" parent="CanvasLayer/DayPanel" unique_id=284862036]
+modulate = Color(0.54509807, 0.54509807, 0.54509807, 1)
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 245.0
+offset_top = 18.0
+offset_right = 490.0
+offset_bottom = 20.0
+rotation = 3.1415927
+min_value = 100.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 28
+texture_progress = ExtResource("16_ydl78")

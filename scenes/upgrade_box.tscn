@@ -4,11 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://8lg7ih6s2ctc" path="res://assets/upgrades.png" id="2_tfxrb"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="3_2eado"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8ffg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8678i"]
 atlas = ExtResource("2_tfxrb")
-region = Rect2(0, 32, 16, 16)
+region = Rect2(80, 32, 16, 16)
 
 [node name="UpgradeBox" type="HBoxContainer" unique_id=1624295092 node_paths=PackedStringArray("icon_rect", "sell_button")]
+custom_minimum_size = Vector2(122, 32)
+theme_override_constants/separation = 12
 script = ExtResource("1_8678i")
 icon_rect = NodePath("Icon")
 sell_button = NodePath("SellButton")
@@ -16,10 +18,15 @@ sell_button = NodePath("SellButton")
 [node name="Icon" type="TextureRect" parent="." unique_id=137484375]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = SubResource("AtlasTexture_h8ffg")
+texture = SubResource("AtlasTexture_8678i")
 stretch_mode = 5
 
 [node name="SellButton" type="Button" parent="." unique_id=1900350339]
+custom_minimum_size = Vector2(78, 26)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
 theme = ExtResource("3_2eado")
-text = "Sell $1"
+theme_type_variation = &"MoneyButton"
+text = "Sell $20"

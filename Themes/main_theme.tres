@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ttsh811ite1o" path="res://assets/payment_checkbox.png" id="3_g21io"]
 [ext_resource type="FontFile" uid="uid://cii5lx74hbeme" path="res://fonts/Retro2.ttf" id="3_o2ta1"]
 [ext_resource type="StyleBox" uid="uid://biwmc72m52d64" path="res://themes/popup_theme.tres" id="4_jg5j1"]
+[ext_resource type="Texture2D" uid="uid://cbtkgu3drm78l" path="res://assets/buy_button.png" id="5_7ceur"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gw6x"]
 
@@ -35,6 +36,62 @@ region = Rect2(0, 60, 18, 18)
 [sub_resource type="FontVariation" id="FontVariation_o2ta1"]
 base_font = ExtResource("3_o2ta1")
 spacing_top = -7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mjdo"]
+atlas = ExtResource("5_7ceur")
+region = Rect2(0, 34, 18, 10)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5e0q"]
+content_margin_left = 7.0
+content_margin_top = 3.0
+texture = SubResource("AtlasTexture_1mjdo")
+texture_margin_left = 8.0
+texture_margin_top = 2.0
+texture_margin_right = 6.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x86e"]
+atlas = ExtResource("5_7ceur")
+region = Rect2(0, 12, 18, 10)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5ubn"]
+texture = SubResource("AtlasTexture_0x86e")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5ubn"]
+atlas = ExtResource("5_7ceur")
+region = Rect2(0, 23, 18, 10)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qy2x"]
+texture = SubResource("AtlasTexture_f5ubn")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myxx4"]
+atlas = ExtResource("5_7ceur")
+region = Rect2(0, 1, 18, 10)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0x86e"]
+content_margin_left = 7.0
+content_margin_top = 3.0
+texture = SubResource("AtlasTexture_myxx4")
+texture_margin_left = 8.0
+texture_margin_top = 2.0
+texture_margin_right = 6.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 18, 10)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5iri2"]
+load_path = "res://.godot/imported/buy_button.png-b2ada6adabc3c9a277f837a4a57acea8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3scot"]
+atlas = SubResource("CompressedTexture2D_5iri2")
+region = Rect2(0, 23, 18, 10)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_puicy"]
+texture = SubResource("AtlasTexture_3scot")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gw6x"]
 bg_color = Color(0.38928655, 0.38928664, 0.38928658, 1)
@@ -90,8 +147,20 @@ CheckBox/icons/unchecked_disabled = SubResource("AtlasTexture_puucq")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("2_o2ta1")
 MoneyButton/base_type = &"Button"
+MoneyButton/colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+MoneyButton/colors/font_disabled_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
+MoneyButton/colors/font_focus_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
+MoneyButton/colors/font_hover_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
+MoneyButton/colors/font_hover_pressed_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
+MoneyButton/colors/font_pressed_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
 MoneyButton/font_sizes/font_size = 32
 MoneyButton/fonts/font = SubResource("FontVariation_o2ta1")
+MoneyButton/styles/disabled = SubResource("StyleBoxTexture_s5e0q")
+MoneyButton/styles/focus = SubResource("StyleBoxTexture_f5ubn")
+MoneyButton/styles/hover = SubResource("StyleBoxTexture_f5ubn")
+MoneyButton/styles/hover_pressed = SubResource("StyleBoxTexture_7qy2x")
+MoneyButton/styles/normal = SubResource("StyleBoxTexture_0x86e")
+MoneyButton/styles/pressed = SubResource("StyleBoxTexture_puicy")
 Panel/styles/panel = ExtResource("4_jg5j1")
 PanelContainer/styles/panel = ExtResource("4_jg5j1")
 RichTextLabel/font_sizes/normal_font_size = 32
