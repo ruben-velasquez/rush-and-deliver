@@ -54,7 +54,21 @@ func pay_costs():
 		fee.on_pay()
 		give_money(-fee.calculate_cost())
 
+# Called when we start a new game
+func start_run():
+	reset()
+	
+	for event in RunData.run_events:
+		if event.introEvent and !event.triggered:
+			SceneManager.instance.load_event_scene(event)
+			return
+	
+	start_day()
+
+# Trigger a new day in the game
 func start_day():
+	RunData.runStarted = true
+	
 	if(RunData.current_day >= 5):
 		RunData.current_day = 1
 		RunData.current_week += 1
@@ -73,15 +87,19 @@ func start_day():
 func reset():
 	RunData.stats = RunStats.new()
 	RunData.run_state = RunData.RunState.GAME
-	RunData.current_day = 1
+	RunData.current_day = 0
 	RunData.current_week = 1
 	RunData.money = 0
 	
 	RunData.day_broken_packages = 0
 	RunData.day_late_packages = 0
+	RunData.runStarted = false
 	
 	RunData.cost_states.clear()
+	RunData.run_costs.clear()
 	RunData.day_summary.clear()
+	
+	RunData.run_events = RunData.default_run_events()
 	
 	RunData.player_health = RunData.stats.max_player_health
 	UpgradesManager.current_upgrades.clear()
