@@ -9,4 +9,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	text = str(round(timer.time_left))
+	var total_minutes =  480
+	var minutes_elapsed = floori(((total_minutes as float) / RunData.stats.day_duration_segs) * timer.time_left)
+	minutes_elapsed = 480 - minutes_elapsed
+	
+	var relative_hour = floori(minutes_elapsed / 60.)
+	var relative_minutes = floori(((minutes_elapsed / 60.) - floori(minutes_elapsed / 60.)) * 60.)
+	
+	text = "%02d : %02d" % [relative_hour, relative_minutes]

@@ -1,19 +1,54 @@
 [gd_scene format=3 uid="uid://y57ny3m78jgd"]
 
+[ext_resource type="Texture2D" uid="uid://csayurueud7ak" path="res://assets/gameplay_ui_background.png" id="1_g2v8e"]
 [ext_resource type="Script" uid="uid://cm563ne4yrfyj" path="res://scripts/day_label.gd" id="1_u001w"]
 [ext_resource type="Script" uid="uid://dm8n6p04kyns1" path="res://scripts/money_label.gd" id="1_yubou"]
 [ext_resource type="Script" uid="uid://kfwi6o6bgg5" path="res://scripts/timer.gd" id="2_rns2u"]
+[ext_resource type="Texture2D" uid="uid://bjtjfe721e3uw" path="res://assets/pixel_panel2.png" id="2_sjwyb"]
 [ext_resource type="Script" uid="uid://cudx08m51indf" path="res://scripts/packages_info.gd" id="4_u2dgd"]
 [ext_resource type="Script" uid="uid://530o6888woxd" path="res://scripts/upgrades_ui.gd" id="5_bt76a"]
 [ext_resource type="Texture2D" uid="uid://lqbwcn5mf2g4" path="res://assets/pixel_panel.png" id="6_3huio"]
 [ext_resource type="Theme" uid="uid://dxq1iwfqqk64s" path="res://themes/main_theme.tres" id="6_o3bws"]
 [ext_resource type="Script" uid="uid://dob35pnkslqpm" path="res://scripts/estimated_costs_label.gd" id="7_3huio"]
+[ext_resource type="Texture2D" uid="uid://jxps45g6qgwl" path="res://assets/pixel_panel_outline.png" id="7_5kh4o"]
 [ext_resource type="FontFile" uid="uid://cii5lx74hbeme" path="res://fonts/Retro2.ttf" id="7_sjwyb"]
+[ext_resource type="Texture2D" uid="uid://5jvld8l4kllc" path="res://assets/clock_panel.png" id="9_s2npe"]
+[ext_resource type="Texture2D" uid="uid://cmqpryvn43v75" path="res://assets/change_package_label.png" id="13_1kaiv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5kh4o"]
+texture = ExtResource("2_sjwyb")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s2npe"]
+texture = ExtResource("2_sjwyb")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3huio"]
+load_path = "res://.godot/imported/pixel_panel.png-bcb3ce2a92a8e2b0bc4549c26fbb873a.ctex"
 
 [sub_resource type="FontVariation" id="FontVariation_3huio"]
 base_font = ExtResource("7_sjwyb")
 spacing_top = -5
 spacing_bottom = -4
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g2v8e"]
+texture = ExtResource("9_s2npe")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="FontVariation" id="FontVariation_1kaiv"]
+base_font = ExtResource("7_sjwyb")
+spacing_bottom = 8
 
 [node name="UI" type="Control" unique_id=1845636788]
 layout_mode = 3
@@ -23,79 +58,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Layout" type="VBoxContainer" parent="." unique_id=1608460981]
-custom_minimum_size = Vector2(200, 0)
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1111531837]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -180.0
-offset_bottom = 180.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 32
+theme_override_constants/margin_top = 10
 
-[node name="Info" type="VBoxContainer" parent="Layout" unique_id=1611460846]
-layout_mode = 2
-
-[node name="DayLabel" type="RichTextLabel" parent="Layout/Info" unique_id=91054493]
-layout_mode = 2
-theme = ExtResource("6_o3bws")
-theme_override_colors/font_outline_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
-theme_override_constants/outline_size = 7
-text = "Week 1, Day 1"
-fit_content = true
-horizontal_alignment = 2
-script = ExtResource("1_u001w")
-
-[node name="MoneyLabel" type="Label" parent="Layout/Info" unique_id=1811965428]
-layout_mode = 2
-theme = ExtResource("6_o3bws")
-theme_type_variation = &"BoldLabel"
-theme_override_colors/font_color = Color(0.8666667, 0.6745098, 0.27450982, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 7
-text = "$0"
-horizontal_alignment = 2
-script = ExtResource("1_yubou")
-
-[node name="TimerLabel" type="Label" parent="Layout/Info" unique_id=1624639429 node_paths=PackedStringArray("timer")]
-layout_mode = 2
-theme = ExtResource("6_o3bws")
-theme_override_colors/font_shadow_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 7
-text = "0:00"
-horizontal_alignment = 2
-script = ExtResource("2_rns2u")
-timer = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="Layout/Info/TimerLabel" unique_id=154884662]
-one_shot = true
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Layout/Info" unique_id=1598202648 node_paths=PackedStringArray("label")]
-custom_minimum_size = Vector2(200, 24)
+[node name="Background" type="TextureRect" parent="MarginContainer" unique_id=1012103085]
+custom_minimum_size = Vector2(200, 128)
 layout_mode = 2
 size_flags_horizontal = 8
-max_value = 3.0
-nine_patch_stretch = true
-stretch_margin_left = 5
-stretch_margin_top = 5
-stretch_margin_right = 5
-stretch_margin_bottom = 5
-texture_under = ExtResource("6_3huio")
-texture_progress = ExtResource("6_3huio")
-tint_under = Color(0.26293245, 0.26293245, 0.26293245, 1)
-tint_progress = Color(0.62050086, 0.9999998, 0.6036572, 1)
-script = ExtResource("7_3huio")
-label = NodePath("Label")
+size_flags_vertical = 0
+texture = ExtResource("1_g2v8e")
 
-[node name="Label" type="RichTextLabel" parent="Layout/Info/TextureProgressBar" unique_id=792765165]
+[node name="Layout" type="VBoxContainer" parent="MarginContainer" unique_id=1608460981]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 32
+
+[node name="Info" type="VBoxContainer" parent="MarginContainer/Layout" unique_id=1611460846]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/Layout/Info" unique_id=308125793]
+custom_minimum_size = Vector2(200, 22)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("6_o3bws")
+theme_override_styles/panel = SubResource("StyleBoxTexture_5kh4o")
+
+[node name="DayLabel" type="RichTextLabel" parent="MarginContainer/Layout/Info/Panel" unique_id=91054493]
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,35 +100,139 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_o3bws")
 theme_type_variation = &"TinyLabel"
-theme_override_colors/font_outline_color = Color(0.45452422, 0.45452428, 0.45452422, 1)
-theme_override_colors/font_shadow_color = Color(0.45490196, 0.45490196, 0.45490196, 1)
+theme_override_colors/default_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
+text = "WEEK 1, DAY 1"
+fit_content = true
+horizontal_alignment = 1
+script = ExtResource("1_u001w")
+uppercase = true
+
+[node name="MoneyPanel" type="Panel" parent="MarginContainer/Layout/Info" unique_id=452479898]
+custom_minimum_size = Vector2(58, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("6_o3bws")
+theme_override_styles/panel = SubResource("StyleBoxTexture_s2npe")
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/Layout/Info/MoneyPanel" unique_id=1811965428]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_o3bws")
+theme_type_variation = &"BoldLabel"
+theme_override_colors/font_color = Color(0.8666667, 0.6745098, 0.27450982, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 7
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_yubou")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Layout/Info" unique_id=1598202648 node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(200, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+max_value = 3.0
+value = 1.0
+nine_patch_stretch = true
+stretch_margin_left = 6
+stretch_margin_top = 6
+stretch_margin_right = 6
+stretch_margin_bottom = 6
+texture_under = ExtResource("6_3huio")
+texture_over = ExtResource("7_5kh4o")
+texture_progress = SubResource("CompressedTexture2D_3huio")
+tint_under = Color(0.105882354, 0.105882354, 0.105882354, 1)
+tint_over = Color(0.105882354, 0.105882354, 0.105882354, 1)
+tint_progress = Color(0.96862745, 0.2627451, 0.41568628, 1)
+script = ExtResource("7_3huio")
+label = NodePath("Label")
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/Layout/Info/TextureProgressBar" unique_id=792765165]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_o3bws")
+theme_type_variation = &"TinyLabel"
+theme_override_colors/default_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
+theme_override_colors/font_outline_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
+theme_override_colors/font_shadow_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
 theme_override_constants/outline_size = 7
 theme_override_fonts/normal_font = SubResource("FontVariation_3huio")
 bbcode_enabled = true
-text = "Estimated costs: [color=#f7436a] $19"
+text = "ESTIMATED COSTS: [color=#f7436a]$19"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PackagesInfo" type="VBoxContainer" parent="Layout" unique_id=1843767937 node_paths=PackedStringArray("icons_parent", "all_packages_shipped_label")]
+[node name="TimerPanel" type="Panel" parent="MarginContainer/Layout/Info" unique_id=1774863463]
+custom_minimum_size = Vector2(72, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("6_o3bws")
+theme_override_styles/panel = SubResource("StyleBoxTexture_g2v8e")
+
+[node name="TimerLabel" type="Label" parent="MarginContainer/Layout/Info/TimerPanel" unique_id=1624639429 node_paths=PackedStringArray("timer")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_o3bws")
+theme_type_variation = &"TinyLabel"
+theme_override_colors/font_color = Color(0.84705883, 0.84705883, 0.84705883, 1)
+theme_override_fonts/font = SubResource("FontVariation_1kaiv")
+text = "00 : 00"
+vertical_alignment = 1
+script = ExtResource("2_rns2u")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="MarginContainer/Layout/Info/TimerPanel/TimerLabel" unique_id=154884662]
+one_shot = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Layout" unique_id=1952847694]
+layout_mode = 2
+theme_override_constants/margin_right = 2
+
+[node name="PackagesInfo" type="VBoxContainer" parent="MarginContainer/Layout/MarginContainer" unique_id=1843767937 node_paths=PackedStringArray("icons_parent", "change_package_label", "all_packages_shipped_label")]
 layout_mode = 2
 theme_override_constants/separation = 16
 script = ExtResource("4_u2dgd")
 icons_parent = NodePath("PackagesStatus")
+change_package_label = NodePath("TextureRect")
 all_packages_shipped_label = NodePath("UnavailableAdvice")
 
-[node name="PackagesStatus" type="VBoxContainer" parent="Layout/PackagesInfo" unique_id=1437862609]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Layout/MarginContainer/PackagesInfo" unique_id=1189010394]
+custom_minimum_size = Vector2(120, 26)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("13_1kaiv")
+stretch_mode = 4
+
+[node name="PackagesStatus" type="VBoxContainer" parent="MarginContainer/Layout/MarginContainer/PackagesInfo" unique_id=1437862609]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="UnavailableAdvice" type="Label" parent="Layout/PackagesInfo" unique_id=1418236425]
+[node name="UnavailableAdvice" type="Label" parent="MarginContainer/Layout/MarginContainer/PackagesInfo" unique_id=1418236425]
 layout_mode = 2
 theme = ExtResource("6_o3bws")
+theme_type_variation = &"TinyLabel"
 theme_override_colors/font_outline_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 theme_override_constants/outline_size = 7
-text = "All packages are shipped.
-Go to the shipping office"
+text = "ALL PACKAGES ARE SHIPPED, 
+GO TO THE WORK AREA"
 horizontal_alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2122096011]

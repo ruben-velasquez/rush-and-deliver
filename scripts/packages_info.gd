@@ -2,7 +2,7 @@ extends VBoxContainer
 
 const PACKAGE_ICON_SCENE: PackedScene = preload("res://scenes/package_icon.tscn")
 @export var icons_parent: Control
-
+@export var change_package_label: Control
 @export var all_packages_shipped_label: Label
 
 var packages_manager: PackagesManager
@@ -51,11 +51,13 @@ func hide_package_info():
 	deactivated = true
 	all_packages_shipped_label.process_mode = Node.PROCESS_MODE_INHERIT
 	all_packages_shipped_label.show()
+	change_package_label.hide()
 
 func show_package_info():
 	deactivated = false
 	all_packages_shipped_label.process_mode = Node.PROCESS_MODE_DISABLED
 	all_packages_shipped_label.hide()
+	change_package_label.show()
 
 func update_icons():
 	var packages = packages_manager.get_active_packages()

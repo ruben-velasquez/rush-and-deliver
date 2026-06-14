@@ -4,7 +4,6 @@ extends TextureProgressBar
 
 const RED_COLOR = "#f7436a"
 const GREEN_COLOR = "#6dfc8a"
-const YELLOW_COLOR = Color("f8b63dff")
 
 func _ready() -> void:
 	update_estimated()
@@ -20,10 +19,10 @@ func update_estimated(_p: Package = null):
 	value = min(RunData.money, max_value)
 	
 	if RunData.money < estimated_costs:
-		tint_progress = Color(YELLOW_COLOR)
+		tint_progress = Color(RED_COLOR)
 		money_text = "[color=%s]$%s[/color]" % [RED_COLOR, estimated_costs]
 	else:
 		tint_progress = Color(GREEN_COLOR)
 		money_text = "[color=%s]$%s[/color]" % [GREEN_COLOR,estimated_costs]
 	
-	label.text = "Estimated Costs: %s" % [money_text]
+	label.text = "ESTIMATED COSTS: %s" % [money_text]
